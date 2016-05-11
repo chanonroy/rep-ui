@@ -1,0 +1,42 @@
+/* all 0.5s ease */
+/* (5px) */
+#section2 {
+  margin-top: 5%; }
+
+.chart2 {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid lightgrey;
+  width: 350px;
+  height: 200px;
+  margin: 10px 5px;
+  padding: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+  .chart2 .chart2-numbers {
+    width: 65%;
+    height: 40%;
+    padding: 10px; }
+    .chart2 .chart2-numbers div:nth-child(2) {
+      font-size: 1.5em; }
+      .chart2 .chart2-numbers div:nth-child(2) h1 {
+        margin: 0;
+        font-weight: bold; }
+  .chart2 .chart2-change {
+    text-align: center;
+    width: 35%;
+    height: 40%;
+    padding: 10px; }
+    .chart2 .chart2-change div:nth-child(1) {
+      color: #25bd3d; }
+    .chart2 .chart2-change h3 {
+      padding: 0;
+      margin: 0;
+      font-weight: bold; }
+  .chart2 .chart2-chart {
+    width: 100%;
+    height: 60%; }
+
+/*# sourceMappingURL=main.css.map */
