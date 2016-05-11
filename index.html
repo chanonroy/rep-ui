@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
 </head>
@@ -25,9 +27,10 @@
         <div class="chart2-change">
           <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 1.2% </h3> </div>
           <div> 31 Days Ago </div>
+          <!-- <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> -->
         </div>
         <div class="chart2-chart">
-          Chart Here
+          <canvas id="myChart"></canvas>
         </div>
       </div>
 
@@ -110,8 +113,8 @@
     <!-- Bootstrap JS CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- Chart JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script>
+    <script src="js/scripts.js"></script>
   </body>
 
 </html>
