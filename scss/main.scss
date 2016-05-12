@@ -1,11 +1,12 @@
 @import "mixins";
+@import "section1";
 
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
 #section2 {
-  margin-top: 5%;
+  height: 800px;
 }
 
 .chart2 {
@@ -16,7 +17,7 @@ body {
   width: 350px;
   height: 200px;
 
-  margin: 10px 5px;
+  margin: 5px 5px;
   padding: 12px;
 
   @include border-radius(5px);
