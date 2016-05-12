@@ -16,6 +16,10 @@ var options1 = {
         xAxes: [{
           gridLines: { display: false },
           display: true,
+          ticks: {
+            maxTicksLimit: 10, /* maximum labels */
+            maxRotation: 0,
+          },
         }],
       },
       legend: {display: false},
@@ -68,7 +72,7 @@ var options2 = {
   };
 
 var data = {
-    labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
+    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "2"],
     datasets: [
         {
             label: "My First dataset",
@@ -89,7 +93,7 @@ var data = {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [13, 16, 14, 15, 18, 20, 21, 25],
+            data: [13, 16, 14, 15, 18, 20, 21, 25, 25],
         }
     ]
 };
