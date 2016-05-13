@@ -19,7 +19,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top transition">
-        <div class="container">
+        <div class="container-fluid">
             <!-- Logo here -->
             <div class="navbar-header">
                 <!-- Responsive Hamburger Icon -->
@@ -30,19 +30,19 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#1">
-                    <img class="hidden-sm hidden-xs" src="img/brand.png" />
+                    <img class="hidden-sm hidden-xs" src="img/logo.png" />
                     <img class="visible-sm visible-xs" src="img/brand-small.png" />
                 </a>
             </div>
 
             <!-- Menu Items -->
             <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#2">Overview</a></li>
-                    <li><a href="#3">Features</a></li>
-                    <li><a href="#4">Team</a></li>
-                    <li><a href="#5">Newsletter</a></li>
-                    <li><a href="#6">Contact</a></li>
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#">Streamer Stats</a></li>
+                    <li><a href="#">Intelligence</a></li>
+                    <li><a href="#">Team Dashboard</a></li>
+                    <li><a href="#">Sponsor Dashboard</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -96,11 +96,11 @@
             </div>
 
             <div class="chart1-buttons">
-                <span> Compare </span><span> Add Metric </span><span> Month </span>
+                <span class="button"> Compare </span><span class="button"> Add Metric </span><span class="button"> Month </span>
             </div>
 
             <div class="chart1-chart">
-                <canvas id="bigChart" width="170" height="48"></canvas>
+                <canvas id="bigChart" width="170" height="40"></canvas>
             </div>
         </div>
 
@@ -211,7 +211,7 @@
         <div id="section3">
             <div id="team-header">
                 <h2> Team Members </h2>
-                <h4> Add Player </h4> </div>
+                <h4 class="button"> Add Player </h4> </div>
             <div id="team-labels">
                 <span> <img src="img/rep.png"> RepScore </span>
                 <span> Streamer Name </span>
@@ -254,7 +254,7 @@
 
             <div class="team-player">
                 <span> 23 </span>
-                <span> <img src="img/dijon.jpg"> DirtyDijon </span>
+                <span> <img src="img/dijon.jpg"> DijonDan </span>
                 <span> 21,200 </span>
                 <span> 55,222 </span>
                 <span> 102,182 </span>

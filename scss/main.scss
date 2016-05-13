@@ -11,7 +11,15 @@ body {
 }
 
 .container-new {
-  padding-left: 275px;
-  padding-top: 100px;
+  padding-left: 270px;
+  padding-top: 80px;
+}
 
+.button {
+  @include transition(all 0.4s ease);
+}
+
+.button:hover {
+  background-color: #256986;
+  color: white;
 }
