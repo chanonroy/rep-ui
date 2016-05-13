@@ -1,5 +1,113 @@
 /* all 0.5s ease */
 /* (5px) */
+.navbar {
+  margin: 0; }
+
+.navbar-default {
+  /* Navigation Bar Colour */
+  background-color: white; }
+
+.navbar-brand {
+  /* Navigation Brand Logo */
+  margin: 0; }
+  @media screen and (max-width: 768px) {
+    .navbar-brand {
+      padding: 10px 0px 10px 15px; } }
+  .navbar-brand img {
+    height: 50px; }
+    @media screen and (max-width: 768px) {
+      .navbar-brand img {
+        height: 35px; } }
+
+.navbar-default .navbar-nav > li > a {
+  /* Navigation Links (List Items) */
+  border: 3px solid transparent;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #373738;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  @media screen and (min-width: 768px) {
+    .navbar-default .navbar-nav > li > a {
+      padding-top: 25px;
+      padding-bottom: 25px; } }
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #DE2B26; }
+  @media screen and (min-width: 768px) {
+    .navbar-default .navbar-nav > li > a:hover {
+      color: white;
+      background-color: #DE2B26; } }
+
+/* --- Hamburger Bar --- */
+.navbar-default .navbar-toggle {
+  border-color: white; }
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent; }
+  .navbar-default .navbar-toggle:focus .icon-bar, .navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #DE2B26; }
+
+.icon-bar {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.profile {
+  margin: 15px auto;
+  text-align: center; }
+  .profile img {
+    height: 150px;
+    width: 150px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    border-radius: 100px; }
+  .profile h1 {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.3em; }
+
+.side-nav {
+  position: fixed;
+  width: 250px;
+  top: 78px;
+  bottom: 0;
+  background-color: grey;
+  background-color: #3d4852; }
+  .side-nav p {
+    color: grey;
+    margin-left: 30px; }
+  .side-nav ul {
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    color: lightgrey;
+    font-size: 1.1em; }
+  .side-nav li {
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px; }
+    .side-nav li i {
+      margin-right: 10px; }
+  .side-nav li:hover {
+    background-color: #212a30; }
+
+.hr {
+  margin-left: 1px;
+  margin-right: 1px;
+  border: 1px solid #364146; }
+
 #section1 {
   display: flex;
   flex-wrap: wrap;
@@ -86,7 +194,7 @@
     align-items: center; }
 
 #section3 {
-  width: 94%;
+  width: 1070px;
   margin: 5px;
   margin-bottom: 50px;
   -webkit-border-radius: 5px;
@@ -129,15 +237,15 @@
     border: 1px solid lightgrey;
     font-weight: 800; }
   #team-labels span:nth-child(1) {
-    width: 15%; }
+    width: 10%; }
     #team-labels span:nth-child(1) img {
-      margin-right: 10px;
+      margin-right: 5px;
       -webkit-border-radius: 15px;
       -moz-border-radius: 15px;
       -ms-border-radius: 15px;
       border-radius: 15px; }
   #team-labels span:nth-child(2) {
-    width: 40%; }
+    width: 45%; }
   #team-labels span:nth-child(3) {
     width: 15%; }
   #team-labels span:nth-child(4) {
@@ -150,17 +258,20 @@
   height: 50px;
   width: 100%;
   /* PLAYERS */ }
+  .team-player img {
+    height: 30px;
+    width: 30px; }
   .team-player span {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%; }
   .team-player span:nth-child(1) {
-    width: 15%;
+    width: 10%;
     color: #d63939;
     font-weight: 800; }
   .team-player span:nth-child(2) {
-    width: 40%;
+    width: 45%;
     justify-content: flex-start;
     padding-left: 20px; }
     .team-player span:nth-child(2) img {
@@ -179,5 +290,9 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: #4d4d4d; }
+
+.container-new {
+  padding-left: 275px;
+  padding-top: 100px; }
 
 /*# sourceMappingURL=main.css.map */

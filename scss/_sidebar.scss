@@ -1,0 +1,52 @@
+.profile {
+  margin: 15px auto;
+  text-align: center;
+  img {
+    height: 150px;
+    width: 150px;
+    @include border-radius(100px);
+  }
+  h1 {
+    margin-top: 10px;
+    color: white;
+    font-size: 1.3em;
+  }
+}
+
+.side-nav {
+    position: fixed;
+    width: 250px;
+    top: 78px;
+    bottom: 0;
+    background-color: grey;
+    background-color: rgb(61, 72, 82);
+    p {
+        color: grey;
+        margin-left: 30px;
+    }
+    ul {
+        padding: 0;
+        list-style-type: none;
+        width: 100%;
+        color: lightgrey;
+        font-size: 1.1em;
+    }
+    li {
+        @include transition(all 0.2s ease);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        i {
+            margin-right: 10px;
+        }
+    }
+    li:hover {
+        background-color: rgb(33, 42, 48);
+    }
+}
+
+.hr {
+  margin-left: 1px;
+  margin-right: 1px;
+  border: 1px solid rgb(54, 65, 70);
+}

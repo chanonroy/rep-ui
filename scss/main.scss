@@ -1,4 +1,6 @@
 @import "mixins";
+@import "navigation";
+@import "sidebar";
 @import "section1";
 @import "section2";
 @import "section3";
@@ -6,4 +8,10 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: darken(grey, 20%);
+}
+
+.container-new {
+  padding-left: 275px;
+  padding-top: 100px;
+
 }

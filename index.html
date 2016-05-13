@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Rep UI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,168 +15,253 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-  <body>
-    <div class="container">
+<body>
 
-    <!-- SECTION 1 (BIG CHART) -->
-    <div id="section1">
-      <div class="chart1-main">
-        <div> Total Fans This Month </div>
-        <div> <h1> 586,792 </h1> </div>
-      </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top transition">
+        <div class="container">
+            <!-- Logo here -->
+            <div class="navbar-header">
+                <!-- Responsive Hamburger Icon -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#1">
+                    <img class="hidden-sm hidden-xs" src="img/brand.png" />
+                    <img class="visible-sm visible-xs" src="img/brand-small.png" />
+                </a>
+            </div>
 
-      <div class="chart1-buttons">
-        <span> Compare </span><span> Add Metric </span><span> Month </span>
-      </div>
+            <!-- Menu Items -->
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#2">Overview</a></li>
+                    <li><a href="#3">Features</a></li>
+                    <li><a href="#4">Team</a></li>
+                    <li><a href="#5">Newsletter</a></li>
+                    <li><a href="#6">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-      <div class="chart1-chart">
-        <canvas id="bigChart" width="170" height="48"></canvas>
-      </div>
-    </div>
+    <!-- Sidebar -->
+    <div class="side-nav hidden-xs hidden-sm">
+        <!-- hidden on small and xs -->
+        <div class="profile">
+            <img src="img/burgerking.png">
+            <h1> BK Gaming </h1>
+        </div>
 
-    <!-- SECTION 2 (SIX SMALL CHARTS)-->
-    <div id="section2">
+        <hr class="hr">
 
-      <div class="col-sm-4 chart2">
-        <div class="chart2-numbers">
-          <div> Monthly Total Subscribers </div>
-          <div> <h1> 2,812 </h1> </div>
-        </div>
-        <div class="chart2-change">
-          <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 1.2% </h3> </div>
-          <div> 31 Days Ago </div>
-          <!-- <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> -->
-        </div>
-        <div class="chart2-chart">
-          <canvas id="box1" width="20" height="7"></canvas>
-        </div>
-      </div>
+        <p> Account </p>
+        <ul>
+            <li> <i class="fa fa-user" aria-hidden="true"></i> Profile </li>
+            <li> <i class="fa fa-cog" aria-hidden="true"></i> Edit Settings </li>
+        </ul>
 
-      <div class="col-sm-4 chart2">
-        <div class="chart2-numbers">
-          <div> Monthly Total Views </div>
-          <div> <h1> 4,321M </h1> </div>
-        </div>
-        <div class="chart2-change">
-          <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 3% </h3> </div>
-          31 Days Ago
-        </div>
-        <div class="chart2-chart">
-          <canvas id="box2" width="20" height="7"></canvas>
-        </div>
-      </div>
+        <hr class="hr">
 
-      <div class="col-sm-4 chart2">
-        <div class="chart2-numbers">
-          <div> Monthly Hours Streamed </div>
-          <div> <h1> 172.8 </h1> </div>
-        </div>
-        <div class="chart2-change">
-          <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 9.3% </h3> </div>
-          31 Days Ago
-        </div>
-        <div class="chart2-chart">
-          <canvas id="box3" width="20" height="7"></canvas>
-        </div>
-      </div>
+        <p> Analytics </p>
+        <ul>
+            <li> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard </li>
+            <li> <i class="fa fa-line-chart" aria-hidden="true"></i>Trending </li>
+            <li> <i class="fa fa-bar-chart" aria-hidden="true"></i>Charts </li>
+            <li> <i class="fa fa-calendar" aria-hidden="true"></i> Events </li>
+            <li> <i class="fa fa-heart" aria-hidden="true"></i> Followers </li>
+        </ul>
 
-      <div class="col-sm-4 chart2">
-        <div class="chart2-numbers">
-          <div> Monthly Videos Released </div>
-          <div> <h1> 78 </h1> </div>
-        </div>
-        <div class="chart2-change">
-          <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 2% </h3> </div>
-          31 Days Ago
-        </div>
-        <div class="chart2-chart">
-          <canvas id="box4" width="20" height="7"></canvas>
-        </div>
-      </div>
-
-      <div class="col-sm-4 chart2">
-        <div class="chart2-numbers">
-          <div> Monthly Conversation </div>
-          <div> <h1> 12,772 </h1> </div>
-        </div>
-        <div class="chart2-change">
-          <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 14.3% </h3> </div>
-          31 Days Ago
-        </div>
-        <div class="chart2-chart">
-          <canvas id="box5" width="20" height="7"></canvas>
-        </div>
-      </div>
-
-      <div class="col-sm-4 chart2">
-        <div class="chart2-numbers">
-          <div> Monthly Total Subscribers </div>
-          <div> <h1> 532,812 </h1> </div>
-        </div>
-        <div class="chart2-change">
-          <div> <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 9.3% </h3> </div>
-          31 Days Ago
-        </div>
-        <div class="chart2-chart">
-          <canvas id="box6" width="20" height="7"></canvas>
-        </div>
-      </div>
-
-    </div> <!-- #section2 -->
-
-    <!-- SECTION 3 (TEAM) -->
-    <div id="section3">
-      <div id="team-header"> <h2> Team Members </h2> <h4> Add Player </h4> </div>
-      <div id="team-labels">
-        <span> <img src="img/rep.png"> RepScore </span>
-        <span> Streamer Name </span>
-        <span> Likes </span>
-        <span> Followers </span>
-        <span> Total Views </span>
-      </div>
-
-      <div class="team-player">
-        <span> 3 </span>
-        <span> <img src="http://placehold.it/30x30"> Chelxie </span>
-        <span> 34,430 </span>
-        <span> 456,433 </span>
-        <span> 567,432 </span>
-      </div>
-
-      <div class="team-player">
-        <span> 4 </span>
-        <span> <img src="http://placehold.it/30x30"> Doug </span>
-        <span> 32,320 </span>
-        <span> 253,663 </span>
-        <span> 547,434 </span>
-      </div>
-
-      <div class="team-player">
-        <span> 7 </span>
-        <span> <img src="http://placehold.it/30x30"> Chanzi </span>
-        <span> 27,382 </span>
-        <span> 156,333 </span>
-        <span> 267,432 </span>
-      </div>
-
-      <div class="team-player">
-        <span> 15 </span>
-        <span> <img src="http://placehold.it/30x30"> xXxSniper420xXx </span>
-        <span> 21,239 </span>
-        <span> 56,233 </span>
-        <span> 152,432 </span>
-      </div>
-
-      <div class="team-player">
-        <span> 23 </span>
-        <span> <img src="http://placehold.it/30x30"> DirtyDijon </span>
-        <span> 21,200 </span>
-        <span> 55,222 </span>
-        <span> 102,182 </span>
-      </div>
+        <hr class="hr">
+        <p> Gaming </p>
+        <ul>
+            <li> <i class="fa fa-desktop" aria-hidden="true"></i>Top Games </li>
+            <li> <i class="fa fa-youtube-play" aria-hidden="true"></i>Top Streamers </li>
+        </ul>
 
     </div>
-  </div>
+    <!-- side-nav -->
+
+    <div class="container-new">
+
+        <!-- SECTION 1 (BIG CHART) -->
+        <div id="section1">
+            <div class="chart1-main">
+                <div> Total Fans This Month </div>
+                <div>
+                    <h1> 586,792 </h1> </div>
+            </div>
+
+            <div class="chart1-buttons">
+                <span> Compare </span><span> Add Metric </span><span> Month </span>
+            </div>
+
+            <div class="chart1-chart">
+                <canvas id="bigChart" width="170" height="48"></canvas>
+            </div>
+        </div>
+
+        <!-- SECTION 2 (SIX SMALL CHARTS)-->
+        <div id="section2">
+
+            <div class="col-sm-4 chart2">
+                <div class="chart2-numbers">
+                    <div> Monthly Total Subscribers </div>
+                    <div>
+                        <h1> 2,812 </h1> </div>
+                </div>
+                <div class="chart2-change">
+                    <div>
+                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 1.2% </h3> </div>
+                    <div> 31 Days Ago </div>
+                    <!-- <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> -->
+                </div>
+                <div class="chart2-chart">
+                    <canvas id="box1" width="20" height="7"></canvas>
+                </div>
+            </div>
+
+            <div class="col-sm-4 chart2">
+                <div class="chart2-numbers">
+                    <div> Monthly Total Views </div>
+                    <div>
+                        <h1> 4,321M </h1> </div>
+                </div>
+                <div class="chart2-change">
+                    <div>
+                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 3% </h3> </div>
+                    31 Days Ago
+                </div>
+                <div class="chart2-chart">
+                    <canvas id="box2" width="20" height="7"></canvas>
+                </div>
+            </div>
+
+            <div class="col-sm-4 chart2">
+                <div class="chart2-numbers">
+                    <div> Monthly Hours Streamed </div>
+                    <div>
+                        <h1> 172.8 </h1> </div>
+                </div>
+                <div class="chart2-change">
+                    <div>
+                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 9.3% </h3> </div>
+                    31 Days Ago
+                </div>
+                <div class="chart2-chart">
+                    <canvas id="box3" width="20" height="7"></canvas>
+                </div>
+            </div>
+
+            <div class="col-sm-4 chart2">
+                <div class="chart2-numbers">
+                    <div> Monthly Videos Released </div>
+                    <div>
+                        <h1> 78 </h1> </div>
+                </div>
+                <div class="chart2-change">
+                    <div>
+                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 2% </h3> </div>
+                    31 Days Ago
+                </div>
+                <div class="chart2-chart">
+                    <canvas id="box4" width="20" height="7"></canvas>
+                </div>
+            </div>
+
+            <div class="col-sm-4 chart2">
+                <div class="chart2-numbers">
+                    <div> Monthly Conversation </div>
+                    <div>
+                        <h1> 12,772 </h1> </div>
+                </div>
+                <div class="chart2-change">
+                    <div>
+                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 14.3% </h3> </div>
+                    31 Days Ago
+                </div>
+                <div class="chart2-chart">
+                    <canvas id="box5" width="20" height="7"></canvas>
+                </div>
+            </div>
+
+            <div class="col-sm-4 chart2">
+                <div class="chart2-numbers">
+                    <div> Monthly Total Subscribers </div>
+                    <div>
+                        <h1> 532,812 </h1> </div>
+                </div>
+                <div class="chart2-change">
+                    <div>
+                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 9.3% </h3> </div>
+                    31 Days Ago
+                </div>
+                <div class="chart2-chart">
+                    <canvas id="box6" width="20" height="7"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <!-- #section2 -->
+
+        <!-- SECTION 3 (TEAM) -->
+        <div id="section3">
+            <div id="team-header">
+                <h2> Team Members </h2>
+                <h4> Add Player </h4> </div>
+            <div id="team-labels">
+                <span> <img src="img/rep.png"> RepScore </span>
+                <span> Streamer Name </span>
+                <span> Likes </span>
+                <span> Followers </span>
+                <span> Total Views </span>
+            </div>
+
+            <div class="team-player">
+                <span> 3 </span>
+                <span> <img src="img/chelxie.png"> Chelxie </span>
+                <span> 34,430 </span>
+                <span> 456,433 </span>
+                <span> 567,432 </span>
+            </div>
+
+            <div class="team-player">
+                <span> 4 </span>
+                <span> <img src="img/alastery.jpeg"> Alastery </span>
+                <span> 32,320 </span>
+                <span> 253,663 </span>
+                <span> 547,434 </span>
+            </div>
+
+            <div class="team-player">
+                <span> 7 </span>
+                <span> <img src="img/gneerox.jpeg"> Gneerox </span>
+                <span> 27,382 </span>
+                <span> 156,333 </span>
+                <span> 267,432 </span>
+            </div>
+
+            <div class="team-player">
+                <span> 15 </span>
+                <span> <img src="img/chanzi.png"> Chanzi </span>
+                <span> 21,239 </span>
+                <span> 56,233 </span>
+                <span> 152,432 </span>
+            </div>
+
+            <div class="team-player">
+                <span> 23 </span>
+                <span> <img src="img/dijon.jpg"> DirtyDijon </span>
+                <span> 21,200 </span>
+                <span> 55,222 </span>
+                <span> 102,182 </span>
+            </div>
+
+        </div>
+    </div>
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap JS CDN -->
@@ -183,6 +269,6 @@
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script>
     <script src="js/scripts.js"></script>
-  </body>
+</body>
 
 </html>

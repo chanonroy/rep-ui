@@ -1,6 +1,6 @@
 #section3 {
   // height: 250px;
-  width: 94%;
+  width: 1070px;
   // border: 2px solid lightgrey;
   margin: 5px;
   margin-bottom: 50px;
@@ -45,14 +45,14 @@
 
   /* LABELS */
   span:nth-child(1) {
-    width: 15%;
+    width: 10%;
     img {
-      margin-right: 10px;
+      margin-right: 5px;
       @include border-radius(15px);
     }
   }
   span:nth-child(2) {
-    width: 40%;
+    width: 45%;
   }
   span:nth-child(3) {
     width: 15%;
@@ -70,6 +70,12 @@
 
   height: 50px;
   width: 100%;
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+
   span {
     display: flex;
     align-items: center;
@@ -80,12 +86,12 @@
 
   /* PLAYERS */
   span:nth-child(1) {
-    width: 15%;
+    width: 10%;
     color: rgb(214, 57, 57);
     font-weight: 800;
   }
   span:nth-child(2) {
-    width: 40%;
+    width: 45%;
     justify-content: flex-start;
     padding-left: 20px;
     img {

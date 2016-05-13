@@ -1,0 +1,57 @@
+.navbar {
+  // border: none;
+  margin: 0;
+}
+
+.navbar-default { /* Navigation Bar Colour */
+  background-color: white;
+}
+
+.navbar-brand { /* Navigation Brand Logo */
+  margin: 0;
+  @media screen and (max-width: 768px) {
+    padding: 10px 0px 10px 15px;
+  }
+  img {
+    height: 50px;
+    @media screen and (max-width: 768px) {
+      height: 35px;
+    }
+  }
+}
+
+.navbar-default .navbar-nav>li>a { /* Navigation Links (List Items) */
+  border: 3px solid transparent;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: rgb(55, 55, 56);
+
+  @media screen and (min-width: 768px) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  @include transition(all 0.3s ease);
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #DE2B26;
+  @media screen and (min-width: 768px) {
+    color: white;
+    background-color: #DE2B26;
+  }
+}
+
+/* --- Hamburger Bar --- */
+.navbar-default .navbar-toggle {
+  border-color: white;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent;
+  .icon-bar {
+    background-color: #DE2B26;
+  }
+}
+.icon-bar {
+  @include transition(all 0.5s ease);
+}
