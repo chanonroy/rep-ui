@@ -88,12 +88,12 @@ var data = {
             pointBackgroundColor: "#fff",
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBackgroundColor: "white",
             pointHoverBorderColor: "rgba(220,220,220,1)",
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [13, 16, 14, 15, 18, 20, 21, 25, 25],
+            data: [13, 15, 15, 15, 18, 20, 21, 25, 26],
         }
     ]
 };
