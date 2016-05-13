@@ -19,9 +19,9 @@
     top: 66px;
     bottom: 0;
     background-color: grey;
-    background-color: rgb(61, 72, 82);
+    background-color: rgb(62, 84, 88);
     p {
-        color: grey;
+        color: white;
         margin-left: 30px;
     }
     ul {
@@ -41,12 +41,13 @@
         }
     }
     li:hover {
-        background-color: rgb(33, 42, 48);
+        background-color: rgb(58, 70, 75);
+        color: white;
     }
 }
 
 .hr {
   margin-left: 1px;
   margin-right: 1px;
-  border: 1px solid rgb(54, 65, 70);
+  border: 1px solid rgb(58, 70, 75);
 }

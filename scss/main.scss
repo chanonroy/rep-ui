@@ -1,6 +1,7 @@
 @import "mixins";
 @import "navigation";
 @import "sidebar";
+@import "section0";
 @import "section1";
 @import "section2";
 @import "section3";
@@ -12,14 +13,16 @@ body {
 
 .container-new {
   padding-left: 270px;
-  padding-top: 80px;
+  padding-top: 75px;
 }
 
 .button {
-  @include transition(all 0.4s ease);
+  @include transition(all 0.3s ease);
 }
 
 .button:hover {
-  background-color: #256986;
+  // background-color: #256986;
+  background-color: #bd2020;
+  border: 2px solid transparent;
   color: white;
 }

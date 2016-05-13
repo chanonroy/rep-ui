@@ -1,0 +1,67 @@
+#section0 {
+  width: 95%;
+  margin: 10px 5px;
+  background-color: lightgrey;
+  @include border-radius(5px);
+
+  .fa {
+    margin-right: 5px;
+  }
+  .fa-twitch {
+    color: rgb(100, 65, 165);;
+  }
+  .fa-youtube-play {
+    color: #e52d27;
+  }
+  .fa-twitter-square {
+    color: rgb(85, 172, 238);
+  }
+  .fa-facebook-square {
+    color: #3b5998;
+  }
+
+  div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(219, 219, 219);
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      width: 20%;
+    };
+    span:nth-child(1) {
+      background-color: rgb(71, 70, 69);
+      color: rgb(219, 219, 219);
+      img {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+      };
+    }
+  }
+
+  div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+
+    height: 100px;
+    h1 {
+      font-weight: 800;
+      margin: 20px;
+    }
+    .team-photos {
+      margin: 20px;
+      img {
+        width: 40px;
+        margin: 0 5px;
+        @include border-radius(5px);
+      }
+    }
+  }
+
+};
