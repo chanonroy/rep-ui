@@ -1,73 +1,10 @@
 /* all 0.5s ease */
 /* (5px) */
-.navbar {
-  border-bottom: 1px solid #364146;
-  margin: 0; }
-
-.navbar-default {
-  /* Navigation Bar Colour */
-  background-color: #474645; }
-
-.navbar-brand {
-  /* Navigation Brand Logo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  width: 250px;
-  height: 100%; }
-  @media screen and (max-width: 768px) {
-    .navbar-brand {
-      padding: 10px 0px 10px 15px; } }
-  .navbar-brand img {
-    height: 35px; }
-    @media screen and (max-width: 768px) {
-      .navbar-brand img {
-        height: 35px; } }
-
-.navbar-left {
-  width: 75%;
-  display: flex; }
-
-.navbar-default .navbar-nav > li > a {
-  /* Navigation Links (List Items) */
-  border: 3px solid transparent;
-  font-size: 1em;
-  font-weight: 500;
-  padding: 50px;
-  color: lightgrey;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
-  @media screen and (min-width: 768px) {
-    .navbar-default .navbar-nav > li > a {
-      padding-top: 20px;
-      padding-bottom: 20px; } }
-
-.navbar-default .navbar-nav > li > a:hover {
-  color: #DE2B26; }
-  @media screen and (min-width: 768px) {
-    .navbar-default .navbar-nav > li > a:hover {
-      color: white;
-      background-color: grey; } }
-
-/* --- Hamburger Bar --- */
-.navbar-default .navbar-toggle {
-  border-color: white; }
-
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-  background-color: transparent; }
-  .navbar-default .navbar-toggle:focus .icon-bar, .navbar-default .navbar-toggle:hover .icon-bar {
-    background-color: #DE2B26; }
-
-.icon-bar {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+.top-nav {
+  margin-left: 250px;
+  width: 100%;
+  height: 50px;
+  background-color: lightgrey; }
 
 .profile {
   margin: 15px auto;
@@ -87,7 +24,7 @@
 .side-nav {
   position: fixed;
   width: 250px;
-  top: 66px;
+  top: 0;
   bottom: 0;
   background-color: grey;
   background-color: #3e5458; }
@@ -108,77 +45,81 @@
     transition: all 0.2s ease;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 30px; }
+    padding-left: 30px;
+    border-left: 3px solid transparent; }
     .side-nav li i {
       margin-right: 10px; }
   .side-nav li:hover {
     background-color: #3a464b;
-    color: white; }
+    color: white;
+    border-left: 3px solid white; }
 
 .hr {
   margin-left: 1px;
   margin-right: 1px;
   border: 1px solid #3a464b; }
 
-#section0 {
-  width: 95%;
-  margin: 10px 5px;
-  background-color: lightgrey;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px; }
-  #section0 .fa {
-    margin-right: 5px; }
-  #section0 .fa-twitch {
-    color: #6441a5; }
-  #section0 .fa-youtube-play {
-    color: #e52d27; }
-  #section0 .fa-twitter-square {
-    color: #55acee; }
-  #section0 .fa-facebook-square {
-    color: #3b5998; }
-  #section0 div:nth-child(1) {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #dbdbdb; }
-    #section0 div:nth-child(1) span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      width: 20%; }
-    #section0 div:nth-child(1) span:nth-child(1) {
-      background-color: #474645;
-      color: #dbdbdb; }
-      #section0 div:nth-child(1) span:nth-child(1) img {
-        width: 25px;
-        height: 25px;
-        margin-right: 5px; }
-  #section0 div:nth-child(2) {
+.top-profile {
+  padding-left: 250px;
+  width: 100%;
+  height: 225px;
+  border-bottom: 2px solid lightgrey;
+  background-color: white; }
+
+.profile-bar {
+  display: flex;
+  padding: 25px 50px;
+  height: 80%; }
+  .profile-bar img {
+    height: 100%;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    -ms-border-radius: 75px;
+    border-radius: 75px; }
+  .profile-bar .profile-info {
+    margin-left: 20px;
+    height: 100%;
+    width: 50%; }
+    .profile-bar .profile-info h1 {
+      margin: 5px 0 10px 0;
+      font-weight: 800; }
+    .profile-bar .profile-info p {
+      margin: 0; }
+    .profile-bar .profile-info span {
+      margin-left: 10px;
+      margin-right: 10px; }
+  .profile-bar .profile-players {
+    height: 100%;
+    width: 50%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    height: 100px; }
-    #section0 div:nth-child(2) h1 {
-      font-weight: 800;
-      margin: 20px; }
-    #section0 div:nth-child(2) .team-photos {
-      margin: 20px; }
-      #section0 div:nth-child(2) .team-photos img {
-        width: 40px;
-        margin: 0 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        border-radius: 5px; }
+    justify-content: flex-end; }
+    .profile-bar .profile-players img {
+      width: 80px;
+      margin: 0 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      border-radius: 5px; }
+
+.profile-links {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 50px;
+  height: 20%; }
+  .profile-links span {
+    margin-right: 50px;
+    border-bottom: 4px solid transparent; }
+    .profile-links span h4 {
+      font-weight: 800; }
+  .profile-links span:hover {
+    border-bottom: 4px solid #48b4aa; }
 
 #section1 {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid lightgrey;
+  background-color: white;
+  border: 2px solid #bababa;
   width: 95%;
   margin: 5px 5px;
   padding: 15px;
@@ -203,7 +144,7 @@
   width: 50%;
   text-align: right; }
   .chart1-buttons span {
-    border: 2px solid lightgrey;
+    border: 2px solid #bababa;
     padding: 5px 20px;
     margin-left: 5px;
     -webkit-border-radius: 5px;
@@ -222,7 +163,8 @@
 .chart2 {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid lightgrey;
+  background-color: white;
+  border: 2px solid #bababa;
   width: 31.2%;
   margin: 5px 5px;
   padding: 12px;
@@ -355,11 +297,12 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  color: #4d4d4d; }
+  color: #4d4d4d;
+  background-color: lightgrey; }
 
 .container-new {
   padding-left: 270px;
-  padding-top: 75px; }
+  padding-top: 20px; }
 
 .button {
   -webkit-transition: all 0.3s ease;

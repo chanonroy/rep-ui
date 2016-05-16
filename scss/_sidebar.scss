@@ -16,7 +16,7 @@
 .side-nav {
     position: fixed;
     width: 250px;
-    top: 66px;
+    top: 0;
     bottom: 0;
     background-color: grey;
     background-color: rgb(62, 84, 88);
@@ -36,6 +36,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
         padding-left: 30px;
+        border-left: 3px solid transparent;
         i {
             margin-right: 10px;
         }
@@ -43,6 +44,7 @@
     li:hover {
         background-color: rgb(58, 70, 75);
         color: white;
+        border-left: 3px solid white;
     }
 }
 
