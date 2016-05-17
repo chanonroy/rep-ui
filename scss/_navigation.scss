@@ -14,6 +14,13 @@
 
     width: 75px;
     height: 100%;
+
+    .fa-caret-left {
+      margin-right: 5px;
+      font-size: 1.2em;
+      color: rgb(232, 127, 19);
+    }
+
     h2 {
       margin: 0;
       color: grey;
@@ -29,6 +36,13 @@
     }
   }
   .nav-search {
-    margin-right: 5px;
+    margin-right: 25px;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    img {
+      height: 30px;
+      @include border-radius(25px);
+    }
   }
 }

@@ -1,9 +1,10 @@
-#section3 {
-  width: 98.7%;
-  // border: 2px solid lightgrey;
-  margin: 5px;
-  margin-bottom: 50px;
+.team {
+  width: 100%;
+  background-color: white;
+  padding: 5px 20px 20px 20px;
+  margin: 5px auto 50px auto;
   @include border-radius(5px);
+
 }
 
 #team-header {
@@ -19,7 +20,7 @@
   h4 {
     margin: 10px 0;
     padding: 10px 15px;
-    background-color: white;
+    // background-color: white;
     background-color: rgb(73, 139, 200);
     color: white;
     border-bottom: 3px solid $borderColor;
@@ -46,13 +47,15 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    border: 1px solid lightgrey;
-    font-weight: 800;
+    border: 0.5px solid darken($sidebarColor, 5%);
+    color: white;
+    background-color: $sidebarColor;
   }
 
   /* LABELS */
   span:nth-child(1) {
     width: 10%;
+    @include border-radius(15px 0px 0px 15px);
     img {
       margin-right: 5px;
       @include border-radius(15px);
@@ -69,6 +72,7 @@
   }
   span:nth-child(5) {
     width: 15%;
+    @include border-radius(0px 15px 15px 0px);
   }
 }
 
@@ -89,7 +93,6 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    // border: 1px solid $borderColor;
     background-color: white;
   }
 
@@ -99,8 +102,6 @@
     width: 10%;
     color: rgb(214, 57, 57);
     font-weight: 800;
-    border-left: 1px solid $borderColor;
-    border-right: 1px solid $borderColor;
   }
   span:nth-child(2) {
     font-size: 1.2em;
@@ -108,7 +109,6 @@
     justify-content: flex-start;
     padding-left: 20px;
     font-weight: 800;
-    border-right: 1px solid $borderColor;
     img {
       margin-right: 10px;
       @include border-radius(5px);
@@ -117,16 +117,13 @@
   span:nth-child(3) {
     font-size: 1.2em;
     width: 15%;
-    border-right: 1px solid $borderColor;
   }
   span:nth-child(4) {
     font-size: 1.2em;
     width: 15%;
-    border-right: 1px solid $borderColor;
   }
   span:nth-child(5) {
     font-size: 1.2em;
     width: 15%;
-    border-right: 1px solid $borderColor;
   }
 }
