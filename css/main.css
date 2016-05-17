@@ -143,7 +143,7 @@
     -o-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    border-bottom: 4px solid transparent; }
+    border-bottom: 4px solid grey; }
     .profile-links span i {
       margin-left: 5px; }
   .profile-links span:nth-child(1) {
@@ -199,13 +199,22 @@
   width: 50%;
   text-align: right; }
   .chart1-buttons span {
-    border: 2px solid #bababa;
+    border-bottom: 2px solid #bababa;
+    background-color: #b6413d;
+    color: white;
     padding: 5px 20px;
     margin-left: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
-    border-radius: 5px; }
+    border-radius: 5px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+  .chart1-buttons span:hover {
+    background-color: #903330; }
 
 .chart1-chart {
   padding-top: 20px;
@@ -220,7 +229,7 @@
   flex-wrap: wrap;
   background-color: white;
   border: 2px solid #bababa;
-  width: 32.5%;
+  width: 32.4%;
   margin: 5px 5px;
   padding: 12px;
   -webkit-border-radius: 5px;
@@ -277,13 +286,20 @@
     margin: 10px 0;
     padding: 10px 15px;
     background-color: white;
-    border: 2px solid #bababa;
+    background-color: #498bc8;
+    color: white;
+    border-bottom: 3px solid #bababa;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
-    border-radius: 5px; }
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
   #team-header h4:hover {
-    background-color: #d63939; }
+    background-color: #2e6497; }
 
 #team-labels {
   display: flex;
@@ -376,17 +392,5 @@ body {
 .container-new {
   padding-left: 270px;
   padding-top: 20px; }
-
-.button {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
-
-.button:hover {
-  background-color: #bd2020;
-  border: 2px solid transparent;
-  color: white; }
 
 /*# sourceMappingURL=main.css.map */
