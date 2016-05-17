@@ -2,8 +2,9 @@
 <html>
 
 <head>
-    <title>Rep UI</title>
+    <title>Repable | CLG </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
     <meta charset="utf-8">
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -21,30 +22,25 @@
     <div class="side-nav hidden-xs hidden-sm">
         <!-- hidden on small and xs -->
         <div class="profile">
-            <img src="img/burgerking.png">
+            <img src="img/clg.png">
             <h1> CLG Gaming </h1>
         </div>
-
         <hr class="hr">
-
         <p> Account </p>
         <ul>
             <li> <i class="fa fa-user fa-fw" aria-hidden="true"></i> Profile </li>
             <li> <i class="fa fa-commenting fa-fw" aria-hidden="true"></i> Messages </li>
             <li> <i class="fa fa-cog fa-fw" aria-hidden="true"></i> Settings </li>
         </ul>
-
         <hr class="hr">
-
         <p> Dashboards </p>
         <ul>
             <li> <i class="fa fa-dashboard fa-fw" aria-hidden="true"></i> Overview </li>
             <li> <i class="fa fa-video-camera fa-fw" aria-hidden="true"></i> Streamers </li>
-            <li> <i class="fa fa-trophy fa-fw" aria-hidden="true"></i> Teams </li>
+            <li class="side-active"> <i class="fa fa-trophy fa-fw" aria-hidden="true"></i> Teams </li>
             <li> <i class="fa fa-money fa-fw" aria-hidden="true"></i> Sponsors </li>
             <li> <i class="fa fa-lightbulb-o fa-fw" aria-hidden="true"></i> Insights </li>
         </ul>
-
         <hr class="hr">
         <p> Community </p>
         <ul>
@@ -52,7 +48,6 @@
             <li> <i class="fa fa-line-chart fa-fw" aria-hidden="true"></i> Active Trends </li>
             <li> <i class="fa fa-youtube-play fa-fw" aria-hidden="true"></i> YouTube Insider </li>
         </ul>
-
     </div> <!-- side-nav -->
 
     <!-- TOP NAVIGATION BAR -->
@@ -67,7 +62,7 @@
 
     <div class="top-profile">
       <div class="profile-bar">
-        <img src="img/clg.png">
+        <img src="img/csgo.png">
         <div class="profile-info">
           <h1> CLG CS:GO Lineup </h1>
           <p> <i class="fa fa-trophy fa-fw" aria-hidden="true"></i> Counter-Strike: Global Offensive </p>
@@ -83,11 +78,11 @@
         </div>
       </div>
       <div class="profile-links">
-        <span class="profile-links-active"> <h4> RepScore (All) </h4> </span>
-        <span> <h4> Twitch  </h4></span>
-        <span> <h4> YouTube </h4> </span>
-        <span> <h4> Twitter </h4> </span>
-        <span> <h4> Facebook </h4> </span>
+        <span> <h4> All Platforms </h4> <img src="img/brand-small.png" /> </span>
+        <span> <h4> Twitch <i class="fa fa-twitch" aria-hidden="true"></i> </h4></span>
+        <span> <h4> YouTube <i class="fa fa-youtube-play" aria-hidden="true"></i></h4> </span>
+        <span> <h4> Twitter <i class="fa fa-twitter-square" aria-hidden="true"></i></h4> </span>
+        <span> <h4> Facebook <i class="fa fa-facebook-square" aria-hidden="true"></i> </h4> </span>
       </div>
     </div>
 
@@ -116,14 +111,12 @@
             <div class="col-sm-4 chart2">
                 <div class="chart2-numbers">
                     <div> Monthly Total Subscribers </div>
-                    <div>
-                        <h1> 2,812 </h1> </div>
+                    <div><h1> 2,812 </h1> </div>
                 </div>
                 <div class="chart2-change">
                     <div>
-                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 1.2% </h3> </div>
+                    <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 1.2% </h3> </div>
                     <div> 31 Days Ago </div>
-                    <!-- <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span> -->
                 </div>
                 <div class="chart2-chart">
                     <canvas id="box1" width="20" height="7"></canvas>
@@ -133,13 +126,12 @@
             <div class="col-sm-4 chart2">
                 <div class="chart2-numbers">
                     <div> Monthly Total Views </div>
-                    <div>
-                        <h1> 4,321M </h1> </div>
+                    <div><h1> 4,321M </h1> </div>
                 </div>
                 <div class="chart2-change">
                     <div>
-                        <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 3% </h3> </div>
-                    31 Days Ago
+                    <h3> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> 3% </h3> </div>
+                    <div> 31 Days Ago </div>
                 </div>
                 <div class="chart2-chart">
                     <canvas id="box2" width="20" height="7"></canvas>
