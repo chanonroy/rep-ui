@@ -2,8 +2,8 @@
   margin: 15px auto;
   text-align: center;
   img {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     @include border-radius(100px);
   }
   h1 {
@@ -18,8 +18,7 @@
     width: 250px;
     top: 0;
     bottom: 0;
-    background-color: grey;
-    background-color: rgb(62, 84, 88);
+    background-color: $sidebarColor;
     p {
         color: white;
         margin-left: 30px;
@@ -42,7 +41,7 @@
         }
     }
     li:hover {
-        background-color: rgb(58, 70, 75);
+        background-color: $sidebarRoll;
         color: white;
         border-left: 3px solid white;
     }
@@ -51,5 +50,5 @@
 .hr {
   margin-left: 1px;
   margin-right: 1px;
-  border: 1px solid rgb(58, 70, 75);
+  border: 1px solid $sidebarBar;
 }

@@ -1,77 +1,31 @@
 .top-nav {
-  // position: fixed;
+  display: flex;
+  justify-content: space-between;
   margin-left: 250px;
-  width: 100%;
-  height:50px;
-  background-color: lightgrey;
-}
+  width: auto;
+  height:60px;
+  background-color: $topNavColor;
+  border-bottom: 1px solid lightgrey;
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid lightgrey;
 
-// .navbar {
-//   border-bottom: 1px solid rgb(54, 65, 70);
-//   margin: 0;
-// }
-//
-// .navbar-default { /* Navigation Bar Colour */
-//   background-color: rgb(71, 70, 69);
-// }
-//
-// .navbar-brand { /* Navigation Brand Logo */
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   margin: 0;
-//
-//   width: 250px;
-//   height: 100%;
-//   @media screen and (max-width: 768px) {
-//     padding: 10px 0px 10px 15px;
-//   }
-//   img {
-//     height: 35px;
-//     @media screen and (max-width: 768px) {
-//       height: 35px;
-//     }
-//   }
-// }
-//
-// .navbar-left {
-//   width: 75%;
-//   display: flex;
-// }
-//
-// .navbar-default .navbar-nav>li>a { /* Navigation Links (List Items) */
-//   border: 3px solid transparent;
-//   font-size: 1em;
-//   font-weight: 500;
-//   padding: 50px;
-//   color: lightgrey;
-//
-//   @media screen and (min-width: 768px) {
-//     padding-top: 20px;
-//     padding-bottom: 20px;
-//   }
-//   @include transition(all 0.3s ease);
-// }
-//
-// .navbar-default .navbar-nav>li>a:hover {
-//   color: #DE2B26;
-//   @media screen and (min-width: 768px) {
-//     color: white;
-//     background-color: grey;
-//   }
-// }
-//
-// /* --- Hamburger Bar --- */
-// .navbar-default .navbar-toggle {
-//   border-color: white;
-// }
-//
-// .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-//   background-color: transparent;
-//   .icon-bar {
-//     background-color: #DE2B26;
-//   }
-// }
-// .icon-bar {
-//   @include transition(all 0.5s ease);
-// }
+    width: 75px;
+    height: 100%;
+    h2 {
+      margin: 0;
+      color: grey;
+    }
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      margin-left: 15px;
+      height: 40px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@import "variables";
 @import "mixins";
 @import "navigation";
 @import "sidebar";
@@ -9,7 +10,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: darken(grey, 20%);
-  background-color: lightgrey;
+  background-color: $backgroundColor;
 }
 
 .container-new {

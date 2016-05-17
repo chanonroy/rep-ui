@@ -1,17 +1,39 @@
+/* Colors */
+/* Padding */
 /* all 0.5s ease */
 /* (5px) */
 .top-nav {
+  display: flex;
+  justify-content: space-between;
   margin-left: 250px;
-  width: 100%;
-  height: 50px;
-  background-color: lightgrey; }
+  width: auto;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid lightgrey; }
+  .top-nav .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid lightgrey;
+    width: 75px;
+    height: 100%; }
+    .top-nav .hamburger h2 {
+      margin: 0;
+      color: grey; }
+  .top-nav .nav-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .top-nav .nav-brand img {
+      margin-left: 15px;
+      height: 40px; }
 
 .profile {
   margin: 15px auto;
   text-align: center; }
   .profile img {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     -ms-border-radius: 100px;
@@ -26,8 +48,7 @@
   width: 250px;
   top: 0;
   bottom: 0;
-  background-color: grey;
-  background-color: #3e5458; }
+  background-color: #394d59; }
   .side-nav p {
     color: white;
     margin-left: 30px; }
@@ -50,19 +71,19 @@
     .side-nav li i {
       margin-right: 10px; }
   .side-nav li:hover {
-    background-color: #3a464b;
+    background-color: #293740;
     color: white;
     border-left: 3px solid white; }
 
 .hr {
   margin-left: 1px;
   margin-right: 1px;
-  border: 1px solid #3a464b; }
+  border: 1px solid #334550; }
 
 .top-profile {
   padding-left: 250px;
   width: 100%;
-  height: 225px;
+  height: 250px;
   border-bottom: 2px solid lightgrey;
   background-color: white; }
 
@@ -85,8 +106,8 @@
       font-weight: 800; }
     .profile-bar .profile-info p {
       margin: 0; }
-    .profile-bar .profile-info span {
-      margin-left: 10px;
+    .profile-bar .profile-info i {
+      margin-left: 5px;
       margin-right: 10px; }
   .profile-bar .profile-players {
     height: 100%;
@@ -95,7 +116,7 @@
     align-items: center;
     justify-content: flex-end; }
     .profile-bar .profile-players img {
-      width: 80px;
+      width: 75px;
       margin: 0 5px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
@@ -120,7 +141,7 @@
   flex-wrap: wrap;
   background-color: white;
   border: 2px solid #bababa;
-  width: 95%;
+  width: 98.7%;
   margin: 5px 5px;
   padding: 15px;
   -webkit-border-radius: 5px;
@@ -165,7 +186,7 @@
   flex-wrap: wrap;
   background-color: white;
   border: 2px solid #bababa;
-  width: 31.2%;
+  width: 32.5%;
   margin: 5px 5px;
   padding: 12px;
   -webkit-border-radius: 5px;
@@ -202,7 +223,7 @@
     align-items: center; }
 
 #section3 {
-  width: 95%;
+  width: 98.7%;
   margin: 5px;
   margin-bottom: 50px;
   -webkit-border-radius: 5px;
@@ -221,11 +242,14 @@
   #team-header h4 {
     margin: 10px 0;
     padding: 10px 15px;
-    border: 2px solid lightgrey;
+    background-color: white;
+    border: 2px solid #bababa;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px; }
+  #team-header h4:hover {
+    background-color: #d63939; }
 
 #team-labels {
   display: flex;
@@ -235,7 +259,8 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid lightgrey;
+  border: 1px solid #bababa;
+  background-color: white;
   /* LABELS */ }
   #team-labels span {
     display: flex;
@@ -275,10 +300,12 @@
     justify-content: center;
     height: 100%; }
   .team-player span:nth-child(1) {
+    font-size: 1.5em;
     width: 10%;
     color: #d63939;
     font-weight: 800; }
   .team-player span:nth-child(2) {
+    font-size: 1.2em;
     width: 45%;
     justify-content: flex-start;
     padding-left: 20px; }
@@ -289,16 +316,19 @@
       -ms-border-radius: 5px;
       border-radius: 5px; }
   .team-player span:nth-child(3) {
+    font-size: 1.2em;
     width: 15%; }
   .team-player span:nth-child(4) {
+    font-size: 1.2em;
     width: 15%; }
   .team-player span:nth-child(5) {
+    font-size: 1.2em;
     width: 15%; }
 
 body {
   font-family: 'Open Sans', sans-serif;
   color: #4d4d4d;
-  background-color: lightgrey; }
+  background-color: #ededed; }
 
 .container-new {
   padding-left: 270px;
