@@ -1,5 +1,4 @@
 var bigBox = $("#bigChart");
-
 var box1 = $("#box1");
 var box2 = $("#box2");
 var box3 = $("#box3");

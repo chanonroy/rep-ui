@@ -156,21 +156,41 @@
     -o-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    border-bottom: 4px solid grey;
-    border-left: 1px solid lightgrey; }
+    border-bottom: 4px solid grey; }
     .profile-links span i {
       margin-left: 5px; }
   .profile-links span:nth-child(1) {
-    color: #DE2B26;
-    border-bottom: 4px solid #DE2B26; }
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
     .profile-links span:nth-child(1) img {
+      -webkit-filter: grayscale(100%);
+      /* Chrome, Safari, Opera */
+      filter: grayscale(100%);
       margin-top: 10px;
       margin-left: 7px;
       height: 20px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       -ms-border-radius: 5px;
-      border-radius: 5px; }
+      border-radius: 5px;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+  .profile-links span:nth-child(1):hover {
+    color: #e52d27;
+    border-bottom: 4px solid #e52d27; }
+    .profile-links span:nth-child(1):hover img {
+      -webkit-filter: grayscale(0%);
+      /* Chrome, Safari, Opera */
+      filter: grayscale(0%); }
+  .profile-links span:nth-child(2) {
+    color: #6441a5;
+    border-bottom: 4px solid #6441a5; }
   .profile-links span:nth-child(2):hover {
     color: #6441a5;
     border-bottom: 4px solid #6441a5; }
@@ -237,17 +257,16 @@
 
 #section2 {
   margin-top: 10px;
-  width: 100%;
+  width: 99%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; }
+  flex-wrap: wrap; }
 
 .chart2 {
   display: flex;
   flex-wrap: wrap;
   background-color: white;
   border: 2px solid white;
-  width: 32.7%;
+  width: 32.6%;
   margin: 5px 5px;
   padding: 12px;
   -webkit-border-radius: 5px;
@@ -408,7 +427,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: #4d4d4d;
-  background-color: #ededed; }
+  background-color: #edf3f5; }
 
 .container-new {
   padding-left: 270px;
