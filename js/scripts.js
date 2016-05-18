@@ -2,6 +2,8 @@
 $('#addPlayer').click(function() {
   var twitchID = prompt("Please enter the streamer's TwitchID");
 
+  $("#team-default").remove();
+
   $.ajax({
      type: 'GET',
      url: 'http://52.25.105.60/all/' + twitchID,
@@ -38,16 +40,27 @@ $('#addPlayer').click(function() {
             '<div id="' + name + '" class="team-player">' +
             '<span> -- </span>' +
             '<span> <img src="img/brand-small.png">' + name + ' </span>' +
-            '<span> ' + numberWithCommas(totalViews) + ' </span>' +
-            '<span> ' + numberWithCommas(maxFollowers) + ' </span>' +
+            '<span>' + numberWithCommas(totalViews) + '</span>' +
+            '<span>' + numberWithCommas(maxFollowers) + '</span>' +
             '<span> <button class="remove"> x </button> </span>' +
-            '<span class="hidden viewsData"> ' + monthlyViews + ' </span>' +
-            '<span class="hidden dateData"> ' + dates + ' </span>' +
+            '<span class="hidden viewsData">' + monthlyViews + '</span>' +
+            '<span class="hidden dateData">' + dates + '</span>' +
             '</div>');
+
+        update(name);
 
      } // -- success
   }); // -- ajax
 }); // -- button
+
+// REMOVE PLAYER
+$('#team').on('click', '.remove', function() {
+	var name = $(this).parent().parent().attr('id');
+  remove(name);
+  // if/else statement
+  $('#' + name).remove();
+
+});
 
 function update(name) {
     // Used to update chart and calculations when a streamer is added
@@ -59,18 +72,15 @@ function update(name) {
     // turn into INT ARRAY
     for (var i = 0; i < localViews.length; i++) {
         localViews[i] = parseInt(localViews[i], 10);
-        localFollowers[i] = parseInt(localFollowers[i], 10);
       }
 
     if (chartViews.length === 0){
       // if global is empty, set global to new
       chartViews = localViews;
-      chartFollowers = localFollowers;
     } else {
       // if global has objects, update global array
       for (var x = 0; x < chartViews.length; x++) {
           chartViews[x] = chartViews[x] + localViews[x];
-          chartFollowers[x] = chartFollowers[x] + localFollowers[x];
         }
     }
 
@@ -79,17 +89,33 @@ function update(name) {
       chartDateRange = localDates;
     }
 
+    $('#totalMonthlyReach').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
+
     // update Chart.js and the display div
-    // makeChart("#chart", chartViews, chartDateRange, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)");
+    makeBigChart(chartViews, chartDateRange);
 }
+function remove(name) {
 
+  // jQuery DOM selection - STRING ARRAY
+    var localViews = $('#' + name).find('.viewsData').text().split(',');
+
+  // turn into INT ARRAY
+    for (var i = 0; i < localViews.length; i++) {
+        localViews[i] = parseInt(localViews[i], 10);
+    }
+
+  for (var x = 0; x < chartViews.length; x++) {
+      chartViews[x] = chartViews[x] - localViews[x];
+  }
+
+  makeBigChart(chartViews, chartDateRange);
+
+}
 function makeBigChart(data, labels) {
-
   // Remove previous chart
   $('#bigChart').replaceWith('<canvas id="bigChart" width="170" height="40"></canvas>'); // this is the <canvas> element
   // redefine DOM variable
   var bigBox = $("#bigChart");
-
   var mainData = {
       labels: labels,
       datasets: [
@@ -121,7 +147,7 @@ function makeBigChart(data, labels) {
       data: mainData,
       options: options1,
   });
-}
+} // -- func(makeBigChart)
 
 // produce default bigChart on page load
 makeBigChart(emptyData, dateDefault);

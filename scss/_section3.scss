@@ -5,6 +5,7 @@
 #team {
   width: 100%;
   background-color: white;
+  border-bottom: 4px solid $borderColor;
   padding: 5px 20px 20px 20px;
   margin: 5px auto 50px auto;
   @include border-radius(5px);
@@ -43,7 +44,7 @@
   height: 50px;
 
   @include border-radius(5px);
-  border: 1px solid $borderColor;
+  // border: 1px solid $borderColor;
   background-color: white;
 
   span {
@@ -85,7 +86,6 @@
 
   height: 50px;
   width: 100%;
-  border-bottom: 1px solid $borderColor;
 
   img {
     height: 30px;

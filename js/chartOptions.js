@@ -9,7 +9,7 @@ var options1 = {
           gridLines: { display: false },
           display: true,
           ticks: {
-            maxTicksLimit: 10, /* maximum labels */
+            maxTicksLimit: 12, /* maximum labels */
             maxRotation: 0,
           },
         }],
