@@ -93,14 +93,14 @@
             <div class="chart1-main">
                 <div> Total Monthly Reach </div>
                 <div>
-                    <h1> 586,792 </h1> </div>
+                    <h1> -- </h1> </div>
             </div>
 
             <div class="chart1-buttons">
                 <span class="button"> Compare </span><span class="button"> Add Metric </span><span class="button"> Month </span>
             </div>
 
-            <div class="chart1-chart">
+            <div id="bigChartContainer" class="chart1-chart">
                 <canvas id="bigChart" width="170" height="40"></canvas>
             </div>
         </div>
@@ -195,39 +195,32 @@
             </div>
           </div>
 
-            <div class="team">
+            <div id="team">
               <div id="team-header">
-                  <h2> Team Members (5) </h2>
-                  <h4> Add Player </h4> </div>
+                  <h2> Team Members </h2>
+                  <h4 id="addPlayer"> Add Player </h4>
+              </div>
+
               <div id="team-labels">
                   <span> <img src="img/rep.png"> RepScore </span>
                   <span> Streamer Name </span>
-                  <span> Likes </span>
-                  <span> Followers </span>
                   <span> Total Views </span>
+                  <span> Followers </span>
+                  <span> Remove </span>
               </div>
 
               <div class="team-player">
                   <span> -- </span>
-                  <span> <img src="http://placehold.it/70x70"> reltuC </span>
+                  <span> <img src="img/brand-small.png"> -- </span>
+                  <span> --  </span>
                   <span> -- </span>
-                  <span> -- </span>
-                  <span> 567,432 </span>
+                  <span> <button> x </button> </span>
+                  <span class="hidden viewsData"> -- </span>
+                  <span class="hidden dateData"> -- </span>
               </div>
-
-              <div class="team-player">
-                  <span> -- </span>
-                  <span> <img src="http://placehold.it/70x70"> Hazed- </span>
-                  <span> -- </span>
-                  <span> -- </span>
-                  <span> 547,434 </span>
-              </div>
-            </div>
+            </div> <!-- team -->
 
         <!-- SECTION 3 (TEAM) -->
-
-
-
 
     </div>
     <!-- jQuery CDN -->
@@ -236,6 +229,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script>
+    <script src="js/globalVars.js"></script>
+    <script src="js/calc.js"></script>
+    <script src="js/chartOptions.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 

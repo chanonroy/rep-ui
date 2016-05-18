@@ -103,7 +103,6 @@
   padding-left: 250px;
   width: 100%;
   height: 250px;
-  border-bottom: 2px solid lightgrey;
   background-color: white; }
 
 .profile-bar {
@@ -156,7 +155,7 @@
     -o-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    border-bottom: 4px solid grey; }
+    border-bottom: 4px solid lightgrey; }
     .profile-links span i {
       margin-left: 5px; }
   .profile-links span:nth-child(1) {
@@ -189,11 +188,16 @@
       /* Chrome, Safari, Opera */
       filter: grayscale(0%); }
   .profile-links span:nth-child(2) {
-    color: #6441a5;
-    border-bottom: 4px solid #6441a5; }
+    color: white;
+    opacity: 0.9;
+    border-bottom: 4px solid #a992d4;
+    background-color: #6441a5;
+    -webkit-border-radius: 15px 15px 0 0;
+    -moz-border-radius: 15px 15px 0 0;
+    -ms-border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0; }
   .profile-links span:nth-child(2):hover {
-    color: #6441a5;
-    border-bottom: 4px solid #6441a5; }
+    color: silver; }
   .profile-links span:nth-child(3):hover {
     color: #e52d27;
     border-bottom: 4px solid #e52d27; }
@@ -302,7 +306,10 @@
     justify-content: center;
     align-items: center; }
 
-.team {
+.hidden {
+  display: none; }
+
+#team {
   width: 100%;
   background-color: white;
   padding: 5px 20px 20px 20px;

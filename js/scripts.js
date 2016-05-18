@@ -1,48 +1,100 @@
-var bigBox = $("#bigChart");
-var box1 = $("#box1");
-var box2 = $("#box2");
-var box3 = $("#box3");
-var box4 = $("#box4");
-var box5 = $("#box5");
-var box6 = $("#box6");
+// ADD PLAYER
+$('#addPlayer').click(function() {
+  var twitchID = prompt("Please enter the streamer's TwitchID");
 
-var options1 = {
-      responsive: true,
-      scales: {
-        yAxes: [{
-          display: true,
-        }],
-        xAxes: [{
-          gridLines: { display: false },
-          display: true,
-          ticks: {
-            maxTicksLimit: 10, /* maximum labels */
-            maxRotation: 0,
-          },
-        }],
-      },
-      legend: {display: false},
-    };
+  $.ajax({
+     type: 'GET',
+     url: 'http://52.25.105.60/all/' + twitchID,
+     dataType: "json",
+     success: function(object) {
 
-var options2 = {
-      responsive: true,
-      scales: {
-        yAxes: [{ display: false,}],
-        xAxes: [{ display: false,}]
-      },
-      legend: {display: false}
-    };
+       var totalViews = object.maxViewsFromUser[0].views;
+       var maxFollowers = object.maxFollowersFromUserFromUser[0].followers;
+
+       // Parsing name (sometimes the name is null)
+       var name;
+       if (object.display_nameFromUser[0].display_name === null) {
+         name = twitchID;
+         console.log("twitchID not in database");
+       }
+       else {
+         name = object.display_nameFromUser[0].display_name;
+       }
+
+       // Local Data Containers (Daily Polling)
+       var monthlyViews = [];
+       var dateRange = ["Jan ", "Feb ", "Mar ", "Apr ", "May ", "June ", "July ", "Aug ", "Sept ", "Oct ", "Nov ", "Dec "];
+       var dates = [];
+
+       for (var i=0; i < 721; i += 24) { // 24 objects per day, 720 per month
+         // Twitch Monthly Views
+         monthlyViews.unshift(Number(object.viewsFromMetrics[i].views));
+         // Date - "2016-04-20" into "April 20"
+         dates.unshift(dateRange[Number((object.viewsFromMetrics[i].stamp).substring(5, 7)) - 1] + ((object.viewsFromMetrics[i].stamp).substring(8, 10)).replace(/\b0+/g, ''));
+       }
+
+       // dom injection
+       $('#team').append(
+            '<div id="' + name + '" class="team-player">' +
+            '<span> -- </span>' +
+            '<span> <img src="img/brand-small.png">' + name + ' </span>' +
+            '<span> ' + numberWithCommas(totalViews) + ' </span>' +
+            '<span> ' + numberWithCommas(maxFollowers) + ' </span>' +
+            '<span> <button class="remove"> x </button> </span>' +
+            '<span class="hidden viewsData"> ' + monthlyViews + ' </span>' +
+            '<span class="hidden dateData"> ' + dates + ' </span>' +
+            '</div>');
+
+     } // -- success
+  }); // -- ajax
+}); // -- button
+
+function update(name) {
+    // Used to update chart and calculations when a streamer is added
+
+    // jQuery DOM selection - STRING ARRAY
+    var localViews = $('#' + name).find('.viewsData').text().split(',');
+    var localDates = $('#' + name).find('.dateData').text().split(',');
+
+    // turn into INT ARRAY
+    for (var i = 0; i < localViews.length; i++) {
+        localViews[i] = parseInt(localViews[i], 10);
+        localFollowers[i] = parseInt(localFollowers[i], 10);
+      }
+
+    if (chartViews.length === 0){
+      // if global is empty, set global to new
+      chartViews = localViews;
+      chartFollowers = localFollowers;
+    } else {
+      // if global has objects, update global array
+      for (var x = 0; x < chartViews.length; x++) {
+          chartViews[x] = chartViews[x] + localViews[x];
+          chartFollowers[x] = chartFollowers[x] + localFollowers[x];
+        }
+    }
+
+    // while no dates, assign date range
+    while(chartDateRange.length === 0) {
+      chartDateRange = localDates;
+    }
+
+    // update Chart.js and the display div
+    // makeChart("#chart", chartViews, chartDateRange, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)");
+}
+
+function makeBigChart(data, labels) {
+
+  // Remove previous chart
+  $('#bigChart').replaceWith('<canvas id="bigChart" width="170" height="40"></canvas>'); // this is the <canvas> element
+  // redefine DOM variable
+  var bigBox = $("#bigChart");
 
   var mainData = {
-      labels: ["Apr 24", "Apr 25", "Apr 26", "Apr 27", "Apr 28",
-               "Apr 29", "Apr 30", "Apr 31", "May 1", "May 2",
-               "May 3", "May 4", "May 5", "May 6", "May 7",
-               "May 8", "May 9", "May 10", "May 11", "May 12",
-               "May 13", "May 14", "May 15", "May 16", "May 17",
-               "May 18", "May 19", "May 20", "May 21", "May 22", ],
+      labels: labels,
       datasets: [
           {
-              label: "My First dataset",
+              label: "Views",
               fill: true,
               lineTension: 0.1,
               backgroundColor: "rgba(32, 162, 219, 0.3)",
@@ -60,21 +112,34 @@ var options2 = {
               pointHoverBorderWidth: 2,
               pointRadius: 4,
               pointHitRadius: 10,
-              data: [120, 125, 130, 131, 133,
-                     134, 136, 140, 144, 144,
-                     145, 148, 149, 150, 155,
-                     155, 155, 155, 165, 166,
-                     167, 168, 169, 172, 175,
-                     180, 181, 182, 182, 188],
+              data: data,
           }
       ]
   };
+  var chart = new Chart(bigBox, {
+      type: 'line',
+      data: mainData,
+      options: options1,
+  });
+}
+
+// produce default bigChart on page load
+makeBigChart(emptyData, dateDefault);
+
+// SIX SMALLER CHARTS
+function makeChart(selector, data, options) {
+  var chart = new Chart(selector, {
+      type: 'line',
+      data: data,
+      options: options,
+  });
+}
 
 var data = {
     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "2"],
     datasets: [
         {
-            label: "My First dataset",
+            label: "Views",
             fill: true,
             lineTension: 0.1,
             backgroundColor: "rgba(75, 193, 90, 0.4)",
@@ -97,44 +162,10 @@ var data = {
     ]
 };
 
-var chart1 = new Chart(box1, {
-    type: 'line',
-    data: data,
-    options: options2,
-});
-
-var chart2 = new Chart(box2, {
-    type: 'line',
-    data: data,
-    options: options2,
-});
-
-var chart3 = new Chart(box3, {
-    type: 'line',
-    data: data,
-    options: options2,
-});
-
-var chart4 = new Chart(box4, {
-    type: 'line',
-    data: data,
-    options: options2,
-});
-
-var chart5 = new Chart(box5, {
-    type: 'line',
-    data: data,
-    options: options2,
-});
-
-var chart6 = new Chart(box6, {
-    type: 'line',
-    data: data,
-    options: options2,
-});
-
-var bigChart = new Chart(bigBox, {
-    type: 'line',
-    data: mainData,
-    options: options1,
-});
+// params = selector, data, options
+makeChart(box1, data, options2);
+makeChart(box2, data, options2);
+makeChart(box3, data, options2);
+makeChart(box4, data, options2);
+makeChart(box5, data, options2);
+makeChart(box6, data, options2);

@@ -2,13 +2,10 @@
   padding-left: 250px;
   width: 100%;
   height: 250px;
-  // background-color: lightgrey;
-  border-bottom: 2px solid lightgrey;
   background-color: white;
 }
 
 .profile-bar {
-  // background-color: green;
   display: flex;
   padding: 25px 50px;
   height: 80%;
@@ -61,7 +58,7 @@
       margin-left: 5px;
     }
     // margin-right: 50px;
-    border-bottom: 4px solid grey;
+    border-bottom: 4px solid lightgrey;
     // border-left: 1px solid lightgrey;
   }
   span:nth-child(1) {
@@ -86,13 +83,15 @@
   }
 
   span:nth-child(2) {
-    color: rgb(100, 65, 165);
-    border-bottom: 4px solid rgb(100, 65, 165);
+    color: white;
+    opacity: 0.9;
+    border-bottom: 4px solid lighten(rgb(100, 65, 165), 25%);
+    background-color: rgb(100, 65, 165);
+    @include border-radius(15px 15px 0 0);
   }
 
   span:nth-child(2):hover {
-    color: rgb(100, 65, 165);
-    border-bottom: 4px solid rgb(100, 65, 165);
+    color: silver;
   }
 
   span:nth-child(3):hover {
