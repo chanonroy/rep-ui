@@ -93,6 +93,7 @@ function update(name) {
 
     // update Chart.js and the display div
     makeBigChart(chartViews, chartDateRange);
+    makeChart('box1', chartViews, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
 }
 function remove(name) {
 
@@ -109,6 +110,7 @@ function remove(name) {
   }
 
   makeBigChart(chartViews, chartDateRange);
+  makeChart('box1', chartViews, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
 
 }
 function makeBigChart(data, labels) {
@@ -152,46 +154,47 @@ function makeBigChart(data, labels) {
 // produce default bigChart on page load
 makeBigChart(emptyData, dateDefault);
 
-// SIX SMALLER CHARTS
-function makeChart(selector, data, options) {
-  var chart = new Chart(selector, {
+// small chart
+function makeChart(selector, data, labels, background, border) {
+  $('#' + selector).replaceWith('<canvas id="' + selector + '" width="20" height="7"></canvas>'); // this is the <canvas> element
+  var selectNew = $('#' + selector);
+  var dataset = {
+      labels: labels,
+      datasets: [
+          {
+              label: "Views",
+              fill: true,
+              lineTension: 0.1,
+              backgroundColor: background,
+              borderColor: border,
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: background,
+              pointBackgroundColor: "#fff",
+              pointBorderWidth: 1,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: "white",
+              pointHoverBorderColor: "rgba(220,220,220,1)",
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              data: data,
+          }
+      ]
+  };
+  var chart = new Chart(selectNew, {
       type: 'line',
-      data: data,
-      options: options,
+      data: dataset,
+      options: options2,
   });
-}
+} // -- func(makeChart) //rgb(229, 45, 39)
 
-var data = {
-    labels: ["1", "2", "3", "4", "5", "6", "7", "8", "2"],
-    datasets: [
-        {
-            label: "Views",
-            fill: true,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75, 193, 90, 0.4)",
-            borderColor: "rgba(75, 193, 90, 1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "white",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [13, 15, 15, 15, 18, 20, 21, 25, 26],
-        }
-    ]
-};
-
-// params = selector, data, options
-makeChart(box1, data, options2);
-makeChart(box2, data, options2);
-makeChart(box3, data, options2);
-makeChart(box4, data, options2);
-makeChart(box5, data, options2);
-makeChart(box6, data, options2);
+// params = selector, background, border
+makeChart('box1', emptyData, dateDefault, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
+makeChart('box2', emptyData, dateDefault, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
+makeChart('box3', emptyData, dateDefault, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
+makeChart('box4', emptyData, dateDefault, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
+makeChart('box5', emptyData, dateDefault, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
+makeChart('box6', emptyData, dateDefault, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");

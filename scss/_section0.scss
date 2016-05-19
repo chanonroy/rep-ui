@@ -62,10 +62,14 @@
     // border-left: 1px solid lightgrey;
   }
   span:nth-child(1) {
+    opacity: 0.9;
+    color: white;
+    background-color: $sidebarColor;
+    border-bottom: 4px solid lighten($sidebarColor, 25%);
+    @include border-radius(15px 15px 0 0);
+
     @include transition(all 0.4s ease);
     img {
-      -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
-      filter: grayscale(100%);
       margin-top: 10px;
       margin-left: 7px;
       height: 20px;
@@ -74,8 +78,6 @@
     }
   }
   span:nth-child(1):hover {
-    color: rgb(229, 45, 39);
-    border-bottom: 4px solid rgb(229, 45, 39);
     img {
       -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
       filter: grayscale(0%);
@@ -83,15 +85,12 @@
   }
 
   span:nth-child(2) {
-    color: white;
-    opacity: 0.9;
-    border-bottom: 4px solid lighten(rgb(100, 65, 165), 25%);
-    background-color: rgb(100, 65, 165);
     @include border-radius(15px 15px 0 0);
   }
 
   span:nth-child(2):hover {
-    color: silver;
+    color: rgb(100, 65, 165);
+    border-bottom: 4px solid rgb(100, 65, 165);
   }
 
   span:nth-child(3):hover {
