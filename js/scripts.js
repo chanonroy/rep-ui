@@ -27,12 +27,15 @@ $('#addPlayer').click(function() {
        var monthlyViews = [];
        var dateRange = ["Jan ", "Feb ", "Mar ", "Apr ", "May ", "June ", "July ", "Aug ", "Sept ", "Oct ", "Nov ", "Dec "];
        var dates = [];
+       var monthlyFollowers= [];
 
        for (var i=0; i < 721; i += 24) { // 24 objects per day, 720 per month
          // Twitch Monthly Views
          monthlyViews.unshift(Number(object.viewsFromMetrics[i].views));
          // Date - "2016-04-20" into "April 20"
          dates.unshift(dateRange[Number((object.viewsFromMetrics[i].stamp).substring(5, 7)) - 1] + ((object.viewsFromMetrics[i].stamp).substring(8, 10)).replace(/\b0+/g, ''));
+         // Twitch Monthly Followers
+         monthlyFollowers.unshift(Number(object.followersFromMetrics[i].followers));
        }
 
        // dom injection
@@ -45,6 +48,7 @@ $('#addPlayer').click(function() {
             '<span> <button class="remove"> x </button> </span>' +
             '<span class="hidden viewsData">' + monthlyViews + '</span>' +
             '<span class="hidden dateData">' + dates + '</span>' +
+            '<span class="hidden followerData">' + monthlyFollowers + '</span>' +
             '</div>');
 
         update(name);
@@ -68,19 +72,23 @@ function update(name) {
     // jQuery DOM selection - STRING ARRAY
     var localViews = $('#' + name).find('.viewsData').text().split(',');
     var localDates = $('#' + name).find('.dateData').text().split(',');
+    var localFollowers = $('#' + name).find('.followerData').text().split(',');
 
     // turn into INT ARRAY
     for (var i = 0; i < localViews.length; i++) {
         localViews[i] = parseInt(localViews[i], 10);
+        localFollowers[i] = parseInt(localFollowers[i], 10);
       }
 
     if (chartViews.length === 0){
       // if global is empty, set global to new
       chartViews = localViews;
+      chartFollowers = localFollowers;
     } else {
       // if global has objects, update global array
       for (var x = 0; x < chartViews.length; x++) {
           chartViews[x] = chartViews[x] + localViews[x];
+          chartFollowers[x] = chartFollowers[x] + localFollowers[x];
         }
     }
 
@@ -90,27 +98,42 @@ function update(name) {
     }
 
     $('#totalMonthlyReach').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
+    $('#twitchMonthlyViews').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
+    $('#twitchMonthlyViewsPercent').empty().append(percentChange(chartViews));
+    $('#twitchMonthlyFollowers').empty().append(numberWithCommas(chartFollowers[chartFollowers.length - 1] - chartFollowers[0]));
+    $('#twitchMonthlyFollowersPercent').empty().append(percentChange(chartFollowers));
 
     // update Chart.js and the display div
     makeBigChart(chartViews, chartDateRange);
     makeChart('box1', chartViews, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
+    makeChart('box4', chartFollowers, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
 }
+
+// FUNCTION TO REMOVE
 function remove(name) {
 
   // jQuery DOM selection - STRING ARRAY
     var localViews = $('#' + name).find('.viewsData').text().split(',');
+    var localFollowers = $('#' + name).find('.followerData').text().split(',');
 
   // turn into INT ARRAY
     for (var i = 0; i < localViews.length; i++) {
         localViews[i] = parseInt(localViews[i], 10);
+        localFollowers[i] = parseInt(localFollowers[i], 10);
     }
 
   for (var x = 0; x < chartViews.length; x++) {
       chartViews[x] = chartViews[x] - localViews[x];
+      chartFollowers[x] = chartFollowers[x] + localFollowers[x];
   }
 
   makeBigChart(chartViews, chartDateRange);
-  makeChart('box1', chartViews, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
+  $('#totalMonthlyReach').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
+  $('#twitchMonthlyViews').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
+  $('#twitchMonthlyViewsPercent').empty().append(percentChange(chartViews));
+  $('#twitchMonthlyFollowers').empty().append(numberWithCommas(chartFollowers[chartFollowers.length - 1] - chartFollowers[0]));
+
+// percentChange(chartViews)
 
 }
 function makeBigChart(data, labels) {
