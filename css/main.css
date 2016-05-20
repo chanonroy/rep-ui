@@ -260,7 +260,7 @@
 
 #section2 {
   margin-top: 10px;
-  width: 99%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
@@ -270,7 +270,7 @@
   flex-wrap: wrap;
   background-color: white;
   border-bottom: 4px solid lightgrey;
-  width: 32.6%;
+  width: 32%;
   margin: 5px 5px;
   padding: 12px;
   -webkit-border-radius: 5px;
@@ -280,6 +280,9 @@
   /* numbers heading */
   /* percentage change */
   /* bottom half chart */ }
+  @media (max-width: 1200px) {
+    .chart2 {
+      min-width: 48%; } }
   .chart2 .chart2-numbers {
     width: 65%;
     height: 40%; }

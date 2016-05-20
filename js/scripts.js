@@ -133,6 +133,10 @@ function update(name) {
     $('#twitchMonthlyViewsPercent').empty().append(percentChange(chartViews));
     $('#twitchMonthlyFollowers').empty().append(numberWithCommas(chartFollowers[chartFollowers.length - 1] - chartFollowers[0]));
     $('#twitchMonthlyFollowersPercent').empty().append(percentChange(chartFollowers));
+    $('#youtubeMonthlyViews').empty().append(numberWithCommas(youtubeViews[youtubeViews.length - 1] - youtubeViews[0]));
+    $('#youtubeMonthlyViewsPercent').empty().append(percentChange(youtubeViews));
+    $('#youtubeMonthlySubscribers').empty().append(numberWithCommas(youtubeSubs[youtubeSubs.length - 1] - youtubeSubs[0]));
+    $('#youtubeMonthlySubscribersPercent').empty().append(percentChange(youtubeSubs));
 
     // update Chart.js and the display div
     makeBigChart(chartViews, chartDateRange);
