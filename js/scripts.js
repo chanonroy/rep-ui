@@ -30,12 +30,10 @@ $('#addPlayer').click(function() {
        var localTwitterFollowers = [];
        var localTwitterLikes = [];
 
-       var dateRange = ["Jan ", "Feb ", "Mar ", "Apr ", "May ", "June ", "July ", "Aug ", "Sept ", "Oct ", "Nov ", "Dec "];
-       var dates = [];
+       // from js/calc.js - fills global date variable for last 30 days
+       getDate();
 
        for (var i=0; i < 721; i += 24) { // 24 objects per day, 720 per month
-         // Date - "2016-04-20" into "April 20"
-         dates.unshift(dateRange[Number((object.viewsFromMetrics[i].stamp).substring(5, 7)) - 1] + ((object.viewsFromMetrics[i].stamp).substring(8, 10)).replace(/\b0+/g, ''));
          // Twitch Monthly Views
          localTwitchViews.unshift(Number(object.viewsFromMetrics[i].views));
          // Twitch Monthly Followers
@@ -45,7 +43,7 @@ $('#addPlayer').click(function() {
          // YouTube Monthly Subs
          localYouTubeSubs.unshift(Number(object.subscribersFromYoutube[i].subscribers));
          // Twitter Monthly Followers
-         localTwitterFollowers.unshift(Number(object.followingFromTwitter[i].following));
+         localTwitterFollowers.unshift(Number(object.followersFromTwitter[i].followers));
          // Twitter Monthly Likes
          localTwitterLikes.unshift(Number(object.likesFromTwitter[i].likes));
        }
@@ -58,7 +56,6 @@ $('#addPlayer').click(function() {
             '<span>' + numberWithCommas(totalViews) + '</span>' +
             '<span>' + numberWithCommas(maxFollowers) + '</span>' +
             '<span> <button class="remove"> x </button> </span>' +
-            '<span class="hidden dateData">' + dates + '</span>' +
             '<span class="hidden viewsData">' + localTwitchViews + '</span>' +
             '<span class="hidden followerData">' + localTwitchFollowers + '</span>' +
             '<span class="hidden youtubeViewData">' + localYoutubeViews + '</span>' +
@@ -86,7 +83,6 @@ function update(name) {
     // Used to update chart and calculations when a streamer is added
 
     // jQuery DOM selection - STRING ARRAY
-    var localDates = $('#' + name).find('.dateData').text().split(',');
     var localTwitchViews = $('#' + name).find('.viewsData').text().split(',');
     var localTwitchFollowers = $('#' + name).find('.followerData').text().split(',');
     var localYoutubeViews = $('#' + name).find('.youtubeViewData').text().split(',');
@@ -123,11 +119,6 @@ function update(name) {
         }
     }
 
-    // while no dates, assign date range
-    while(chartDateRange.length === 0) {
-      chartDateRange = localDates;
-    }
-
     $('#totalMonthlyReach').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
     $('#twitchMonthlyViews').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
     $('#twitchMonthlyViewsPercent').empty().append(percentChange(chartViews));
@@ -137,6 +128,8 @@ function update(name) {
     $('#youtubeMonthlyViewsPercent').empty().append(percentChange(youtubeViews));
     $('#youtubeMonthlySubscribers').empty().append(numberWithCommas(youtubeSubs[youtubeSubs.length - 1] - youtubeSubs[0]));
     $('#youtubeMonthlySubscribersPercent').empty().append(percentChange(youtubeSubs));
+    $('#twitterMonthlyFollowers').empty().append(numberWithCommas(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
+    $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
 
     // update Chart.js and the display div
     makeBigChart(chartViews, chartDateRange);
