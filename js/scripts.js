@@ -33,32 +33,40 @@ $('#addPlayer').click(function() {
        var localTwitterFollowers = [];
        var localTwitterLikes = [];
 
+       // booleans to check scraping status
+       var twitchGreen = false;
+       var twitchRed = false;
+       var youtubeGreen = false;
+       var youtubeRed = false;
+       var twitterGreen = false;
+       var twitterRed = false;
+
        for (var i=0; i < 721; i += 24) { // 24 objects per day, 720 per month
          // Twitch Monthly Views
-         if (object.viewsFromMetrics[i] !== undefined) { localTwitchViews.unshift(Number(object.viewsFromMetrics[i].views));}
-         else { localTwitchViews.unshift(0); }
+         if (object.viewsFromMetrics[i] !== undefined) { localTwitchViews.unshift(Number(object.viewsFromMetrics[i].views)); twitchGreen = true;}
+         else { localTwitchViews.unshift(0); twitchRed = true;}
          // Twitch Monthly Followers
          if (object.followersFromMetrics[i] !== undefined) { localTwitchFollowers.unshift(Number(object.followersFromMetrics[i].followers)); }
          else { localTwitchFollowers.unshift(0); }
          // YouTube Monthly Views
-         if (object.viewsFromYoutube[i] !== undefined) { localYoutubeViews.unshift(Number(object.viewsFromYoutube[i].views)); }
-         else { localYoutubeViews.unshift(0); }
+         if (object.viewsFromYoutube[i] !== undefined) { localYoutubeViews.unshift(Number(object.viewsFromYoutube[i].views)); youtubeGreen = true;}
+         else { localYoutubeViews.unshift(0); youtubeRed = true;}
          // YouTube Monthly Subs
          if (object.subscribersFromYoutube[i] !== undefined) { localYouTubeSubs.unshift(Number(object.subscribersFromYoutube[i].subscribers)); }
          else { localYouTubeSubs.unshift(0); }
          // Twitter Monthly Followers
-         if (object.followersFromTwitter[i] !== undefined) { localTwitterFollowers.unshift(Number(object.followersFromTwitter[i].followers)); }
-         else { localTwitterFollowers.unshift(0); }
+         if (object.followersFromTwitter[i] !== undefined) { localTwitterFollowers.unshift(Number(object.followersFromTwitter[i].followers)); twitterGreen = true;}
+         else { localTwitterFollowers.unshift(0); twitterRed = true;}
          // Twitter Monthly Likes
          if (object.likesFromTwitter[i] !== undefined) { localTwitterLikes.unshift(Number(object.likesFromTwitter[i].likes)); }
          else { localTwitterLikes.unshift(0); }
        }
 
-       // dom injection for storage
+       // dom injection for storage (functions from calc.js)
        $('#team').append(
             '<div id="' + name + '" class="team-player">' +
             '<span> -- </span>' +
-            '<span> <img src="img/brand-small.png">' + name + ' </span>' +
+            '<span> <div> <img src="img/brand-small.png">' + name + '</div> <div> <i style="color:' + statusChecker(twitchGreen, twitchRed) + '" class="fa fa-twitch fa-fw"></i> <i style="color:' + statusChecker(youtubeGreen, youtubeRed) + '"class="fa fa-youtube-play fa-fw"></i> <i style="color:' + statusChecker(twitterGreen, twitterRed) + '"class="fa fa-twitter fa-fw"></i></div></span>' +
             '<span>' + numberWithCommas(totalViews) + '</span>' +
             '<span>' + numberWithCommas(maxFollowers) + '</span>' +
             '<span> <button class="remove"> x </button> </span>' +
@@ -185,7 +193,7 @@ function remove(name) {
   makeChart('box4', chartFollowers, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
   makeChart('box5', youtubeSubs, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
   makeChart('box6', twitterLikes, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
-  
+
   $('#totalMonthlyReach').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
   $('#twitchMonthlyViews').empty().append(numberWithCommas(chartViews[chartViews.length - 1] - chartViews[0]));
   $('#twitchMonthlyViewsPercent').empty().append(percentChange(chartViews));

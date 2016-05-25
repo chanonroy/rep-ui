@@ -28,3 +28,16 @@ function getDate() {
         chartDateRange.unshift(String(day).substring(4,10).replace(/\b0+/g, ''));
   }
 }
+
+// checks the status of the green/red boolean in the AJAX call and returns an HTML color
+function statusChecker(green, red) {
+  if (green === true && red === true) {
+    return "DarkOrange";
+  }
+  else if (green === true && red === false) {
+    return "ForestGreen";
+  }
+  else {
+    return "Crimson";
+  }
+}
