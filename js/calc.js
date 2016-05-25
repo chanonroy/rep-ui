@@ -32,12 +32,12 @@ function getDate() {
 // checks the status of the green/red boolean in the AJAX call and returns an HTML color
 function statusChecker(green, red) {
   if (green === true && red === true) {
-    return "DarkOrange";
+    return "#D79D45";
   }
   else if (green === true && red === false) {
-    return "ForestGreen";
+    return "#438a4c";
   }
   else {
-    return "Crimson";
+    return "#CA4448";
   }
 }

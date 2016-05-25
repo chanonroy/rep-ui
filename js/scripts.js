@@ -62,23 +62,38 @@ $('#addPlayer').click(function() {
          else { localTwitterLikes.unshift(0); }
        }
 
-       // dom injection for storage (functions from calc.js)
-       $('#team').append(
-            '<div id="' + name + '" class="team-player">' +
-            '<span> -- </span>' +
-            '<span> <div> <img src="img/brand-small.png">' + name + '</div> <div> <i style="color:' + statusChecker(twitchGreen, twitchRed) + '" class="fa fa-twitch fa-fw"></i> <i style="color:' + statusChecker(youtubeGreen, youtubeRed) + '"class="fa fa-youtube-play fa-fw"></i> <i style="color:' + statusChecker(twitterGreen, twitterRed) + '"class="fa fa-twitter fa-fw"></i></div></span>' +
-            '<span>' + numberWithCommas(totalViews) + '</span>' +
-            '<span>' + numberWithCommas(maxFollowers) + '</span>' +
-            '<span> <button class="remove"> x </button> </span>' +
-            '<span class="hidden viewsData">' + localTwitchViews + '</span>' +
-            '<span class="hidden followerData">' + localTwitchFollowers + '</span>' +
-            '<span class="hidden youtubeViewData">' + localYoutubeViews + '</span>' +
-            '<span class="hidden youtubeSubData">' + localYouTubeSubs + '</span>' +
-            '<span class="hidden twitterFollowData">' + localTwitterFollowers + '</span>' +
-            '<span class="hidden twitterLikeData">' + localTwitterLikes + '</span>' +
-            '</div>');
+       function appendAndUpdate(photo) {
+         // dom injection for storage (functions from calc.js)
+         $('#team').append(
+              '<div id="' + name + '" class="team-player">' +
+              '<span> -- </span>' +
+              '<span> <div> <img src="' + photo + '">' + name + '</div> <div> <i style="color:' + statusChecker(twitchGreen, twitchRed) + '" class="fa fa-twitch fa-fw"></i> <i style="color:' + statusChecker(youtubeGreen, youtubeRed) + '"class="fa fa-youtube-play fa-fw"></i> <i style="color:' + statusChecker(twitterGreen, twitterRed) + '"class="fa fa-twitter fa-fw"></i></div></span>' +
+              '<span>' + numberWithCommas(totalViews) + '</span>' +
+              '<span>' + numberWithCommas(maxFollowers) + '</span>' +
+              '<span> <button class="remove"> x </button> </span>' +
+              '<span class="hidden viewsData">' + localTwitchViews + '</span>' +
+              '<span class="hidden followerData">' + localTwitchFollowers + '</span>' +
+              '<span class="hidden youtubeViewData">' + localYoutubeViews + '</span>' +
+              '<span class="hidden youtubeSubData">' + localYouTubeSubs + '</span>' +
+              '<span class="hidden twitterFollowData">' + localTwitterFollowers + '</span>' +
+              '<span class="hidden twitterLikeData">' + localTwitterLikes + '</span>' +
+              '</div>');
+              
+              update(name);
+        }
 
-        update(name);
+       // gets twitch photo (async)
+       function twitchPhoto(name) {
+         console.log("function on");
+         $.getJSON( "https://api.twitch.tv/kraken/users/" + name, function( data ) {
+       	   var twitchDisplay = data.logo;
+           console.log(twitchDisplay);
+           appendAndUpdate(twitchDisplay);
+         });
+       }
+
+        // grabs twitch profile photo from Twitch API (function from calc.js)
+        twitchPhoto(name);
 
      } // -- success
   }); // -- ajax
