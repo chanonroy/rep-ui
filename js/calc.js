@@ -8,8 +8,6 @@ var rounding = function(x, decimal=1) {
   return x.toFixed(decimal).toString();
 };
 
-
-
 // Calculates the percentage change in a data array
 function percentChange(data) {
   var totalViews = data[data.length - 1];
