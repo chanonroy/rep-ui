@@ -4,6 +4,9 @@ var options1 = {
       scales: {
         yAxes: [{
           display: true,
+          ticks: {
+            callback: function(value) { return numberWithCommas(value); },
+          },
         }],
         xAxes: [{
           gridLines: { display: false },
