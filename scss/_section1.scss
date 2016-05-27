@@ -4,7 +4,7 @@
   background-color: white;
   border-bottom: 4px solid $borderColor;
   width: 100%;
-  margin: 5px 5px;
+  margin: 5px 0;
   padding: 15px;
   @include border-radius(5px);
 }
@@ -30,15 +30,15 @@
   text-align: right;
   span {
     border-bottom: 2px solid $borderColor;
-    background-color: rgb(182, 65, 61);
+    background-color: rgb(61, 142, 182);
     color: white;
-    padding: 5px 20px;
+    padding: 10px 20px;
     margin-left: 5px;
     @include border-radius(5px);
     @include transition(all 0.4s ease);
   }
   span:hover {
-    background-color: darken(rgb(182, 65, 61), 10%);
+    background-color: darken(rgb(61, 142, 182), 10%);
   }
 }
 

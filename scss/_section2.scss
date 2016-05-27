@@ -4,17 +4,22 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .chart2 {
   display: flex;
   flex-wrap: wrap;
 
+  $numPerRow: 3;
+  $margin: 0.5%;
+
+  width: ((100% - (($numPerRow - 1) * $margin)) / $numPerRow);
+
   background-color: white;
   border-bottom: 4px solid $borderColor;
-  width: 32.7%;
-  margin: 0.3% 0.3%;
+  // width: 30%;
+  margin-bottom: 0.5%;
   padding: 12px;
 
   @media (max-width: 1200px) {
