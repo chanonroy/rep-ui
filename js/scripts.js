@@ -4,15 +4,15 @@
   getDate();
 
   // produce default bigChart on page load (generalFunctions.js)
-  makeBigChart(emptyData, dateDefault);
+  makeBigChart(emptyData, chartDateRange);
 
   // make smaller charts, params = selector, background, border (generalFunctions.js)
-  makeChart('box1', emptyData, dateDefault, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
-  makeChart('box2', emptyData, dateDefault, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
-  makeChart('box3', emptyData, dateDefault, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
-  makeChart('box4', emptyData, dateDefault, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
-  makeChart('box5', emptyData, dateDefault, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
-  makeChart('box6', emptyData, dateDefault, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
+  makeChart('box1', emptyData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
+  makeChart('box2', emptyData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
+  makeChart('box3', emptyData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
+  makeChart('box4', emptyData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
+  makeChart('box5', emptyData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
+  makeChart('box6', emptyData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
 
 // ------------------------------ BUTTONS --------------------------------------
 
@@ -96,6 +96,7 @@
               '<span class="hidden twitterLikeData">' + localTwitterLikes + '</span>' +
               '</div>');
 
+              // recalculates global container values and redraws the charts (generalfunctions.js)
               update(name);
           }
 
@@ -125,5 +126,3 @@
 
     $('#' + name).remove();
   });
-
-  
