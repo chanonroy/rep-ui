@@ -96,12 +96,20 @@
             </div>
 
             <div class="chart1-buttons">
-                <span class="button"> Streamer </span><span class="button"> Platform </span><span class="button"> Combined </span>
+                <button id="chart1-streamer" class="button"> Streamer </button><button id="chart1-platform" class="button"> Platform </button><button id="chart1-combined" class="button"> Combined </button>
             </div>
 
+            <!-- Big Chart DIV Containers -->
             <div id="bigChartContainer" class="chart1-chart">
                 <canvas id="bigChart" width="170" height="40"></canvas>
             </div>
+            <div id="bigChartContainer2" class="chart1-chart">
+                <canvas id="bigChart2" width="170" height="40"></canvas>
+            </div>
+            <div id="bigChartContainer3" class="chart1-chart">
+                <canvas id="bigChart3" width="170" height="40"></canvas>
+            </div>
+
         </div>
 
         <!-- SECTION 2 (SIX SMALL CHARTS)-->
@@ -255,8 +263,9 @@
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.2/Chart.min.js"></script>
     <script src="js/globalVars.js"></script>
-    <script src="js/generalFunctions.js"></script>
     <script src="js/chartOptions.js"></script>
+    <script src="js/generalFunctions.js"></script>
+    <script src="js/chartFunctions.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 

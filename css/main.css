@@ -235,28 +235,17 @@
   height: 20%;
   width: 50%;
   text-align: right; }
-  .chart1-buttons span {
-    border-bottom: 2px solid lightgrey;
-    background-color: #3d8eb6;
-    color: white;
-    padding: 10px 20px;
-    margin-left: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease; }
-  .chart1-buttons span:hover {
-    background-color: #307090; }
 
 .chart1-chart {
   padding-top: 20px;
   height: 80%;
   width: 100%; }
+
+#bigChartContainer2 {
+  display: none; }
+
+#bigChartContainer3 {
+  display: none; }
 
 #section2 {
   margin-top: 10px;
@@ -446,5 +435,25 @@ body {
   padding-left: 270px;
   padding-right: 15px;
   padding-top: 15px; }
+
+.button {
+  border: none;
+  border-bottom: 2px solid lightgrey;
+  background-color: #3d8eb6;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+
+.button:hover {
+  background-color: #307090; }
 
 /*# sourceMappingURL=main.css.map */

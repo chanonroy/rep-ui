@@ -80,7 +80,7 @@
          }
 
          function appendAndUpdate(photo) {
-           // dom injection for storage (functions from generalFunctions.js)
+           // dom injection for storage (callback from twitchPhoto())
            $('#team').append(
               '<div id="' + name + '" class="team-player">' +
               '<span> -- </span>' +
@@ -120,9 +120,25 @@
   // [ ** BUTTON ** ]  - REMOVE PLAYER
   $('#team').on('click', '.remove', function() {
   	var name = $(this).parent().parent().attr('id');
-
-    // remove player and recalculate (generalFunctions.js)
-    removePlayer(name);
-
+    removePlayer(name);// remove player and recalculate (generalFunctions.js)
     $('#' + name).remove();
+  });
+
+  // [ ** BUTTON ** ]  - BIG CHART TABS
+  $("#chart1-streamer").click(function(){
+	  $("#bigChartContainer").hide();
+    $("#bigChartContainer3").hide();
+	  $("#bigChartContainer2").show();
+  });
+
+  $("#chart1-platform").click(function(){
+  	 $("#bigChartContainer").hide();
+     $("#bigChartContainer2").hide();
+  	 $("#bigChartContainer3").show();
+  });
+
+  $("#chart1-combined").click(function(){
+  	 $("#bigChartContainer3").hide();
+     $("#bigChartContainer2").hide();
+  	 $("#bigChartContainer").show();
   });

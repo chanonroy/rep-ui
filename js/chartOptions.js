@@ -29,3 +29,24 @@ var options2 = {
       },
       legend: {display: false}
     };
+
+// Options 3 for Stacked Big Chart
+var options3 = {
+  scales: {
+    xAxes: [{
+      stacked: true,
+    }],
+    yAxes: [{
+      stacked: true
+    }]
+  },
+  tooltips: {
+  	mode: 'label',
+    xPadding: 10,
+    yPadding: 7,
+    titleSpacing: 5,
+    },
+  legend: {
+    display: false
+  },
+};
