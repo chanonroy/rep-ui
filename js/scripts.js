@@ -3,8 +3,13 @@
   // fills global date variable for last 30 days (generalFunctions.js)
   getDate();
 
+  var emptyDataset = [dataSetGen("Views", "rgba(32, 162, 219, 0.5)", "rgb(88, 167, 210)", "white", 4, emptyData), dataSetGen("Views 2", "rgba(219, 32, 32, 0.5)", "rgb(222, 116, 30)", "white", 4, emptyData)];
   // produce default bigChart on page load (generalFunctions.js)
-  makeBigChart(emptyData, chartDateRange);
+  makeBigChart(
+    dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, emptyData),
+    emptyDataset,
+    dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, emptyData),
+    chartDateRange);
 
   // make smaller charts, params = selector, background, border (generalFunctions.js)
   makeChart('box1', emptyData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");

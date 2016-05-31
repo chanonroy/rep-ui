@@ -35,9 +35,17 @@ var options3 = {
   scales: {
     xAxes: [{
       stacked: true,
+      gridLines: { display: false },
+      ticks: {
+        maxTicksLimit: 12, /* maximum labels */
+        maxRotation: 0,
+      },
     }],
     yAxes: [{
-      stacked: true
+      stacked: true,
+      ticks: {
+        callback: function(value) { return numberWithCommas(value); },
+      },
     }]
   },
   tooltips: {

@@ -456,4 +456,8 @@ body {
 .button:hover {
   background-color: #307090; }
 
+*:focus {
+  /* Gets rid of blue line around input */
+  outline: none; }
+
 /*# sourceMappingURL=main.css.map */

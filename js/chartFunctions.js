@@ -22,8 +22,7 @@ function dataSetGen(label, fill, border, color2, radius, dataPack) {
 // ----------------------- Chart Creations (Chart.js) --------------------------
 
 // Function to create the big chart (section 1)
-function makeBigChart(data, labels) {
-
+function makeBigChart(data1, data2, data3, labels) {
   // Step 1 - Remove previous chart and redefine selector
   $('#bigChart').replaceWith('<canvas id="bigChart" width="170" height="40"></canvas>'); // this is the <canvas> element
   $('#bigChart2').replaceWith('<canvas id="bigChart2" width="170" height="40"></canvas>');
@@ -36,20 +35,20 @@ function makeBigChart(data, labels) {
   // Step 2 - Define Chart.js LABELS and DATASET
   var combinedData = {
       labels: labels,
-      datasets: [ dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, data),]
+      datasets: [ data1, ]
   };
   var streamerData = {
       labels: labels,
-      datasets: [ dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, data),]
+      datasets: data2
   };
   var platformData = {
       labels: labels,
-      datasets: [ dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, data),]
+      datasets: [ data3,]
   };
 
   // Step 3 - Create chart.js line chart with data and options
   var chart1 = new Chart(selectNew, { type: 'line', data: combinedData, options: options1, });
-  var chart2 = new Chart(selectNew2, { type: 'line', data: streamerData, options: options1, });
+  var chart2 = new Chart(selectNew2, { type: 'line', data: streamerData, options: options3, });
   var chart3 = new Chart(selectNew3, { type: 'line', data: platformData, options: options1, });
 
 } // -- func MakeBigChart
@@ -100,6 +99,10 @@ function update(name) {
 
         localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
       }
+
+    // localTotalReach turn into datasetContainer (for stacked graphs)
+    // Color selection should be done elsewhere. (for loop)
+    datasetContainer.push(dataSetGen(name, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, localTotalReach));
 
     // if global is empty, set global to new. Otherwise, update.
     if (twitchViews.length === 0){
@@ -170,6 +173,10 @@ function removePlayer(name) {
 
     localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];            // calculate totalReach
   }
+
+  // Remove from the global stacked dataset container
+  var index = datasetContainer.map(function(x) { return x.label; }).indexOf(name);
+  datasetContainer.splice(index, 1);
 
   // update each global container
   for (var x = 0; x < twitchViews.length; x++) {
