@@ -12,12 +12,18 @@ function dataSetGen(label, fill, border, color2, radius, dataPack) {
   pointBorderColor: border,
   pointBackgroundColor: "white",
   pointHoverBackgroundColor: color2,
-  pointHoverBorderColor: color2,
+  pointHoverBorderColor: "white",
   pointHitRadius: radius * 10,
   pointRadius: radius,
   data: dataPack,
 };
 }
+
+var emptyDataset = [
+  dataSetGen("Variable1", "rgba(131, 190, 215, 1)", "rgb(69, 133, 167)", "rgb(88, 167, 210)", 3, emptyData),
+  dataSetGen("Variable2", "rgba(224, 96, 79, 1)", "rgb(167, 39, 12)", "rgb(167, 39, 12)", 3, emptyData),
+  dataSetGen("Variable3", "rgba(122, 200, 120, 1)", "rgb(55, 128, 53)", "rgb(68, 158, 66)", 3, emptyData)
+];
 
 // ----------------------- Chart Creations (Chart.js) --------------------------
 
@@ -43,13 +49,13 @@ function makeBigChart(data1, data2, data3, labels) {
   };
   var platformData = {
       labels: labels,
-      datasets: [ data3,]
+      datasets: data3
   };
 
   // Step 3 - Create chart.js line chart with data and options
   var chart1 = new Chart(selectNew, { type: 'line', data: combinedData, options: options1, });
   var chart2 = new Chart(selectNew2, { type: 'line', data: streamerData, options: options3, });
-  var chart3 = new Chart(selectNew3, { type: 'line', data: platformData, options: options1, });
+  var chart3 = new Chart(selectNew3, { type: 'line', data: platformData, options: options3, });
 
 } // -- func MakeBigChart
 
