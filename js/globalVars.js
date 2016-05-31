@@ -18,8 +18,9 @@
   // Total Reach
   var totalReach = [];
 
-  // Data Set Container (chart.js stacked)
+  // Data Set Containers (chart.js stacked)
   var datasetContainer = [];
+  var datasetPlatform = [];
 
 // default big chart values
   var emptyData = [1000, 2500, 3000, 3250, 4000, 4500,

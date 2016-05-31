@@ -20,9 +20,9 @@ function dataSetGen(label, fill, border, color2, radius, dataPack) {
 }
 
 var emptyDataset = [
-  dataSetGen("Variable1", "rgba(131, 190, 215, 1)", "rgb(69, 133, 167)", "rgb(88, 167, 210)", 3, emptyData),
-  dataSetGen("Variable2", "rgba(224, 96, 79, 1)", "rgb(167, 39, 12)", "rgb(167, 39, 12)", 3, emptyData),
-  dataSetGen("Variable3", "rgba(122, 200, 120, 1)", "rgb(55, 128, 53)", "rgb(68, 158, 66)", 3, emptyData)
+  dataSetGen("Variable1", "rgba(131, 190, 215, 1)", "rgb(69, 133, 167)", "rgb(88, 167, 210)", 2, emptyData),
+  dataSetGen("Variable2", "rgba(224, 96, 79, 1)", "rgb(167, 39, 12)", "rgb(167, 39, 12)", 2, emptyData),
+  dataSetGen("Variable3", "rgba(122, 200, 120, 1)", "rgb(55, 128, 53)", "rgb(68, 158, 66)", 2, emptyData)
 ];
 
 // ----------------------- Chart Creations (Chart.js) --------------------------
@@ -107,8 +107,7 @@ function update(name) {
       }
 
     // localTotalReach turn into datasetContainer (for stacked graphs)
-    // Color selection should be done elsewhere. (for loop)
-    datasetContainer.push(dataSetGen(name, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, localTotalReach));
+    datasetContainer.push(dataSetGen(name, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 2, localTotalReach));
 
     // if global is empty, set global to new. Otherwise, update.
     if (twitchViews.length === 0){
@@ -131,6 +130,13 @@ function update(name) {
         }
     }
 
+    // clear datasetPlatform, run func assigned to total reach
+    datasetPlatform.splice(0,2);
+    datasetPlatform.push(
+      dataSetGen("Twitch", "rgb(101, 83, 135)", "rgba(100, 65, 165, 1)", "white", 2, twitchViews),
+      dataSetGen("YouTube", "rgba(222, 81, 62, 1)", "rgb(167, 39, 12)", "white", 2, youtubeViews)
+    );
+
     // Update the labels from the global variable containers
     $('#totalMonthlyReach').empty().append(numberWithCommas(totalReach[totalReach.length - 1] - totalReach[0]));
     $('#twitchMonthlyViews').empty().append(numberWithCommas(twitchViews[twitchViews.length - 1] - twitchViews[0]));
@@ -145,7 +151,12 @@ function update(name) {
     $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
 
     // update Chart.js and the display div
-    makeBigChart(totalReach, chartDateRange);
+    makeBigChart(
+      dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, totalReach), // combined
+      datasetContainer, // streamer breakdown
+      datasetPlatform,  // platform breakdown
+      chartDateRange  // global date container
+    );
 
     makeChart('box1', twitchViews, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
     makeChart('box2', youtubeViews, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
@@ -195,7 +206,21 @@ function removePlayer(name) {
     totalReach[x] = totalReach[x] - localTotalReach[x];
   }
 
-  makeBigChart(totalReach, chartDateRange);
+  // clear datasetPlatform, run func assigned to total reach
+  datasetPlatform.splice(0,2);
+  datasetPlatform.push(
+    dataSetGen("Twitch", "rgb(101, 83, 135)", "rgba(100, 65, 165, 1)", "white", 2, twitchViews),
+    dataSetGen("YouTube", "rgba(222, 81, 62, 1)", "rgb(167, 39, 12)", "white", 2, youtubeViews)
+  );
+
+  // update Chart.js and the display div
+  makeBigChart(
+    dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, totalReach), // combined
+    datasetContainer, // streamer breakdown
+    datasetPlatform,  // platform breakdown
+    chartDateRange  // global date container
+  );
+
   makeChart('box1', twitchViews, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
   makeChart('box2', youtubeViews, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
   makeChart('box3', twitterFollowers, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
