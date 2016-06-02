@@ -20,9 +20,9 @@ function dataSetGen(label, fill, border, color2, radius, dataPack) {
 }
 
 var emptyDataset = [
-  dataSetGen("Variable1", "rgba(131, 190, 215, 1)", "rgb(69, 133, 167)", "rgb(88, 167, 210)", 2, emptyData),
-  dataSetGen("Variable2", "rgba(224, 96, 79, 1)", "rgb(167, 39, 12)", "rgb(167, 39, 12)", 2, emptyData),
-  dataSetGen("Variable3", "rgba(122, 200, 120, 1)", "rgb(55, 128, 53)", "rgb(68, 158, 66)", 2, emptyData)
+  dataSetGen("Variable1", "rgba(131, 190, 215, 0.8)", "rgba(131, 190, 215, 0.8)", "rgba(131, 190, 215, 1)", 2, emptyData),
+  dataSetGen("Variable2", "rgba(224, 96, 79, 0.8)", "rgba(224, 96, 79, 0.8)", "rgba(224, 96, 79, 1)", 2, emptyData),
+  dataSetGen("Variable3", "rgba(122, 200, 120, 0.8)", "rgba(122, 200, 120, 0.8)", "rgba(122, 200, 120, 1)", 2, emptyData)
 ];
 
 // ----------------------- Chart Creations (Chart.js) --------------------------
@@ -54,8 +54,8 @@ function makeBigChart(data1, data2, data3, labels) {
 
   // Step 3 - Create chart.js line chart with data and options
   var chart1 = new Chart(selectNew, { type: 'line', data: combinedData, options: options1, });
-  var chart2 = new Chart(selectNew2, { type: 'line', data: streamerData, options: options3, });
-  var chart3 = new Chart(selectNew3, { type: 'line', data: platformData, options: options3, });
+  var chart2 = new Chart(selectNew2, { type: 'bar', data: streamerData, options: options4, });
+  var chart3 = new Chart(selectNew3, { type: 'bar', data: platformData, options: options4, });
 
 } // -- func MakeBigChart
 
@@ -106,8 +106,18 @@ function update(name) {
         localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
       }
 
+    // localTotalReach turn into datasetContainer (for stacked bar chart) - INCLUDES, random color selector
+    if (globalChartColors.length === 0) {
+      globalChartColors.unshift("15, 88, 121", "231, 148, 54", "146, 199, 121", "131, 140, 201", "141, 213, 214", "185, 134, 217", "250, 208, 92", "122, 200, 120", "224, 96, 79", "131, 190, 215");
+      var setColor1 = globalChartColors.pop();
+      datasetContainer.push(dataSetGen(name, "rgba(" + setColor1 + ", 0.8)", "rgba(" + setColor1 + ", 1)", "white", 2, localTotalReach));
+    } else {
+      var setColor2 = globalChartColors.pop();
+      datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, localTotalReach));
+    }
+
     // localTotalReach turn into datasetContainer (for stacked graphs)
-    datasetContainer.push(dataSetGen(name, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 2, localTotalReach));
+    // datasetContainer.push(dataSetGen(name, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 2, localTotalReach));
 
     // if global is empty, set global to new. Otherwise, update.
     if (twitchViews.length === 0){
@@ -133,8 +143,8 @@ function update(name) {
     // clear datasetPlatform, run func assigned to total reach
     datasetPlatform.splice(0,2);
     datasetPlatform.push(
-      dataSetGen("Twitch", "rgb(101, 83, 135)", "rgba(100, 65, 165, 1)", "white", 2, twitchViews),
-      dataSetGen("YouTube", "rgba(222, 81, 62, 1)", "rgb(167, 39, 12)", "white", 2, youtubeViews)
+      dataSetGen("Twitch", "rgba(101, 83, 135, 0.8)", "rgba(100, 65, 165, 1)", "white", 2, twitchViews),
+      dataSetGen("YouTube", "rgba(224, 96, 79, 0.8)", "rgb(167, 39, 12)", "white", 2, youtubeViews)
     );
 
     // Update the labels from the global variable containers

@@ -58,3 +58,23 @@ var options3 = {
     display: false
   },
 };
+
+// Options 4 for Stacked BAR Chart
+var options4 = {
+     		tooltips: {
+					mode: 'label',
+         },
+        scales: {
+          xAxes: [{ stacked: true, gridLines: { display: false }, ticks: {
+            maxTicksLimit: 12, /* maximum labels */
+            maxRotation: 0,
+          },}],
+          yAxes: [{
+            stacked: true,
+            ticks: {
+              callback: function(value) { return numberWithCommas(value); },
+            },
+          }],
+        }, // scales
+        legend: {display: false}
+    };
