@@ -85,7 +85,7 @@ function makeChart(selector, data, labels, background, border) {
 // Function to update chart and calculations when a streamer is added
 function update(name) {
 
-    // jQuery DOM selection - STRING ARRAY
+    // jQuery DOM selection - STRING ARRAY (31 elements)
     var localTwitchViews = $('#' + name).find('.viewsData').text().split(',');
     var localTwitchFollowers = $('#' + name).find('.followerData').text().split(',');
     var localYoutubeViews = $('#' + name).find('.youtubeViewData').text().split(',');
@@ -94,7 +94,7 @@ function update(name) {
     var localTwitterLikes = $('#' + name).find('.twitterLikeData').text().split(',');
     var localTotalReach = [];
 
-    // turn into INT ARRAY
+    // turn into INT ARRAY (31 elements)
     for (var i = 0; i < localTwitchViews.length; i++) {
         localTwitchViews[i] = parseInt(localTwitchViews[i], 10);
         localTwitchFollowers[i] = parseInt(localTwitchFollowers[i], 10);
@@ -104,40 +104,46 @@ function update(name) {
         localTwitterLikes[i] = parseInt(localTwitterLikes[i], 10);
 
         localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
+
       }
 
-    // localTotalReach turn into datasetContainer (for stacked bar chart) - INCLUDES, random color selector
+    // if global is empty, set global to new. Otherwise, update. [Cut objects to 30 objects]
+    if (twitchViews.length === 0){
+      for (var x = 1; x < localTwitchViews.length; x++) {
+        twitchViews[x - 1] = localTwitchViews[x];
+        twitchFollowers[x - 1] = localTwitchFollowers[x];
+        youtubeViews[x - 1] = localYoutubeViews[x];
+        youtubeSubs[x - 1] = localYouTubeSubs[x];
+        twitterFollowers[x - 1] = localTwitterFollowers[x];
+        twitterLikes[x - 1] = localTwitterLikes[x];
+        totalReach[x - 1] = localTotalReach[x];
+        totalReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // calculate change (this is the reason for 31 objects)
+      }
+    } else {
+      // Update global with local (ignore first from local)
+      for (var n = 1; n < localTwitchViews.length; n++) {
+        twitchViews[n - 1] = twitchViews[n - 1] + localTwitchViews[n];
+        twitchFollowers[n - 1] = twitchFollowers[n - 1] + localTwitchFollowers[n];
+        youtubeViews[n - 1] = youtubeViews[n - 1] + localYoutubeViews[n];
+        youtubeSubs[n - 1] = youtubeSubs[n - 1] + localYouTubeSubs[n];
+        twitterFollowers[n - 1] = twitterFollowers[n - 1] + localTwitterFollowers[n];
+        twitterLikes[n - 1] = twitterLikes[n - 1] + localTwitterLikes[n];
+        totalReach[n - 1] = totalReach[n - 1] + localTotalReach[n];
+      }
+      // Do calculation of change AFTER totalReach is updated
+      for (var c = 1; c < localTwitchViews.length; c++) {
+        totalReachChange[c - 1] = totalReachChange[c - 1] + (localTotalReach[c] - localTotalReach[c - 1]); // calculate change (this is the reason for 31 objects)
+      }
+    } // -- else
+
+    // RANDOM COLOR SELECTOR - localTotalReach turn into datasetContainer (for stacked bar chart)
     if (globalChartColors.length === 0) {
       globalChartColors.unshift("15, 88, 121", "231, 148, 54", "146, 199, 121", "131, 140, 201", "141, 213, 214", "185, 134, 217", "250, 208, 92", "122, 200, 120", "224, 96, 79", "131, 190, 215");
       var setColor1 = globalChartColors.pop();
-      datasetContainer.push(dataSetGen(name, "rgba(" + setColor1 + ", 0.8)", "rgba(" + setColor1 + ", 1)", "white", 2, localTotalReach));
+      datasetContainer.push(dataSetGen(name, "rgba(" + setColor1 + ", 0.8)", "rgba(" + setColor1 + ", 1)", "white", 2, totalReachChange));
     } else {
       var setColor2 = globalChartColors.pop();
-      datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, localTotalReach));
-    }
-
-    // localTotalReach turn into datasetContainer (for stacked graphs)
-    // datasetContainer.push(dataSetGen(name, "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 2, localTotalReach));
-
-    // if global is empty, set global to new. Otherwise, update.
-    if (twitchViews.length === 0){
-      twitchViews = localTwitchViews;
-      twitchFollowers = localTwitchFollowers;
-      youtubeViews = localYoutubeViews;
-      youtubeSubs = localYouTubeSubs;
-      twitterFollowers = localTwitterFollowers;
-      twitterLikes = localTwitterLikes;
-      totalReach = localTotalReach;
-    } else {
-      for (var x = 0; x < twitchViews.length; x++) {
-          twitchViews[x] = twitchViews[x] + localTwitchViews[x];
-          twitchFollowers[x] = twitchFollowers[x] + localTwitchFollowers[x];
-          youtubeViews[x] = youtubeViews[x] + localYoutubeViews[x];
-          youtubeSubs[x] = youtubeSubs[x] + localYouTubeSubs[x];
-          twitterFollowers[x] = twitterFollowers[x] + localTwitterFollowers[x];
-          twitterLikes[x] = twitterLikes[x] + localTwitterLikes[x];
-          totalReach[x] = totalReach[x] + localTotalReach[x];
-        }
+      datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, totalReachChange));
     }
 
     // clear datasetPlatform, run func assigned to total reach
@@ -206,14 +212,18 @@ function removePlayer(name) {
   datasetContainer.splice(index, 1);
 
   // update each global container
-  for (var x = 0; x < twitchViews.length; x++) {
-    twitchViews[x] = twitchViews[x] - localTwitchViews[x];
-    twitchFollowers[x] = twitchFollowers[x] - localTwitchFollowers[x];
-    youtubeViews[x] = youtubeViews[x] - localYoutubeViews[x];
-    youtubeSubs[x] = youtubeSubs[x] - localYouTubeSubs[x];
-    twitterFollowers[x] = twitterFollowers[x] - localTwitterFollowers[x];
-    twitterLikes[x] = twitterLikes[x] - localTwitterLikes[x];
-    totalReach[x] = totalReach[x] - localTotalReach[x];
+  for (var x = 1; x < twitchViews.length; x++) {
+    twitchViews[x - 1] = twitchViews[x - 1] - localTwitchViews[x];
+    twitchFollowers[x - 1] = twitchFollowers[x - 1] - localTwitchFollowers[x];
+    youtubeViews[x - 1] = youtubeViews[x - 1] - localYoutubeViews[x];
+    youtubeSubs[x - 1] = youtubeSubs[x - 1] - localYouTubeSubs[x];
+    twitterFollowers[x - 1] = twitterFollowers[x - 1] - localTwitterFollowers[x];
+    twitterLikes[x - 1] = twitterLikes[x - 1] - localTwitterLikes[x];
+    totalReach[x - 1] = totalReach[x - 1] - localTotalReach[x];
+  }
+  // Do calculation of change AFTER totalReach is updated
+  for (var c = 1; c < twitchViews.length; c++) {
+    totalReachChange[c - 1] = totalReachChange[c - 1] - (localTotalReach[c] - localTotalReach[c - 1]);
   }
 
   // clear datasetPlatform, run func assigned to total reach

@@ -25,7 +25,7 @@
     var month = today.getMonth();
     var date = today.getDate();
 
-    for(var i=0; i<30; i++){
+    for(var i=0; i<31; i++){
       var day = new Date(year, month, date - i);
       chartDateRange.unshift(String(day).substring(4,10).replace(/\b0+/g, ''));}
   }

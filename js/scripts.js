@@ -62,7 +62,7 @@
          var twitterGreen = false;
          var twitterRed = false;
 
-         for (var i=0; i < 721; i += 24) { // 24 objects per day, 720 per month
+         for (var i=0; i < 744 + 1; i += 24) { // 24 objects per day, 720 per month
            // Twitch Monthly Views
            if (object.viewsFromMetrics[i] !== undefined) { localTwitchViews.unshift(Number(object.viewsFromMetrics[i].views)); twitchGreen = true;}
            else { localTwitchViews.unshift(0); twitchRed = true;}

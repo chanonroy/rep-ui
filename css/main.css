@@ -47,8 +47,8 @@
   margin: 15px auto;
   text-align: center; }
   .profile img {
-    height: 80px;
-    border: 3px solid white;
+    height: 100px;
+    border: 3px solid lightgrey;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     -ms-border-radius: 100px;
@@ -109,12 +109,6 @@
   display: flex;
   padding: 25px 50px;
   height: 80%; }
-  .profile-bar img {
-    height: 100%;
-    -webkit-border-radius: 75px;
-    -moz-border-radius: 75px;
-    -ms-border-radius: 75px;
-    border-radius: 75px; }
   .profile-bar .profile-info {
     margin-left: 20px;
     height: 100%;

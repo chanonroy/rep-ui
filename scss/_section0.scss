@@ -9,10 +9,6 @@
   display: flex;
   padding: 25px 50px;
   height: 80%;
-  img {
-    height: 100%;
-    @include border-radius(75px);
-  }
   .profile-info {
     margin-left: 20px;
     height: 100%;
