@@ -93,6 +93,7 @@ function update(name) {
     var localTwitterFollowers = $('#' + name).find('.twitterFollowData').text().split(',');
     var localTwitterLikes = $('#' + name).find('.twitterLikeData').text().split(',');
     var localTotalReach = [];
+    var localReachChange = [];
 
     // turn into INT ARRAY (31 elements)
     for (var i = 0; i < localTwitchViews.length; i++) {
@@ -118,6 +119,7 @@ function update(name) {
         twitterLikes[x - 1] = localTwitterLikes[x];
         totalReach[x - 1] = localTotalReach[x];
         totalReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // calculate change (this is the reason for 31 objects)
+        localReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1];
       }
     } else {
       // Update global with local (ignore first from local)
@@ -133,6 +135,7 @@ function update(name) {
       // Do calculation of change AFTER totalReach is updated
       for (var c = 1; c < localTwitchViews.length; c++) {
         totalReachChange[c - 1] = totalReachChange[c - 1] + (localTotalReach[c] - localTotalReach[c - 1]); // calculate change (this is the reason for 31 objects)
+        localReachChange[c - 1] = localTotalReach[c] - localTotalReach[c - 1]; // calculate change (this is the reason for 31 objects)
       }
     } // -- else
 
@@ -140,10 +143,10 @@ function update(name) {
     if (globalChartColors.length === 0) {
       globalChartColors.unshift("15, 88, 121", "231, 148, 54", "146, 199, 121", "131, 140, 201", "141, 213, 214", "185, 134, 217", "250, 208, 92", "122, 200, 120", "224, 96, 79", "131, 190, 215");
       var setColor1 = globalChartColors.pop();
-      datasetContainer.push(dataSetGen(name, "rgba(" + setColor1 + ", 0.8)", "rgba(" + setColor1 + ", 1)", "white", 2, totalReachChange));
+      datasetContainer.push(dataSetGen(name, "rgba(" + setColor1 + ", 0.8)", "rgba(" + setColor1 + ", 1)", "white", 2, localReachChange));
     } else {
       var setColor2 = globalChartColors.pop();
-      datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, totalReachChange));
+      datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, localReachChange));
     }
 
     // clear datasetPlatform, run func assigned to total reach
@@ -212,7 +215,7 @@ function removePlayer(name) {
   datasetContainer.splice(index, 1);
 
   // update each global container
-  for (var x = 1; x < twitchViews.length; x++) {
+  for (var x = 1; x < twitchViews.length + 1; x++) {
     twitchViews[x - 1] = twitchViews[x - 1] - localTwitchViews[x];
     twitchFollowers[x - 1] = twitchFollowers[x - 1] - localTwitchFollowers[x];
     youtubeViews[x - 1] = youtubeViews[x - 1] - localYoutubeViews[x];
