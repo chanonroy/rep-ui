@@ -10,9 +10,12 @@
   padding: 25px 50px;
   height: 80%;
   .profile-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     margin-left: 20px;
     height: 100%;
-    width: 50%;
+    width: 25%;
     h1 {
       margin: 5px 0 10px 0;
       font-weight: 800;
@@ -27,12 +30,12 @@
   }
   .profile-players {
     height: 100%;
-    width: 50%;
+    width: 75%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     img {
-      width: 75px;
+      width: 60px;
       margin: 0 5px;
       @include border-radius(5px);
     }
@@ -62,7 +65,7 @@
     color: white;
     background-color: $sidebarColor;
     border-bottom: 4px solid lighten($sidebarColor, 25%);
-    @include border-radius(15px 15px 0 0);
+    @include border-radius(0px 5px 0 0);
 
     @include transition(all 0.4s ease);
     img {

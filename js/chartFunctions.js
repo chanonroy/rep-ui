@@ -168,6 +168,8 @@ function update(name) {
     $('#youtubeMonthlySubscribersPercent').empty().append(percentChange(youtubeSubs));
     $('#twitterMonthlyFollowers').empty().append(numberWithCommas(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
     $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
+    $('#twitterMonthlyLikes').empty().append(numberWithCommas(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
+    $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
 
     // update Chart.js and the display div
     makeBigChart(
@@ -262,4 +264,6 @@ function removePlayer(name) {
   $('#youtubeMonthlySubscribersPercent').empty().append(percentChange(youtubeSubs));
   $('#twitterMonthlyFollowers').empty().append(numberWithCommas(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
   $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
+  $('#twitterMonthlyLikes').empty().append(numberWithCommas(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
+  $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
 }
