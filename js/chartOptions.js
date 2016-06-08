@@ -18,6 +18,13 @@ var options1 = {
         }],
       },
       legend: {display: false},
+      tooltips: {
+        callbacks: {
+        label: function(tooltipItem, data) {
+          return numberWithCommas(tooltipItem.yLabel) + " views";
+        }
+        }
+      }
     };
 
 // Options for Sub Chart
@@ -27,7 +34,14 @@ var options2 = {
         yAxes: [{ display: false,}],
         xAxes: [{ display: false,}]
       },
-      legend: {display: false}
+      legend: {display: false},
+      tooltips: {
+        callbacks: {
+        label: function(tooltipItem, data) {
+          return numberWithCommas(tooltipItem.yLabel);
+        }
+        }
+      }
     };
 
 // Options 3 for Stacked Big Chart
@@ -63,6 +77,11 @@ var options3 = {
 var options4 = {
      		tooltips: {
 					mode: 'label',
+          callbacks: {
+          label: function(tooltipItem, data) {
+          	return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
+          }
+          }
          },
         scales: {
           xAxes: [{ stacked: true, gridLines: { display: false }, ticks: {
