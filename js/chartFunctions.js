@@ -103,9 +103,7 @@ function update(name) {
         localYouTubeSubs[i] = parseInt(localYouTubeSubs[i], 10);
         localTwitterFollowers[i] = parseInt(localTwitterFollowers[i], 10);
         localTwitterLikes[i] = parseInt(localTwitterLikes[i], 10);
-
         localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
-
       }
 
     // if global is empty, set global to new. Otherwise, update. [Cut objects to 30 objects]
@@ -113,13 +111,15 @@ function update(name) {
       for (var x = 1; x < localTwitchViews.length; x++) {
         twitchViews[x - 1] = localTwitchViews[x];
         twitchFollowers[x - 1] = localTwitchFollowers[x];
+        twitchChange[x - 1] = localTwitchViews[x] - localTwitchViews[x - 1];
         youtubeViews[x - 1] = localYoutubeViews[x];
         youtubeSubs[x - 1] = localYouTubeSubs[x];
+        youtubeChange[x - 1] = localYoutubeViews[x] - localYoutubeViews[x - 1];
         twitterFollowers[x - 1] = localTwitterFollowers[x];
         twitterLikes[x - 1] = localTwitterLikes[x];
         totalReach[x - 1] = localTotalReach[x];
         totalReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // calculate change (this is the reason for 31 objects)
-        localReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1];
+        localReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // need local because EACH streamer has a data set.
       }
     } else {
       // Update global with local (ignore first from local)
@@ -136,6 +136,8 @@ function update(name) {
       for (var c = 1; c < localTwitchViews.length; c++) {
         totalReachChange[c - 1] = totalReachChange[c - 1] + (localTotalReach[c] - localTotalReach[c - 1]); // calculate change (this is the reason for 31 objects)
         localReachChange[c - 1] = localTotalReach[c] - localTotalReach[c - 1]; // calculate change (this is the reason for 31 objects)
+        youtubeChange[c - 1] = youtubeViews[c] - youtubeViews[c - 1];
+        twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
       }
     } // -- else
 
@@ -149,11 +151,13 @@ function update(name) {
       datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, localReachChange));
     }
 
+    console.log(twitchChange);
+
     // clear datasetPlatform, run func assigned to total reach
     datasetPlatform.splice(0,2);
     datasetPlatform.push(
-      dataSetGen("Twitch", "rgba(101, 83, 135, 0.8)", "rgba(100, 65, 165, 1)", "white", 2, twitchViews),
-      dataSetGen("YouTube", "rgba(224, 96, 79, 0.8)", "rgb(167, 39, 12)", "white", 2, youtubeViews)
+      dataSetGen("Twitch", "rgba(101, 83, 135, 0.8)", "rgba(100, 65, 165, 1)", "white", 2, twitchChange),
+      dataSetGen("YouTube", "rgba(224, 96, 79, 0.8)", "rgb(167, 39, 12)", "white", 2, youtubeChange)
     );
 
     // Update the labels from the global variable containers
@@ -229,13 +233,15 @@ function removePlayer(name) {
   // Do calculation of change AFTER totalReach is updated
   for (var c = 1; c < twitchViews.length; c++) {
     totalReachChange[c - 1] = totalReachChange[c - 1] - (localTotalReach[c] - localTotalReach[c - 1]);
+    twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
+    youtubeChange[c - 1] = youtubeViews[c] - youtubeViews[c - 1];
   }
 
   // clear datasetPlatform, run func assigned to total reach
   datasetPlatform.splice(0,2);
   datasetPlatform.push(
-    dataSetGen("Twitch", "rgb(101, 83, 135)", "rgba(100, 65, 165, 1)", "white", 2, twitchViews),
-    dataSetGen("YouTube", "rgba(222, 81, 62, 1)", "rgb(167, 39, 12)", "white", 2, youtubeViews)
+    dataSetGen("Twitch", "rgb(101, 83, 135)", "rgba(100, 65, 165, 1)", "white", 2, twitchChange),
+    dataSetGen("YouTube", "rgba(222, 81, 62, 1)", "rgb(167, 39, 12)", "white", 2, youtubeChange)
   );
 
   // update Chart.js and the display div

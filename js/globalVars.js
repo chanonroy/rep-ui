@@ -19,6 +19,10 @@
   var totalReach = [];
   var totalReachChange = [];
 
+  // Platform Daily Changes
+  var youtubeChange = [];
+  var twitchChange = [];
+
   // Data Set Containers (chart.js stacked)
   var datasetContainer = [];
   var datasetPlatform = [];
