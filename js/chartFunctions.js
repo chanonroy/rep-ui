@@ -92,6 +92,7 @@ function update(name) {
     var localYouTubeSubs = $('#' + name).find('.youtubeSubData').text().split(',');
     var localTwitterFollowers = $('#' + name).find('.twitterFollowData').text().split(',');
     var localTwitterLikes = $('#' + name).find('.twitterLikeData').text().split(',');
+    var localFacebookLikes = $('#' + name).find('.facebookLikeData').text().split(',');
     var localTotalReach = [];
     var localReachChange = [];
 
@@ -103,6 +104,7 @@ function update(name) {
         localYouTubeSubs[i] = parseInt(localYouTubeSubs[i], 10);
         localTwitterFollowers[i] = parseInt(localTwitterFollowers[i], 10);
         localTwitterLikes[i] = parseInt(localTwitterLikes[i], 10);
+        localFacebookLikes[i] = parseInt(localFacebookLikes[i], 10);
         localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
       }
 
@@ -117,6 +119,7 @@ function update(name) {
         youtubeChange[x - 1] = localYoutubeViews[x] - localYoutubeViews[x - 1];
         twitterFollowers[x - 1] = localTwitterFollowers[x];
         twitterLikes[x - 1] = localTwitterLikes[x];
+        facebookLikes[x - 1] = localFacebookLikes[x];
         totalReach[x - 1] = localTotalReach[x];
         totalReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // calculate change (this is the reason for 31 objects)
         localReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // need local because EACH streamer has a data set.
@@ -130,6 +133,7 @@ function update(name) {
         youtubeSubs[n - 1] = youtubeSubs[n - 1] + localYouTubeSubs[n];
         twitterFollowers[n - 1] = twitterFollowers[n - 1] + localTwitterFollowers[n];
         twitterLikes[n - 1] = twitterLikes[n - 1] + localTwitterLikes[n];
+        facebookLikes[n - 1] = facebookLikes[n - 1] + localFacebookLikes[n];
         totalReach[n - 1] = totalReach[n - 1] + localTotalReach[n];
       }
       // Do calculation of change AFTER totalReach is updated
@@ -174,6 +178,8 @@ function update(name) {
     $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
     $('#twitterMonthlyLikes').empty().append(numberWithCommas(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
     $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
+    $('#facebookMonthlyLikes').empty().append(numberWithCommas(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
+    $('#facebookMonthlyLikesPercent').empty().append(percentChange(facebookLikes));
 
     // update Chart.js and the display div
     makeBigChart(
@@ -189,6 +195,7 @@ function update(name) {
     makeChart('box4', twitchFollowers, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
     makeChart('box5', youtubeSubs, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
     makeChart('box6', twitterLikes, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
+    makeChart('box7', facebookLikes, chartDateRange, "rgba(59, 89, 152, 0.4)", "rgba(59, 89, 152, 1)");
 }
 
 
@@ -202,6 +209,7 @@ function removePlayer(name) {
   var localYouTubeSubs = $('#' + name).find('.youtubeSubData').text().split(',');
   var localTwitterFollowers = $('#' + name).find('.twitterFollowData').text().split(',');
   var localTwitterLikes = $('#' + name).find('.twitterLikeData').text().split(',');
+  var localFacebookLikes = $('#' + name).find('.facebookLikeData').text().split(',');
   var localTotalReach = [];
 
   // turn into INT ARRAY
@@ -212,7 +220,7 @@ function removePlayer(name) {
     localYouTubeSubs[i] = parseInt(localYouTubeSubs[i], 10);
     localTwitterFollowers[i] = parseInt(localTwitterFollowers[i], 10);
     localTwitterLikes[i] = parseInt(localTwitterLikes[i], 10);
-
+    localFacebookLikes[i] = parseInt(localFacebookLikes[i], 10);
     localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];            // calculate totalReach
   }
 
@@ -228,6 +236,7 @@ function removePlayer(name) {
     youtubeSubs[x - 1] = youtubeSubs[x - 1] - localYouTubeSubs[x];
     twitterFollowers[x - 1] = twitterFollowers[x - 1] - localTwitterFollowers[x];
     twitterLikes[x - 1] = twitterLikes[x - 1] - localTwitterLikes[x];
+    facebookLikes[x - 1] = facebookLikes[x - 1] = localFacebookLikes[x];
     totalReach[x - 1] = totalReach[x - 1] - localTotalReach[x];
   }
   // Do calculation of change AFTER totalReach is updated
@@ -258,6 +267,7 @@ function removePlayer(name) {
   makeChart('box4', twitchFollowers, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
   makeChart('box5', youtubeSubs, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
   makeChart('box6', twitterLikes, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
+  makeChart('box7', facebookLikes, chartDateRange, "rgba(59, 89, 152, 0.4)", "rgba(59, 89, 152, 1)");
 
   $('#totalMonthlyReach').empty().append(numberWithCommas(totalReach[totalReach.length - 1] - totalReach[0]));
   $('#twitchMonthlyViews').empty().append(numberWithCommas(twitchViews[twitchViews.length - 1] - twitchViews[0]));
@@ -272,4 +282,6 @@ function removePlayer(name) {
   $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
   $('#twitterMonthlyLikes').empty().append(numberWithCommas(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
   $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
+  $('#facebookMonthlyLikes').empty().append(numberWithCommas(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
+  $('#facebookMonthlyLikesPercent').empty().append(percentChange(facebookLikes));
 }

@@ -17,6 +17,7 @@
   makeChart('box4', emptyData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
   makeChart('box5', emptyData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
   makeChart('box6', emptyData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
+  makeChart('box7', emptyData, chartDateRange, "rgba(59, 89, 152, 0.4)", "rgba(59, 89, 152, 1)");
 
 // ------------------------------ BUTTONS --------------------------------------
 
@@ -53,6 +54,7 @@
          var localYouTubeSubs = [];
          var localTwitterFollowers = [];
          var localTwitterLikes = [];
+         var localFacebookLikes = [];
 
          // booleans to check scraping status
          var twitchGreen = false;
@@ -61,6 +63,8 @@
          var youtubeRed = false;
          var twitterGreen = false;
          var twitterRed = false;
+         var facebookGreen = false;
+         var facebookRed = false;
 
          for (var i=0; i < 744 + 1; i += 24) { // 24 objects per day, 720 per month
            // Twitch Monthly Views
@@ -81,6 +85,9 @@
            // Twitter Monthly Likes
            if (object.likesFromTwitter[i] !== undefined) { localTwitterLikes.unshift(Number(object.likesFromTwitter[i].likes)); }
            else { localTwitterLikes.unshift(0); }
+           // Facebook Monthly Likes
+           if (object.likesFromFacebook[i] !== undefined) { localFacebookLikes.unshift(Number(object.likesFromFacebook[i].likes)); facebookGreen = true;}
+           else { localFacebookLikes.unshift(0); facebookRed = true;}
          }
 
          function appendAndUpdate(photo) {
@@ -88,7 +95,7 @@
            $('#team').append(
               '<div id="' + name + '" class="team-player">' +
               '<span> -- </span>' +
-              '<span> <div> <img src="' + photo + '">' + name + '</div> <div> <i style="color:' + statusChecker(twitchGreen, twitchRed) + '" class="fa fa-twitch fa-fw"></i> <i style="color:' + statusChecker(youtubeGreen, youtubeRed) + '"class="fa fa-youtube-play fa-fw"></i> <i style="color:' + statusChecker(twitterGreen, twitterRed) + '"class="fa fa-twitter fa-fw"></i></div></span>' +
+              '<span> <div> <img src="' + photo + '">' + name + '</div> <div> <i style="color:' + statusChecker(twitchGreen, twitchRed) + '" class="fa fa-twitch fa-fw"></i> <i style="color:' + statusChecker(youtubeGreen, youtubeRed) + '"class="fa fa-youtube-play fa-fw"></i> <i style="color:' + statusChecker(twitterGreen, twitterRed) + '"class="fa fa-twitter fa-fw"></i><i style="color:' + statusChecker(facebookGreen, facebookRed) + '"class="fa fa-facebook fa-fw"></i></div></span>' +
               '<span>' + numberWithCommas(totalViews) + '</span>' +
               '<span>' + numberWithCommas(maxFollowers) + '</span>' +
               '<span> <button class="remove"> x </button> </span>' +
@@ -98,6 +105,7 @@
               '<span class="hidden youtubeSubData">' + localYouTubeSubs + '</span>' +
               '<span class="hidden twitterFollowData">' + localTwitterFollowers + '</span>' +
               '<span class="hidden twitterLikeData">' + localTwitterLikes + '</span>' +
+              '<span class="hidden facebookLikeData">' + localFacebookLikes + '</span>' +
               '</div>');
 
               // recalculates global container values and redraws the charts (generalfunctions.js)

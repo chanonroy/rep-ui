@@ -15,6 +15,9 @@
   var twitterFollowers = [];
   var twitterLikes = [];
 
+  // Facebook
+  var facebookLikes = [];
+
   // Total Reach
   var totalReach = [];
   var totalReachChange = [];
