@@ -9,6 +9,7 @@
   display: flex;
   padding: 25px 50px;
   height: 80%;
+  justify-content: space-between; // might want to remove
   .profile-info {
     display: flex;
     justify-content: center;
@@ -28,15 +29,37 @@
       margin-right: 10px;
     }
   }
-  .profile-players {
-    height: 100%;
-    width: 75%;
+  .profile-stats {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-around;
+    height: 100%;
+    width: 60%;
+    // background-color: lightgrey;
+    h1 {
+      font-weight: bold;
+      font-size: 4em;
+      margin: 0;
+    }
+    h4 {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    div {
+      text-align: center;
+    }
+  }
+  .profile-players {
+    padding-top: 25px;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
     img {
-      width: 60px;
-      margin: 0 5px;
+      width: 55px;
+      margin: 0 2px;
       @include border-radius(5px);
     }
   }

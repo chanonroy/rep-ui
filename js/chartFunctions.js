@@ -236,7 +236,7 @@ function removePlayer(name) {
     youtubeSubs[x - 1] = youtubeSubs[x - 1] - localYouTubeSubs[x];
     twitterFollowers[x - 1] = twitterFollowers[x - 1] - localTwitterFollowers[x];
     twitterLikes[x - 1] = twitterLikes[x - 1] - localTwitterLikes[x];
-    facebookLikes[x - 1] = facebookLikes[x - 1] = localFacebookLikes[x];
+    facebookLikes[x - 1] = facebookLikes[x - 1] - localFacebookLikes[x];
     totalReach[x - 1] = totalReach[x - 1] - localTotalReach[x];
   }
   // Do calculation of change AFTER totalReach is updated

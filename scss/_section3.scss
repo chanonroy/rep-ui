@@ -20,20 +20,7 @@
   width: 100%;
   h2 {
     font-weight: 800;
-    margin: 10px 0;
-  }
-  h4 {
-    margin: 10px 0;
-    padding: 10px 15px;
-    // background-color: white;
-    background-color: rgb(228, 134, 47);
-    color: white;
-    border-bottom: 3px solid $borderColor;
-    @include border-radius(5px);
-    @include transition(all 0.3s ease);
-  }
-  h4:hover {
-    background-color: lighten(rgb(228, 134, 47), 10%);
+    margin: 15px 0;
   }
 }
 

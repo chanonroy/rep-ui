@@ -108,7 +108,8 @@
 .profile-bar {
   display: flex;
   padding: 25px 50px;
-  height: 80%; }
+  height: 80%;
+  justify-content: space-between; }
   .profile-bar .profile-info {
     display: flex;
     justify-content: center;
@@ -124,15 +125,32 @@
     .profile-bar .profile-info i {
       margin-left: 5px;
       margin-right: 10px; }
-  .profile-bar .profile-players {
-    height: 100%;
-    width: 75%;
+  .profile-bar .profile-stats {
     display: flex;
     align-items: center;
-    justify-content: flex-end; }
+    justify-content: space-around;
+    height: 100%;
+    width: 60%; }
+    .profile-bar .profile-stats h1 {
+      font-weight: bold;
+      font-size: 4em;
+      margin: 0; }
+    .profile-bar .profile-stats h4 {
+      margin: 0;
+      margin-bottom: 10px; }
+    .profile-bar .profile-stats div {
+      text-align: center; }
+  .profile-bar .profile-players {
+    padding-top: 25px;
+    height: 100%;
+    width: 15%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap; }
     .profile-bar .profile-players img {
-      width: 60px;
-      margin: 0 5px;
+      width: 55px;
+      margin: 0 2px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       -ms-border-radius: 5px;
@@ -319,24 +337,7 @@
   width: 100%; }
   #team-header h2 {
     font-weight: 800;
-    margin: 10px 0; }
-  #team-header h4 {
-    margin: 10px 0;
-    padding: 10px 15px;
-    background-color: #e4862f;
-    color: white;
-    border-bottom: 3px solid lightgrey;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
-  #team-header h4:hover {
-    background-color: #eaa05c; }
+    margin: 15px 0; }
 
 #team-labels {
   display: flex;

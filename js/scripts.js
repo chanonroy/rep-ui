@@ -27,6 +27,7 @@
 
     // remove default streamer placeholder
     $("#team-default").remove();
+    // TODO: need to remove the photo placeholder
 
     // make AJAX get request for streamer in Repable API
     $.ajax({
