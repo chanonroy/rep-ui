@@ -93,7 +93,9 @@ function update(name) {
     var localTwitterFollowers = $('#' + name).find('.twitterFollowData').text().split(',');
     var localTwitterLikes = $('#' + name).find('.twitterLikeData').text().split(',');
     var localFacebookLikes = $('#' + name).find('.facebookLikeData').text().split(',');
-    var localTotalReach = [];
+    var localTotalReach = []; // views
+    var localTotalFans = [];
+    var localTotalLikes = [];
     var localReachChange = [];
 
     // turn into INT ARRAY (31 elements)
@@ -105,7 +107,10 @@ function update(name) {
         localTwitterFollowers[i] = parseInt(localTwitterFollowers[i], 10);
         localTwitterLikes[i] = parseInt(localTwitterLikes[i], 10);
         localFacebookLikes[i] = parseInt(localFacebookLikes[i], 10);
+
         localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
+        // localTotalFans[i] = localTwitchFollowers[i] + localYouTubeSubs[i] + localTwitterFollowers[i];
+        // localTotalLikes[i] = localTwitterLikes[i] + localFacebookLikes[i];
       }
 
     // if global is empty, set global to new. Otherwise, update. [Cut objects to 30 objects]
@@ -121,6 +126,8 @@ function update(name) {
         twitterLikes[x - 1] = localTwitterLikes[x];
         facebookLikes[x - 1] = localFacebookLikes[x];
         totalReach[x - 1] = localTotalReach[x];
+        // totalFans[x - 1] = localTotalFans[x];
+        // totalLikes[x - 1] = localTotalLikes[x];
         totalReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // calculate change (this is the reason for 31 objects)
         localReachChange[x - 1] = localTotalReach[x] - localTotalReach[x - 1]; // need local because EACH streamer has a data set.
       }
@@ -135,6 +142,8 @@ function update(name) {
         twitterLikes[n - 1] = twitterLikes[n - 1] + localTwitterLikes[n];
         facebookLikes[n - 1] = facebookLikes[n - 1] + localFacebookLikes[n];
         totalReach[n - 1] = totalReach[n - 1] + localTotalReach[n];
+        // totalFans[n - 1] = totalFans[n - 1] + localTotalFans[n];
+        // totalLikes[n - 1] = totalLikes[n - 1] + localTotalFans[n];
       }
       // Do calculation of change AFTER totalReach is updated
       for (var c = 1; c < localTwitchViews.length; c++) {
@@ -144,6 +153,11 @@ function update(name) {
         twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
       }
     } // -- else
+
+    // calculate the present total
+    totalViewers[0] = totalReach[totalReach.length - 1];
+    totalFans[0] = twitchFollowers[twitchFollowers.length - 1] + youtubeSubs[youtubeSubs.length - 1] + twitterFollowers[twitterFollowers.length - 1];
+    totalLikes[0] = twitterLikes[twitterLikes.length - 1] + facebookLikes[facebookLikes.length - 1];
 
     // RANDOM COLOR SELECTOR - localTotalReach turn into datasetContainer (for stacked bar chart)
     if (globalChartColors.length === 0) {
@@ -181,6 +195,10 @@ function update(name) {
     $('#facebookMonthlyLikes').empty().append(numberWithCommas(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
     $('#facebookMonthlyLikesPercent').empty().append(percentChange(facebookLikes));
 
+    $('#totalViews').empty().append(toAbbrev(totalViewers));
+    $('#totalFans').empty().append(toAbbrev(totalFans));
+    $('#totalLikes').empty().append(toAbbrev(totalLikes));
+
     // update Chart.js and the display div
     makeBigChart(
       dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, totalReach), // combined
@@ -210,7 +228,11 @@ function removePlayer(name) {
   var localTwitterFollowers = $('#' + name).find('.twitterFollowData').text().split(',');
   var localTwitterLikes = $('#' + name).find('.twitterLikeData').text().split(',');
   var localFacebookLikes = $('#' + name).find('.facebookLikeData').text().split(',');
-  var localTotalReach = [];
+
+  var localTotalReach = []; // views
+  var localTotalFans = [];
+  var localTotalLikes = [];
+  var localReachChange = [];
 
   // turn into INT ARRAY
   for (var i = 0; i < localTwitchViews.length; i++) {
@@ -221,7 +243,10 @@ function removePlayer(name) {
     localTwitterFollowers[i] = parseInt(localTwitterFollowers[i], 10);
     localTwitterLikes[i] = parseInt(localTwitterLikes[i], 10);
     localFacebookLikes[i] = parseInt(localFacebookLikes[i], 10);
-    localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];            // calculate totalReach
+
+    localTotalReach[i] = localTwitchViews[i] + localYoutubeViews[i];        // calculate totalReach
+    // localTotalFans[i] = localTwitchFollowers[i] + localYouTubeSubs[i] + localTwitterFollowers[i];
+    // localTotalLikes[i] = localTwitterLikes[i] + localFacebookLikes[i];
   }
 
   // Remove from the global stacked dataset container
@@ -238,13 +263,21 @@ function removePlayer(name) {
     twitterLikes[x - 1] = twitterLikes[x - 1] - localTwitterLikes[x];
     facebookLikes[x - 1] = facebookLikes[x - 1] - localFacebookLikes[x];
     totalReach[x - 1] = totalReach[x - 1] - localTotalReach[x];
+    // totalFans[x - 1] = totalFans[x - 1] + localTotalFans[x];
+    // totalLikes[x - 1] = totalLikes[x - 1] + localTotalFans[x];
   }
+
   // Do calculation of change AFTER totalReach is updated
   for (var c = 1; c < twitchViews.length; c++) {
     totalReachChange[c - 1] = totalReachChange[c - 1] - (localTotalReach[c] - localTotalReach[c - 1]);
     twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
     youtubeChange[c - 1] = youtubeViews[c] - youtubeViews[c - 1];
   }
+
+  // calculate the present total
+  totalViewers[0] = totalReach[totalReach.length - 1];
+  totalFans[0] = twitchFollowers[twitchFollowers.length - 1] + youtubeSubs[youtubeSubs.length - 1] + twitterFollowers[twitterFollowers.length - 1];
+  totalLikes[0] = twitterLikes[twitterLikes.length - 1] + facebookLikes[facebookLikes.length - 1];
 
   // clear datasetPlatform, run func assigned to total reach
   datasetPlatform.splice(0,2);
@@ -284,4 +317,8 @@ function removePlayer(name) {
   $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
   $('#facebookMonthlyLikes').empty().append(numberWithCommas(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
   $('#facebookMonthlyLikesPercent').empty().append(percentChange(facebookLikes));
+
+  $('#totalViews').empty().append(toAbbrev(totalViewers));
+  $('#totalFans').empty().append(toAbbrev(totalFans));
+  $('#totalLikes').empty().append(toAbbrev(totalLikes));
 }

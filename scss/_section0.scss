@@ -31,14 +31,15 @@
   }
   .profile-stats {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
+    padding-top: 30px;
     height: 100%;
     width: 60%;
     // background-color: lightgrey;
     h1 {
       font-weight: bold;
-      font-size: 4em;
+      font-size: 3.5em;
       margin: 0;
     }
     h4 {

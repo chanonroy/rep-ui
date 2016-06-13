@@ -18,11 +18,16 @@
   // Facebook
   var facebookLikes = [];
 
-  // Total Reach
+  // Totals
   var totalReach = [];
-  var totalReachChange = [];
 
-  // Platform Daily Changes
+  // Recent Total
+  var totalViewers = [];
+  var totalFans = [];
+  var totalLikes = [];
+
+  // Changes
+  var totalReachChange = [];
   var youtubeChange = [];
   var twitchChange = [];
 

@@ -127,13 +127,14 @@
       margin-right: 10px; }
   .profile-bar .profile-stats {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
+    padding-top: 30px;
     height: 100%;
     width: 60%; }
     .profile-bar .profile-stats h1 {
       font-weight: bold;
-      font-size: 4em;
+      font-size: 3.5em;
       margin: 0; }
     .profile-bar .profile-stats h4 {
       margin: 0;

@@ -18,6 +18,20 @@
     return rounding(monthlyChange);
   }
 
+  // function to calculate abbreviated numbers
+  function toAbbrev(x) {
+    var str = x.toString();
+    if (str.length < 7){                   // 1,000 (1K)
+        return str > 999 ? (str/1000).toFixed(1) + 'K' : str;
+    }
+    else if (str.length < 10){                  // 1,000,000 (!M)
+        return str > 999999 ? (str/1000000).toFixed(1) + 'M' : str;
+    }
+    else {
+        return str > 999999999 ? (str/1000000000).toFixed(1) + 'B' : str;
+    }
+  }
+
   // Gets the current date using JavaScript and fills the dates global variable for 30 days
   function getDate() {
     var today = new Date();
