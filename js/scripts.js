@@ -115,11 +115,10 @@
 
          // gets twitch photo (async)
          function twitchPhoto(name) {
-           console.log("function on");
            $.getJSON( "https://api.twitch.tv/kraken/users/" + name, function( data ) {
          	   var twitchDisplay = data.logo;
-             console.log(twitchDisplay);
              appendAndUpdate(twitchDisplay);
+             $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplay + '"></span>');
            });
          }
 
@@ -135,6 +134,7 @@
   	var name = $(this).parent().parent().attr('id');
     removePlayer(name);// remove player and recalculate (generalFunctions.js)
     $('#' + name).remove();
+    $('#' + name + '-photo').remove();
   });
 
   // [ ** BUTTON ** ]  - BIG CHART TABS
