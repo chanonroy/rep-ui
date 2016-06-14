@@ -35,7 +35,7 @@
     justify-content: space-around;
     padding-top: 30px;
     height: 100%;
-    width: 60%;
+    width: 100%;                      /* important width */
     // background-color: lightgrey;
     h1 {
       font-weight: bold;
@@ -53,9 +53,9 @@
   .profile-players {
     padding-top: 25px;
     height: 100%;
-    width: 15%;
+    width: 18%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     img {

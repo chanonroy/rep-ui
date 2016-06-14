@@ -54,7 +54,7 @@
     }
   }
   span:nth-child(2) {
-    width: 45%;
+    width: 35%;
   }
   span:nth-child(3) {
     width: 15%;
@@ -64,6 +64,9 @@
   }
   span:nth-child(5) {
     width: 15%;
+  }
+  span:nth-child(6) {
+    width: 10%;
     @include border-radius(0px 5px 5px 0px);
   }
 }
@@ -98,7 +101,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 1.2em;
-    width: 45%;
+    width: 35%;
     padding: 0 20px;
     font-weight: 800;
     img {
@@ -120,5 +123,9 @@
   span:nth-child(5) {
     font-size: 1.2em;
     width: 15%;
+  }
+  span:nth-child(6) {
+    font-size: 1.2em;
+    width: 10%;
   }
 }

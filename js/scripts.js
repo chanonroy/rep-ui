@@ -92,13 +92,19 @@
          }
 
          function appendAndUpdate(photo) {
+           // calculate the present total
+           var totViews = localTwitchViews[localTwitchViews.length - 1] + localYoutubeViews[localYoutubeViews.length - 1];
+           var totFollow = localTwitchFollowers[localTwitchFollowers.length - 1] + localYouTubeSubs[localYouTubeSubs.length - 1] + localTwitterFollowers[localTwitterFollowers.length - 1];
+           var totLikes = localTwitterLikes[localTwitterLikes.length - 1] + localFacebookLikes[localFacebookLikes.length - 1];
+
            // dom injection for storage (callback from twitchPhoto())
            $('#team').append(
               '<div id="' + name + '" class="team-player">' +
               '<span> -- </span>' +
               '<span> <div> <img src="' + photo + '">' + name + '</div> <div> <i style="color:' + statusChecker(twitchGreen, twitchRed) + '" class="fa fa-twitch fa-fw"></i> <i style="color:' + statusChecker(youtubeGreen, youtubeRed) + '"class="fa fa-youtube-play fa-fw"></i> <i style="color:' + statusChecker(twitterGreen, twitterRed) + '"class="fa fa-twitter fa-fw"></i><i style="color:' + statusChecker(facebookGreen, facebookRed) + '"class="fa fa-facebook fa-fw"></i></div></span>' +
-              '<span>' + numberWithCommas(totalViews) + '</span>' +
-              '<span>' + numberWithCommas(maxFollowers) + '</span>' +
+              '<span>' + numberWithCommas(totViews) + '</span>' +
+              '<span>' + numberWithCommas(totFollow) + '</span>' +
+              '<span>' + numberWithCommas(totLikes) + '</span>' +
               '<span> <button class="remove"> x </button> </span>' +
               '<span class="hidden viewsData">' + localTwitchViews + '</span>' +
               '<span class="hidden followerData">' + localTwitchFollowers + '</span>' +
@@ -116,9 +122,16 @@
          // gets twitch photo (async)
          function twitchPhoto(name) {
            $.getJSON( "https://api.twitch.tv/kraken/users/" + name, function( data ) {
-         	   var twitchDisplay = data.logo;
-             appendAndUpdate(twitchDisplay);
-             $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplay + '"></span>');
+         	   if (data.logo !== null) {
+               var twitchDisplay = data.logo;
+               appendAndUpdate(twitchDisplay);
+               $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplay + '"></span>');
+         	   }
+             else {
+              var twitchDisplayAlt = 'img/brand-small.png';
+              appendAndUpdate(twitchDisplayAlt);
+              $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplayAlt + '"></span>');
+             }
            });
          }
 
