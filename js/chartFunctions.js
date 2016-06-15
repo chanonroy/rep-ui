@@ -13,7 +13,7 @@ function dataSetGen(label, fill, border, color2, radius, dataPack) {
   pointBackgroundColor: "white",
   pointHoverBackgroundColor: color2,
   pointHoverBorderColor: "white",
-  pointHitRadius: radius * 10,
+  pointHitRadius: radius * 5,
   pointRadius: radius,
   data: dataPack,
 };
@@ -174,8 +174,8 @@ function update(name) {
     // clear datasetPlatform, run func assigned to total reach
     datasetPlatform.splice(0,2);
     datasetPlatform.push(
-      dataSetGen("Twitch", "rgba(101, 83, 135, 0.8)", "rgba(100, 65, 165, 1)", "white", 2, twitchChange),
-      dataSetGen("YouTube", "rgba(224, 96, 79, 0.8)", "rgb(167, 39, 12)", "white", 2, youtubeChange)
+      dataSetGen("Twitch", "rgba(101, 83, 135, 0.8)", "rgba(101, 83, 135, 0.8)", "white", 2, twitchChange),
+      dataSetGen("YouTube", "rgba(224, 96, 79, 0.8)", "rgba(224, 96, 79, 0.8)", "white", 2, youtubeChange)
     );
 
     // Update the labels from the global variable containers

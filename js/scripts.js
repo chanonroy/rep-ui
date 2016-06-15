@@ -128,7 +128,7 @@
                $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplay + '"></span>');
          	   }
              else {
-              var twitchDisplayAlt = 'img/brand-small.png';
+              var twitchDisplayAlt = 'img/repthumb.png';
               appendAndUpdate(twitchDisplayAlt);
               $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplayAlt + '"></span>');
              }

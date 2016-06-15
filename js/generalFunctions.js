@@ -22,13 +22,13 @@
   function toAbbrev(x) {
     var str = x.toString();
     if (str.length < 7){                   // 1,000 (1K)
-        return str > 999 ? (str/1000).toFixed(1) + 'K' : str;
+        return str > 999 ? (Math.floor((str/1000) * 10 ) / 10).toString() + 'K' : str;
     }
-    else if (str.length < 10){                  // 1,000,000 (!M)
-        return str > 999999 ? (str/1000000).toFixed(1) + 'M' : str;
+    else if (str.length < 10){                  // 1,000,000 (1M)
+        return str > 999999 ? (Math.floor((str/1000000) * 10 ) / 10).toString() + 'M' : str;
     }
-    else {
-        return str > 999999999 ? (str/1000000000).toFixed(1) + 'B' : str;
+    else {                                    // 1,000,000,000 (1B)
+        return str > 999999999 ? (Math.floor((str/1000000000) * 10 ) / 10).toString() + 'B' : str;
     }
   }
 
