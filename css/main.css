@@ -274,7 +274,7 @@
 .chart2 {
   display: flex;
   flex-wrap: wrap;
-  height: 250px;
+  height: 225px;
   width: 33%;
   background-color: white;
   border-bottom: 4px solid lightgrey;
@@ -287,6 +287,9 @@
   /* numbers heading */
   /* percentage change */
   /* bottom half chart */ }
+  @media (min-width: 1900px) {
+    .chart2 {
+      height: 300px; } }
   @media (max-width: 1200px) {
     .chart2 {
       min-width: 49%;
@@ -323,15 +326,19 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 225px;
+    height: 200px;
     width: 100%;
-    margin-top: -480px;
+    margin-top: -200px;
     background-color: lightgrey;
     opacity: 0.95;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     border-radius: 5px; }
+    @media (min-width: 1900px) {
+      .chart2 .chart2-cover {
+        height: 275px;
+        margin-top: -275px; } }
 
 .hidden {
   display: none; }
