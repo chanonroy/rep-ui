@@ -12,9 +12,6 @@
   flex-wrap: wrap;
 
   height: 225px;
-  // @media (min-width: 1650px) {
-  //   height: 275px;
-  // }
   @media (min-width: 1900px) {
     height: 300px;
   }
@@ -88,13 +85,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    visibility: hidden;
     height: 200px;
     width: 100%;
     margin-top: -200px;
-    background-color: lightgrey;
-    opacity: 0.95;
-    @include border-radius(5px);
+    background-color: lighten(lightgrey, 13%);
+    opacity: 0.97;
     @media (min-width: 1900px) {
       height: 275px;
       margin-top: -275px;

@@ -326,15 +326,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    visibility: hidden;
     height: 200px;
     width: 100%;
     margin-top: -200px;
-    background-color: lightgrey;
-    opacity: 0.95;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px; }
+    background-color: #f4f4f4;
+    opacity: 0.97; }
     @media (min-width: 1900px) {
       .chart2 .chart2-cover {
         height: 275px;

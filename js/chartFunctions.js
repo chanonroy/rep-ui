@@ -84,6 +84,8 @@ function makeChart(selector, data, labels, background, border) {
 
 // Function to update chart and calculations when a streamer is added
 function update(name) {
+    // turn covers off as default
+    $('.chart2-cover').css("visibility", "hidden");
 
     // jQuery DOM selection - STRING ARRAY (31 elements)
     var localTwitchViews = $('#' + name).find('.viewsData').text().split(',');
@@ -154,6 +156,14 @@ function update(name) {
       }
     } // -- else
 
+    // check if first and last are 0 to enable chart2-cover
+    if (twitchViews[twitchViews.length - 1] === 0 && twitchViews[0] === 0) { $('#box1-cover').css("visibility", "visible"); }
+    if (youtubeViews[youtubeViews.length - 1] === 0 && youtubeViews[0] === 0) { $('#box2-cover').css("visibility", "visible"); }
+    if (twitterFollowers[twitterFollowers.length - 1] === 0 && twitterFollowers[0] === 0) { $('#box3-cover').css("visibility", "visible"); }
+    if (twitchFollowers[twitchFollowers.length - 1] === 0 && twitchFollowers[0] === 0) { $('#box4-cover').css("visibility", "visible"); }
+    if (youtubeSubs[youtubeSubs.length - 1] === 0 && youtubeSubs[0] === 0) { $('#box5-cover').css("visibility", "visible"); }
+    if (twitterLikes[twitterLikes.length - 1] === 0 && twitterLikes[0] === 0) { $('#box6-cover').css("visibility", "visible"); }
+
     // calculate the present total
     totalViewers[0] = totalReach[totalReach.length - 1];
     totalFans[0] = twitchFollowers[twitchFollowers.length - 1] + youtubeSubs[youtubeSubs.length - 1] + twitterFollowers[twitterFollowers.length - 1];
@@ -168,8 +178,6 @@ function update(name) {
       var setColor2 = globalChartColors.pop();
       datasetContainer.push(dataSetGen(name, "rgba(" + setColor2 + ", 0.8)", "rgba(" + setColor2 + ", 1)", "white", 2, localReachChange));
     }
-
-    console.log(twitchChange);
 
     // clear datasetPlatform, run func assigned to total reach
     datasetPlatform.splice(0,2);
@@ -219,6 +227,8 @@ function update(name) {
 
 // Function to remove streamer data from global container when they are removed
 function removePlayer(name) {
+  // turn covers off as default
+  $('.chart2-cover').css("visibility", "hidden");
 
   // jQuery DOM selection - STRING ARRAY
   var localTwitchViews = $('#' + name).find('.viewsData').text().split(',');
@@ -273,6 +283,14 @@ function removePlayer(name) {
     twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
     youtubeChange[c - 1] = youtubeViews[c] - youtubeViews[c - 1];
   }
+
+  // check if first and last are 0 to enable chart2-cover
+  if (twitchViews[twitchViews.length - 1] === 0 && twitchViews[0] === 0) { $('#box1-cover').css("visibility", "visible"); }
+  if (youtubeViews[youtubeViews.length - 1] === 0 && youtubeViews[0] === 0) { $('#box2-cover').css("visibility", "visible"); }
+  if (twitterFollowers[twitterFollowers.length - 1] === 0 && twitterFollowers[0] === 0) { $('#box3-cover').css("visibility", "visible"); }
+  if (twitchFollowers[twitchFollowers.length - 1] === 0 && twitchFollowers[0] === 0) { $('#box4-cover').css("visibility", "visible"); }
+  if (youtubeSubs[youtubeSubs.length - 1] === 0 && youtubeSubs[0] === 0) { $('#box5-cover').css("visibility", "visible"); }
+  if (twitterLikes[twitterLikes.length - 1] === 0 && twitterLikes[0] === 0) { $('#box6-cover').css("visibility", "visible"); }
 
   // calculate the present total
   totalViewers[0] = totalReach[totalReach.length - 1];
