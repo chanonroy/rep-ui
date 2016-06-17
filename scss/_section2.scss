@@ -1,3 +1,5 @@
+$chart2-height-base: 250px;
+
 #section2 {
   margin-top: 10px;
   width: 100%;
@@ -11,9 +13,15 @@
   display: flex;
   flex-wrap: wrap;
 
-  height: 225px;
-  @media (min-width: 1900px) {
-    height: 300px;
+  height: $chart2-height-base;
+  @media (min-width: 1920px) {
+    height: $chart2-height-base + 50px;
+  }
+  @media (min-width: 2450px) {
+    height: $chart2-height-base + 100px;
+  }
+  @media (min-width: 2850px) {
+    height: $chart2-height-base + 175px;
   }
 
 
@@ -65,6 +73,9 @@
       padding: 0;
       margin: 0;
       font-weight: bold;
+      @media (max-width: 1400px) {
+        font-size: 1.4em;
+      }
     }
   }
 
@@ -85,15 +96,23 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    visibility: hidden;
-    height: 200px;
+    visibility: visible;
+    height: $chart2-height-base - 25px;
     width: 100%;
-    margin-top: -200px;
+    margin-top: -$chart2-height-base + 25px;
     background-color: lighten(lightgrey, 13%);
     opacity: 0.97;
-    @media (min-width: 1900px) {
-      height: 275px;
+    @media (min-width: 1920px) {
+      height: 275px; /* should be 275 */
       margin-top: -275px;
+    }
+    @media (min-width: 2450px) {
+      height: 325px;
+      margin-top: -325px;
+    }
+    @media (min-width: 2850px) {
+      height: 400px;
+      margin-top: -400px;
     }
   }
 }

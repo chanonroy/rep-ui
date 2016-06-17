@@ -85,7 +85,7 @@ function makeChart(selector, data, labels, background, border) {
 // Function to update chart and calculations when a streamer is added
 function update(name) {
     // turn covers off as default
-    $('.chart2-cover').css("visibility", "hidden");
+    // $('.chart2-cover').css("visibility", "hidden");
 
     // jQuery DOM selection - STRING ARRAY (31 elements)
     var localTwitchViews = $('#' + name).find('.viewsData').text().split(',');
