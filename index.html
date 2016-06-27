@@ -18,7 +18,7 @@
 
 <body>
 
-    <!-- Sidebar -->
+    <!-- SIDE NAVIGATION BAR -->
     <div class="side-nav hidden-xs hidden-sm">
         <!-- hidden on small and xs -->
         <div class="profile">
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-
+    <!-- SECTION 0 (PROFILE HEADER) -->
     <div class="top-profile">
       <div class="profile-bar">
         <!-- <div class="profile-info hidden">
@@ -97,6 +97,7 @@
 
         <!-- SECTION 1 (BIG CHART) -->
         <div id="section1">
+
             <div class="chart1-main">
                 <div> Total Views This Month </div>
                 <div> <h1 id="totalMonthlyReach"> -- </h1> </div>
@@ -120,202 +121,215 @@
         </div>
 
         <!-- SECTION 2 (SIX SMALL CHARTS)-->
+        <div id="section2">
 
-          <div id="section2">
-            <div class="chart2">
-                <div class="chart2-numbers">
-                    <div> Twitch Views This Month </div>
-                    <div><h1 id="twitchMonthlyViews"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                    <div>
+          <!-- 1) Monthly Twitch Views -->
+          <div class="chart2">
+              <div class="chart2-numbers">
+                  <div> Twitch Views This Month </div>
+                  <div><h1 id="twitchMonthlyViews"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                  <div id="twitchMonthlyViewsPercent">
                     <h3>
                       <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                      <span id="twitchMonthlyViewsPercent"> -- </span> % </h3>
-                    </div>
-                    <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box1" width="20" height="7"></canvas>
-                </div>
-                <!-- cover for no data -->
-                <div id="box1-cover" class="chart2-cover">
-                  <h1> <i class="fa fa-twitch" aria-hidden="true"></i> </h1>
-                  No Twitch Data
-                </div>
-            </div>
+                      <span> -- %</span>
+                    </h3>
+                  </div>
+                  <div> 30 Days Ago </div>
+              </div>
+              <div class="chart2-chart">
+                  <canvas id="box1" width="20" height="7"></canvas>
+              </div>
+              <!-- cover for no data -->
+              <div id="box1-cover" class="chart2-cover">
+                <h1> <i class="fa fa-twitch" aria-hidden="true"></i> </h1>
+                No Twitch Data
+              </div>
+          </div>
 
-            <div class="chart2">
-                <div class="chart2-numbers">
-                    <div> YouTube Views This Month </div>
-                    <div><h1 id="youtubeMonthlyViews"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                    <div>
-                      <h3>
+          <!-- 2) Monthly YouTube Views -->
+          <div class="chart2">
+              <div class="chart2-numbers">
+                  <div> YouTube Views This Month </div>
+                  <div><h1 id="youtubeMonthlyViews"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                  <div id="youtubeMonthlyViewsPercent">
+                    <h3>
                       <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                      <span id="youtubeMonthlyViewsPercent"> -- </span> % </h3>
-                    </div>
-                    <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box2" width="20" height="7"></canvas>
-                </div>
-                <!-- cover for no data -->
-                <div id="box2-cover" class="chart2-cover">
-                  <h1> <i class="fa fa-youtube-play" aria-hidden="true"></i> </h1>
-                  No YouTube Data
-                </div>
-            </div>
-
-            <div class="chart2">
-                <div class="chart2-numbers">
-                    <div> Twitter Followers This Month </div>
-                    <div><h1 id="twitterMonthlyFollowers"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                  <div>
-                    <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span id="twitterMonthlyFollowersPercent"> -- </span> % </h3>
+                      <span> -- %</span>
+                    </h3>
                   </div>
                   <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box3" width="20" height="7"></canvas>
-                </div>
-                <!-- cover for no data -->
-                <div id="box3-cover" class="chart2-cover">
-                  <h1> <i class="fa fa-twitter" aria-hidden="true"></i> </h1>
-                  No Twitter Data
-                </div>
-            </div>
-
-            <div class="chart2">
-                <div class="chart2-numbers">
-                    <div> Twitch Followers This Month </div>
-                    <div><h1 id="twitchMonthlyFollowers"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                  <div>
-                    <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span id="twitchMonthlyFollowersPercent"> -- </span> % </h3>
-                  </div>
-                  <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box4" width="20" height="7"></canvas>
-                </div>
-                <!-- cover for no data -->
-                <div id="box4-cover" class="chart2-cover">
-                  <h1> <i class="fa fa-twitch" aria-hidden="true"></i> </h1>
-                  No Twitch Data
-                </div>
-            </div>
-
-            <div class="chart2">
-                <div class="chart2-numbers">
-                    <div> YouTube Subscribers This Month </div>
-                    <div><h1 id="youtubeMonthlySubscribers"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                  <div>
-                    <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span id="youtubeMonthlySubscribersPercent"> -- </span> % </h3>
-                  </div>
-                  <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box5" width="20" height="7"></canvas>
-                </div>
-                <!-- cover for no data -->
-                <div id="box5-cover" class="chart2-cover">
-                  <h1> <i class="fa fa-youtube-play" aria-hidden="true"></i> </h1>
-                  No YouTube Data
-                </div>
-            </div>
-
-            <div class="chart2">
-                <div class="chart2-numbers">
-                    <div> Twitter Likes This Month </div>
-                    <div><h1 id="twitterMonthlyLikes"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                  <div>
-                    <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span id="twitterMonthlyLikesPercent"> -- </span> % </h3>
-                  </div>
-                  <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box6" width="20" height="7"></canvas>
-                </div>
-                <!-- cover for no data -->
-                <div id="box6-cover" class="chart2-cover">
-                  <h1> <i class="fa fa-twitter" aria-hidden="true"></i> </h1>
-                  No Twitter Data
-                </div>
-            </div>
-
-            <div class="chart2 hidden">
-                <div class="chart2-numbers">
-                    <div> Facebook Likes This Month </div>
-                    <div><h1 id="facebookMonthlyLikes"> -- </h1> </div>
-                </div>
-                <div class="chart2-change">
-                  <div>
-                    <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span id="facebookMonthlyLikesPercent"> -- </span> % </h3>
-                  </div>
-                  <div> 30 Days Ago </div>
-                </div>
-                <div class="chart2-chart">
-                    <canvas id="box7" width="20" height="7"></canvas>
-                </div>
-            </div>
-
-          </div> <!-- section 3 -->
-
-
-
-            <div id="team">
-              <div id="team-header">
-                  <h2> Team Members </h2>
-                  <button id="addPlayer" class="button"> Add Player </button>
               </div>
-
-              <div id="team-labels">
-                  <span> <img src="img/rep.png"> RepScore </span>
-                  <span> Streamer Name </span>
-                  <span> Views </span>
-                  <span> Followers </span>
-                  <span> Likes </span>
-                  <span> Remove </span>
+              <div class="chart2-chart">
+                  <canvas id="box2" width="20" height="7"></canvas>
               </div>
-
-              <div id="team-default" class="team-player">
-                  <span> -- </span>
-                  <span> <div> <img src="img/brand-small.png"> -- </div> <div> <i class="fa fa-twitch fa-fw"></i> <i class="fa fa-youtube-play fa-fw"></i> <i class="fa fa-twitter fa-fw"></i><i class="fa fa-facebook fa-fw"></i></div></span>
-                  <span> --  </span>
-                  <span> -- </span>
-                  <span> -- </span>
-                  <span> -- </span>
-                  <span class="hidden viewsData"> -- </span>
-                  <span class="hidden followerData"> -- </span>
-                  <span class="hidden youtubeViewData"> -- </span>
-                  <span class="hidden youtubeSubData"> -- </span>
-                  <span class="hidden twitterFollowData"> -- </span>
-                  <span class="hidden twitterLikeData"> -- </span>
+              <!-- cover for no data -->
+              <div id="box2-cover" class="chart2-cover">
+                <h1> <i class="fa fa-youtube-play" aria-hidden="true"></i> </h1>
+                No YouTube Data
               </div>
-            </div> <!-- team -->
+          </div>
+
+          <!-- 3) Monthly Twitter Followers -->
+          <div class="chart2">
+              <div class="chart2-numbers">
+                  <div> Twitter Followers This Month </div>
+                  <div><h1 id="twitterMonthlyFollowers"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                <div id="twitterMonthlyFollowersPercent">
+                  <h3>
+                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                    <span > -- %</span>
+                  </h3>
+                </div>
+                <div> 30 Days Ago </div>
+              </div>
+              <div class="chart2-chart">
+                  <canvas id="box3" width="20" height="7"></canvas>
+              </div>
+              <!-- cover for no data -->
+              <div id="box3-cover" class="chart2-cover">
+                <h1> <i class="fa fa-twitter" aria-hidden="true"></i> </h1>
+                No Twitter Data
+              </div>
+          </div>
+
+          <!-- 4) Monthly Twitch Followers -->
+          <div class="chart2">
+              <div class="chart2-numbers">
+                  <div> Twitch Followers This Month </div>
+                  <div><h1 id="twitchMonthlyFollowers"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                <div id="twitchMonthlyFollowersPercent">
+                  <h3>
+                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                    <span> -- %</span>
+                  </h3>
+                </div>
+                <div> 30 Days Ago </div>
+              </div>
+              <div class="chart2-chart">
+                  <canvas id="box4" width="20" height="7"></canvas>
+              </div>
+              <!-- cover for no data -->
+              <div id="box4-cover" class="chart2-cover">
+                <h1> <i class="fa fa-twitch" aria-hidden="true"></i> </h1>
+                No Twitch Data
+              </div>
+          </div>
+
+          <!-- 5) Monthly YouTube Subs -->
+          <div class="chart2">
+              <div class="chart2-numbers">
+                  <div> YouTube Subscribers This Month </div>
+                  <div><h1 id="youtubeMonthlySubscribers"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                <div id="youtubeMonthlySubscribersPercent">
+                  <h3>
+                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                    <span> -- %</span>
+                  </h3>
+                </div>
+                <div> 30 Days Ago </div>
+              </div>
+              <div class="chart2-chart">
+                  <canvas id="box5" width="20" height="7"></canvas>
+              </div>
+              <!-- cover for no data -->
+              <div id="box5-cover" class="chart2-cover">
+                <h1> <i class="fa fa-youtube-play" aria-hidden="true"></i> </h1>
+                No YouTube Data
+              </div>
+          </div>
+
+          <!-- 6) Monthly Twitter Likes -->
+          <div class="chart2">
+              <div class="chart2-numbers">
+                  <div> Twitter Likes This Month </div>
+                  <div><h1 id="twitterMonthlyLikes"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                <div id="twitterMonthlyLikesPercent">
+                  <h3>
+                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                    <span> -- %</span>
+                  </h3>
+                </div>
+                <div> 30 Days Ago </div>
+              </div>
+              <div class="chart2-chart">
+                  <canvas id="box6" width="20" height="7"></canvas>
+              </div>
+              <!-- cover for no data -->
+              <div id="box6-cover" class="chart2-cover">
+                <h1> <i class="fa fa-twitter" aria-hidden="true"></i> </h1>
+                No Twitter Data
+              </div>
+          </div>
+
+          <!-- 7) Monthly Facebook Likes -->
+          <div class="chart2 hidden">
+              <div class="chart2-numbers">
+                  <div> Facebook Likes This Month </div>
+                  <div><h1 id="facebookMonthlyLikes"> -- </h1> </div>
+              </div>
+              <div class="chart2-change">
+                <div id="facebookMonthlyLikesPercent">
+                  <h3>
+                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+                    <span> -- %</span>
+                  </h3>
+                </div>
+                <div> 30 Days Ago </div>
+              </div>
+              <div class="chart2-chart">
+                  <canvas id="box7" width="20" height="7"></canvas>
+              </div>
+          </div>
+
+        </div> <!-- /section2 -->
 
         <!-- SECTION 3 (TEAM) -->
+        <div id="team">
 
-    </div>
+          <div id="team-header">
+              <h2> Team Members </h2>
+              <button id="addPlayer" class="button"> Add Player </button>
+          </div>
+
+          <div id="team-labels">
+              <span> <img src="img/rep.png"> RepScore </span>
+              <span> Streamer Name </span>
+              <span> Views </span>
+              <span> Followers </span>
+              <span> Likes </span>
+              <span> Remove </span>
+          </div>
+
+          <div id="team-default" class="team-player">
+              <span> -- </span>
+              <span> <div> <img src="img/brand-small.png"> -- </div> <div> <i class="fa fa-twitch fa-fw"></i> <i class="fa fa-youtube-play fa-fw"></i> <i class="fa fa-twitter fa-fw"></i><i class="fa fa-facebook fa-fw"></i></div></span>
+              <span> --  </span>
+              <span> -- </span>
+              <span> -- </span>
+              <span> -- </span>
+              <span class="hidden viewsData"> -- </span>
+              <span class="hidden followerData"> -- </span>
+              <span class="hidden youtubeViewData"> -- </span>
+              <span class="hidden youtubeSubData"> -- </span>
+              <span class="hidden twitterFollowData"> -- </span>
+              <span class="hidden twitterLikeData"> -- </span>
+          </div>
+        </div> <!-- /team -->
+
+    </div> <!-- /container-new -->
+
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Bootstrap JS CDN -->

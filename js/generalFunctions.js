@@ -5,30 +5,55 @@
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
-  // Rounds an INT to a decimal place
-  var rounding = function(x, decimal=1) {
-    return x.toFixed(decimal).toString();
+  // numbers with commas, adds plus if positive
+  function numberWithCommasPlus(x) {
+    if (x > 0) {
+      return '+' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    else {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  }
+
+  // Rounds integers and floats
+  var rounding = function(x) {
+    if (x < 0.1) {
+      return x.toFixed(2).toString();
+    }
+    else {
+      return x.toFixed(1).toString();
+    }
   };
 
   // Calculates the percentage change in a data array
   function percentChange(data) {
-    var totalViews = data[data.length - 1];
-    var monthlyViews = totalViews - data[0];
-    var monthlyChange = monthlyViews / totalViews * 100;
-    return rounding(monthlyChange);
+    var last = data[data.length - 1];
+    var change = last - data[0];
+    var percent = change / last * 100;
+    return rounding(percent);
   }
 
-  // function to calculate abbreviated numbers
+  // function to calculate abbreviated numbers (e.g. 1,000 is 1K)
   function toAbbrev(x) {
     var str = x.toString();
     if (str.length < 7){                   // 1,000 (1K)
-        return str > 999 ? (Math.floor((str/1000) * 10 ) / 10).toString() + 'K' : str;
+      return str > 999 ? (Math.floor((str/1000) * 10 ) / 10).toString() + 'K' : str;
     }
     else if (str.length < 10){                  // 1,000,000 (1M)
-        return str > 999999 ? (Math.floor((str/1000000) * 10 ) / 10).toString() + 'M' : str;
+      return str > 999999 ? (Math.floor((str/1000000) * 10 ) / 10).toString() + 'M' : str;
     }
     else {                                    // 1,000,000,000 (1B)
-        return str > 999999999 ? (Math.floor((str/1000000000) * 10 ) / 10).toString() + 'B' : str;
+      return str > 999999999 ? (Math.floor((str/1000000000) * 10 ) / 10).toString() + 'B' : str;
+    }
+  }
+
+  // checks whether value is positive or negative and returns HTML element for arrow indicator
+  function htmlPercentChange(x) {
+    if (x > 0) {
+      return '<h3 class="percentChange-green"> <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i> <span>' + x + '%</span> </h3>';
+    }
+    else {
+      return '<h3 class="percentChange-red"> <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> <span>' + x + '%</span> </h3>';
     }
   }
 

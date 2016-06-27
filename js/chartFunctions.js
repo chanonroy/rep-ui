@@ -187,21 +187,21 @@ function update(name) {
     );
 
     // Update the labels from the global variable containers
-    $('#totalMonthlyReach').empty().append(numberWithCommas(totalReach[totalReach.length - 1] - totalReach[0]));
-    $('#twitchMonthlyViews').empty().append(numberWithCommas(twitchViews[twitchViews.length - 1] - twitchViews[0]));
-    $('#twitchMonthlyViewsPercent').empty().append(percentChange(twitchViews));
-    $('#twitchMonthlyFollowers').empty().append(numberWithCommas(twitchFollowers[twitchFollowers.length - 1] - twitchFollowers[0]));
-    $('#twitchMonthlyFollowersPercent').empty().append(percentChange(twitchFollowers));
-    $('#youtubeMonthlyViews').empty().append(numberWithCommas(youtubeViews[youtubeViews.length - 1] - youtubeViews[0]));
-    $('#youtubeMonthlyViewsPercent').empty().append(percentChange(youtubeViews));
-    $('#youtubeMonthlySubscribers').empty().append(numberWithCommas(youtubeSubs[youtubeSubs.length - 1] - youtubeSubs[0]));
-    $('#youtubeMonthlySubscribersPercent').empty().append(percentChange(youtubeSubs));
-    $('#twitterMonthlyFollowers').empty().append(numberWithCommas(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
-    $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
-    $('#twitterMonthlyLikes').empty().append(numberWithCommas(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
-    $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
-    $('#facebookMonthlyLikes').empty().append(numberWithCommas(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
-    $('#facebookMonthlyLikesPercent').empty().append(percentChange(facebookLikes));
+    $('#totalMonthlyReach').empty().append(numberWithCommasPlus(totalReach[totalReach.length - 1] - totalReach[0]));
+    $('#twitchMonthlyViews').empty().append(numberWithCommasPlus(twitchViews[twitchViews.length - 1] - twitchViews[0]));
+    $('#twitchMonthlyViewsPercent').empty().append(htmlPercentChange(percentChange(twitchViews)));
+    $('#twitchMonthlyFollowers').empty().append(numberWithCommasPlus(twitchFollowers[twitchFollowers.length - 1] - twitchFollowers[0]));
+    $('#twitchMonthlyFollowersPercent').empty().append(htmlPercentChange(percentChange(twitchFollowers)));
+    $('#youtubeMonthlyViews').empty().append(numberWithCommasPlus(youtubeViews[youtubeViews.length - 1] - youtubeViews[0]));
+    $('#youtubeMonthlyViewsPercent').empty().append(htmlPercentChange(percentChange(youtubeViews)));
+    $('#youtubeMonthlySubscribers').empty().append(numberWithCommasPlus(youtubeSubs[youtubeSubs.length - 1] - youtubeSubs[0]));
+    $('#youtubeMonthlySubscribersPercent').empty().append(htmlPercentChange(percentChange(youtubeSubs)));
+    $('#twitterMonthlyFollowers').empty().append(numberWithCommasPlus(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
+    $('#twitterMonthlyFollowersPercent').empty().append(htmlPercentChange(percentChange(twitterFollowers)));
+    $('#twitterMonthlyLikes').empty().append(numberWithCommasPlus(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
+    $('#twitterMonthlyLikesPercent').empty().append(htmlPercentChange(percentChange(twitterLikes)));
+    $('#facebookMonthlyLikes').empty().append(numberWithCommasPlus(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
+    $('#facebookMonthlyLikesPercent').empty().append(htmlPercentChange(percentChange(facebookLikes)));
 
     $('#totalViews').empty().append(toAbbrev(totalViewers));
     $('#totalFans').empty().append(toAbbrev(totalFans));
@@ -320,21 +320,21 @@ function removePlayer(name) {
   makeChart('box6', twitterLikes, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
   makeChart('box7', facebookLikes, chartDateRange, "rgba(59, 89, 152, 0.4)", "rgba(59, 89, 152, 1)");
 
-  $('#totalMonthlyReach').empty().append(numberWithCommas(totalReach[totalReach.length - 1] - totalReach[0]));
-  $('#twitchMonthlyViews').empty().append(numberWithCommas(twitchViews[twitchViews.length - 1] - twitchViews[0]));
-  $('#twitchMonthlyViewsPercent').empty().append(percentChange(twitchViews));
-  $('#twitchMonthlyFollowers').empty().append(numberWithCommas(twitchFollowers[twitchFollowers.length - 1] - twitchFollowers[0]));
-  $('#twitchMonthlyFollowersPercent').empty().append(percentChange(twitchFollowers));
-  $('#youtubeMonthlyViews').empty().append(numberWithCommas(youtubeViews[youtubeViews.length - 1] - youtubeViews[0]));
-  $('#youtubeMonthlyViewsPercent').empty().append(percentChange(youtubeViews));
-  $('#youtubeMonthlySubscribers').empty().append(numberWithCommas(youtubeSubs[youtubeSubs.length - 1] - youtubeSubs[0]));
-  $('#youtubeMonthlySubscribersPercent').empty().append(percentChange(youtubeSubs));
-  $('#twitterMonthlyFollowers').empty().append(numberWithCommas(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
-  $('#twitterMonthlyFollowersPercent').empty().append(percentChange(twitterFollowers));
-  $('#twitterMonthlyLikes').empty().append(numberWithCommas(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
-  $('#twitterMonthlyLikesPercent').empty().append(percentChange(twitterLikes));
-  $('#facebookMonthlyLikes').empty().append(numberWithCommas(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
-  $('#facebookMonthlyLikesPercent').empty().append(percentChange(facebookLikes));
+  $('#totalMonthlyReach').empty().append(numberWithCommasPlus(totalReach[totalReach.length - 1] - totalReach[0]));
+  $('#twitchMonthlyViews').empty().append(numberWithCommasPlus(twitchViews[twitchViews.length - 1] - twitchViews[0]));
+  $('#twitchMonthlyViewsPercent').empty().append(htmlPercentChange(percentChange(twitchViews)));
+  $('#twitchMonthlyFollowers').empty().append(numberWithCommasPlus(twitchFollowers[twitchFollowers.length - 1] - twitchFollowers[0]));
+  $('#twitchMonthlyFollowersPercent').empty().append(htmlPercentChange(percentChange(twitchFollowers)));
+  $('#youtubeMonthlyViews').empty().append(numberWithCommasPlus(youtubeViews[youtubeViews.length - 1] - youtubeViews[0]));
+  $('#youtubeMonthlyViewsPercent').empty().append(htmlPercentChange(percentChange(youtubeViews)));
+  $('#youtubeMonthlySubscribers').empty().append(numberWithCommasPlus(youtubeSubs[youtubeSubs.length - 1] - youtubeSubs[0]));
+  $('#youtubeMonthlySubscribersPercent').empty().append(htmlPercentChange(percentChange(youtubeSubs)));
+  $('#twitterMonthlyFollowers').empty().append(numberWithCommasPlus(twitterFollowers[twitterFollowers.length - 1] - twitterFollowers[0]));
+  $('#twitterMonthlyFollowersPercent').empty().append(htmlPercentChange(percentChange(twitterFollowers)));
+  $('#twitterMonthlyLikes').empty().append(numberWithCommasPlus(twitterLikes[twitterLikes.length - 1] - twitterLikes[0]));
+  $('#twitterMonthlyLikesPercent').empty().append(htmlPercentChange(percentChange(twitterLikes)));
+  $('#facebookMonthlyLikes').empty().append(numberWithCommasPlus(facebookLikes[facebookLikes.length - 1] - facebookLikes[0]));
+  $('#facebookMonthlyLikesPercent').empty().append(htmlPercentChange(percentChange(facebookLikes)));
 
   $('#totalViews').empty().append(toAbbrev(totalViewers));
   $('#totalFans').empty().append(toAbbrev(totalFans));

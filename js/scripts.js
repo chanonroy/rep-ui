@@ -34,14 +34,14 @@
        url: 'http://52.25.105.60/all/' + twitchID,
        dataType: "json",
        success: function(object) {
-         var totalViews = object.maxViewsFromUser[0].views;
-         var maxFollowers = object.maxFollowersFromUserFromUser[0].followers;
+        //  var totalViews = object.maxViewsFromUser[0].views;
+        //  var maxFollowers = object.maxFollowersFromUserFromUser[0].followers;
 
          // Parsing name (sometimes the name is null)
          var name;
          if (object.display_nameFromUser[0].display_name === null) {
            name = twitchID;
-           console.log("twitchID not in database");
+          //  console.log("twitchID not in database");
          }
          else {
            name = object.display_nameFromUser[0].display_name;
@@ -134,7 +134,7 @@
            });
          }
 
-        // grabs twitch profile photo from Twitch API (generalFunctions.js)
+        // grabs twitch profile photo from Twitch API and do a callback for appendAndUpdate
         twitchPhoto(name);
 
        } // -- success

@@ -313,8 +313,10 @@
     text-align: right;
     width: 35%;
     height: 35%; }
-    .chart2 .chart2-change div:nth-child(1) {
+    .chart2 .chart2-change .percentChange-green {
       color: #25bd3d; }
+    .chart2 .chart2-change .percentChange-red {
+      color: firebrick; }
     .chart2 .chart2-change h3 {
       padding: 0;
       margin: 0;
