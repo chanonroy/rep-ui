@@ -67,10 +67,10 @@ $chart2-height-base: 250px;
     height: 35%;
 
     .percentChange-green {
-      color: rgb(37, 189, 61);
+      color: lighten(rgb(67, 138, 76), 10%);
     }
     .percentChange-red {
-      color: firebrick;
+      color: rgb(201, 67, 71);
     }
 
     h3 {
@@ -100,7 +100,7 @@ $chart2-height-base: 250px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    visibility: hidden;
+    visibility: visible;
     height: $chart2-height-base - 25px;
     width: 100%;
     margin-top: -$chart2-height-base + 25px;

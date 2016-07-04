@@ -6,7 +6,10 @@ $borderColor: lightgrey;
 $backgroundColor: darken(#F0F5F7, 1%);
 
 $sidebarColor: rgb(57, 77, 89);
-$sidebarBar: darken($sidebarColor, 3%);
+$sidebarBar: darken($sidebarColor, 3%); /* divider */
 $sidebarRoll: darken($sidebarColor, 8%);
 
-/* Padding */
+/* Dimensions */
+
+$topNavHeight: 60px;
+$sidebarWidth: 250px;

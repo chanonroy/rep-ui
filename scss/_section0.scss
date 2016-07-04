@@ -1,5 +1,6 @@
 .top-profile {
-  padding-left: 250px;
+  margin-top: $topNavHeight;
+  padding-left: $sidebarWidth;
   width: 100%;
   height: 250px;
   background-color: white;
@@ -88,7 +89,7 @@
     opacity: 0.9;
     color: white;
     background-color: $sidebarColor;
-    border-bottom: 4px solid lighten($sidebarColor, 25%);
+    border-bottom: 4px solid lighten($sidebarColor, 35%);
     @include border-radius(0px 5px 0 0);
 
     @include transition(all 0.4s ease);

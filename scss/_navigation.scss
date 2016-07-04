@@ -1,16 +1,22 @@
 .top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   margin-left: 250px;
   width: auto;
-  height:60px;
+  height: $topNavHeight;
   background-color: $topNavColor;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 2px solid lightgrey;
+  @include box-shadow(0px -5px 15px 0px);
   .hamburger {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid lightgrey;
+    border-right: 1.5px solid lightgrey;
 
     width: 75px;
     height: 100%;

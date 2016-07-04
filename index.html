@@ -69,15 +69,15 @@
         <div class="profile-stats">
           <div>
             <h4> Views </h4>
-            <h1 id="totalViews"> -- </h1>
+            <h1 id="totalViews"></h1>
           </div>
           <div>
             <h4> Fans </h4>
-            <h1 id="totalFans"> -- </h1>
+            <h1 id="totalFans"></h1>
           </div>
           <div>
             <h4> Likes </h4>
-            <h1 id="totalLikes"> -- </h1>
+            <h1 id="totalLikes"></h1>
           </div>
         </div>
         <div class="profile-players">
@@ -104,7 +104,9 @@
             </div>
 
             <div class="chart1-buttons">
-                <button id="chart1-combined" class="button"> Combined </button><button id="chart1-streamer" class="button"> Streamer </button><button id="chart1-platform" class="button"> Platform </button>
+                <button id="chart1-combined" class="button"> Combined  </button>
+                <button id="chart1-streamer" class="button"> Streamer </button>
+                <button id="chart1-platform" class="button"> Platform </button>
             </div>
 
             <!-- Big Chart DIV Containers -->
@@ -131,10 +133,7 @@
               </div>
               <div class="chart2-change">
                   <div id="twitchMonthlyViewsPercent">
-                    <h3>
-                      <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                      <span> -- %</span>
-                    </h3>
+                    <h3></h3>
                   </div>
                   <div> 30 Days Ago </div>
               </div>
@@ -156,10 +155,7 @@
               </div>
               <div class="chart2-change">
                   <div id="youtubeMonthlyViewsPercent">
-                    <h3>
-                      <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                      <span> -- %</span>
-                    </h3>
+                    <h3></h3>
                   </div>
                   <div> 30 Days Ago </div>
               </div>
@@ -181,10 +177,7 @@
               </div>
               <div class="chart2-change">
                 <div id="twitterMonthlyFollowersPercent">
-                  <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span > -- %</span>
-                  </h3>
+                  <h3></h3>
                 </div>
                 <div> 30 Days Ago </div>
               </div>
@@ -206,10 +199,7 @@
               </div>
               <div class="chart2-change">
                 <div id="twitchMonthlyFollowersPercent">
-                  <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span> -- %</span>
-                  </h3>
+                  <h3></h3>
                 </div>
                 <div> 30 Days Ago </div>
               </div>
@@ -231,10 +221,7 @@
               </div>
               <div class="chart2-change">
                 <div id="youtubeMonthlySubscribersPercent">
-                  <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span> -- %</span>
-                  </h3>
+                  <h3></h3>
                 </div>
                 <div> 30 Days Ago </div>
               </div>
@@ -256,10 +243,7 @@
               </div>
               <div class="chart2-change">
                 <div id="twitterMonthlyLikesPercent">
-                  <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span> -- %</span>
-                  </h3>
+                  <h3></h3>
                 </div>
                 <div> 30 Days Ago </div>
               </div>
@@ -281,10 +265,7 @@
               </div>
               <div class="chart2-change">
                 <div id="facebookMonthlyLikesPercent">
-                  <h3>
-                    <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
-                    <span> -- %</span>
-                  </h3>
+                  <h3></h3>
                 </div>
                 <div> 30 Days Ago </div>
               </div>
@@ -300,7 +281,10 @@
 
           <div id="team-header">
               <h2> Team Members </h2>
-              <button id="addPlayer" class="button"> Add Player </button>
+              <div>
+                <button id="showAll" class="button"> Show All </button>
+                <button id="addPlayer" class="button"> Add Player <i class="fa fa-user-plus fa-fw"></i></button>
+              </div>
           </div>
 
           <div id="team-labels">
@@ -318,7 +302,7 @@
               <span> --  </span>
               <span> -- </span>
               <span> -- </span>
-              <span> -- </span>
+              <span> <button class="remove"> <i class="fa fa-trash fa-fw" aria-hidden="true"></i> </button> </span>
               <span class="hidden viewsData"> -- </span>
               <span class="hidden followerData"> -- </span>
               <span class="hidden youtubeViewData"> -- </span>

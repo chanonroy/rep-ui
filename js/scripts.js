@@ -5,19 +5,19 @@
 
   // (dataset1, dataset2, dataset3, labels) - produce default bigChart on page load (generalFunctions.js)
   makeBigChart(
-    dataSetGen("Views", "rgba(32, 162, 219, 0.3)", "rgb(88, 167, 210)", "white", 4, emptyData),
+    dataSetGen("Views", "rgba(32, 162, 219, 0)", "rgba(88, 167, 210, 0)", "white", 4, noData),
     emptyDataset, // emptyDataset located in chartFunctions.js
     emptyDataset.slice(0,2),
     chartDateRange);
 
   // make smaller charts, params = selector, background, border (generalFunctions.js)
-  makeChart('box1', emptyData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
-  makeChart('box2', emptyData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
-  makeChart('box3', emptyData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
-  makeChart('box4', emptyData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 1)");
-  makeChart('box5', emptyData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 1)");
-  makeChart('box6', emptyData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 1)");
-  makeChart('box7', emptyData, chartDateRange, "rgba(59, 89, 152, 0.4)", "rgba(59, 89, 152, 1)");
+  makeChart('box1', noData, chartDateRange, "rgba(100, 65, 165, 0)", "rgba(100, 65, 165, 0)");
+  makeChart('box2', noData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 0)");
+  makeChart('box3', noData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 0)");
+  makeChart('box4', noData, chartDateRange, "rgba(100, 65, 165, 0.4)", "rgba(100, 65, 165, 0)");
+  makeChart('box5', noData, chartDateRange, "rgba(229, 45, 39, 0.4)", "rgba(229, 45, 39, 0)");
+  makeChart('box6', noData, chartDateRange, "rgba(85, 172, 238, 0.4)", "rgba(85, 172, 238, 0)");
+  makeChart('box7', noData, chartDateRange, "rgba(59, 89, 152, 0.4)", "rgba(59, 89, 152, 0)");
 
 // ------------------------------ BUTTONS --------------------------------------
 
@@ -104,7 +104,7 @@
               '<span>' + numberWithCommas(totViews) + '</span>' +
               '<span>' + numberWithCommas(totFollow) + '</span>' +
               '<span>' + numberWithCommas(totLikes) + '</span>' +
-              '<span> <button class="remove"> x </button> </span>' +
+              '<span> <button class="remove"> <i class="fa fa-trash fa-fw" aria-hidden="true"></i> </button> </span>' +
               '<span class="hidden viewsData">' + localTwitchViews + '</span>' +
               '<span class="hidden followerData">' + localTwitchFollowers + '</span>' +
               '<span class="hidden youtubeViewData">' + localYoutubeViews + '</span>' +

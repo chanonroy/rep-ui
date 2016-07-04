@@ -77,6 +77,16 @@
   height: 50px;
   width: 100%;
 
+  .remove {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+  }
+  .remove:hover {
+    color: rgb(201, 67, 71);
+    @include transition(all 0.5s ease);
+  }
+
   img {
     height: 30px;
     width: 30px;

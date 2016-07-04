@@ -151,8 +151,8 @@ function update(name) {
       for (var c = 1; c < localTwitchViews.length; c++) {
         totalReachChange[c - 1] = totalReachChange[c - 1] + (localTotalReach[c] - localTotalReach[c - 1]); // calculate change (this is the reason for 31 objects)
         localReachChange[c - 1] = localTotalReach[c] - localTotalReach[c - 1]; // calculate change (this is the reason for 31 objects)
-        youtubeChange[c - 1] = youtubeViews[c] - youtubeViews[c - 1];
-        twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
+        youtubeChange[c - 1] = youtubeChange[c - 1] + (localYoutubeViews[c] - localYoutubeViews[c - 1]);
+        twitchChange[c - 1] = twitchChange[c - 1] + (localTwitchViews[c] - localTwitchViews[c - 1]);
       }
     } // -- else
 
@@ -278,11 +278,13 @@ function removePlayer(name) {
   }
 
   // Do calculation of change AFTER totalReach is updated
-  for (var c = 1; c < twitchViews.length; c++) {
+  for (var c = 1; c < twitchViews.length + 1; c++) {
     totalReachChange[c - 1] = totalReachChange[c - 1] - (localTotalReach[c] - localTotalReach[c - 1]);
-    twitchChange[c - 1] = twitchViews[c] - twitchViews[c - 1];
-    youtubeChange[c - 1] = youtubeViews[c] - youtubeViews[c - 1];
+    youtubeChange[c - 1] = youtubeChange[c - 1] - (localYoutubeViews[c] - localYoutubeViews[c - 1]);
+    twitchChange[c - 1] = twitchChange[c - 1] - (localTwitchViews[c] - localTwitchViews[c - 1]);
   }
+
+  console.log(youtubeChange);
 
   // check if first and last are 0 to enable chart2-cover
   if (twitchViews[twitchViews.length - 1] === 0 && twitchViews[0] === 0) { $('#box1-cover').css("visibility", "visible"); }
@@ -300,8 +302,8 @@ function removePlayer(name) {
   // clear datasetPlatform, run func assigned to total reach
   datasetPlatform.splice(0,2);
   datasetPlatform.push(
-    dataSetGen("Twitch", "rgb(101, 83, 135)", "rgba(100, 65, 165, 1)", "white", 2, twitchChange),
-    dataSetGen("YouTube", "rgba(222, 81, 62, 1)", "rgb(167, 39, 12)", "white", 2, youtubeChange)
+    dataSetGen("Twitch", "rgba(101, 83, 135, 0.8)", "rgba(101, 83, 135, 0.8)", "white", 2, twitchChange),
+    dataSetGen("YouTube", "rgba(224, 96, 79, 0.8)", "rgba(224, 96, 79, 0.8)", "white", 2, youtubeChange)
   );
 
   // update Chart.js and the display div
