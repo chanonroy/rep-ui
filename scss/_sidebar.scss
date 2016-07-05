@@ -39,16 +39,16 @@
         i {
             margin-right: 10px;
         }
+        &:hover {
+          background-color: $sidebarRoll;
+          color: white;
+          border-left: 3px solid white;
+        }
     }
     .side-active {
       background-color: $sidebarRoll;
       color: white;
       border-left: 3px solid white;
-    }
-    li:hover {
-        background-color: $sidebarRoll;
-        color: white;
-        border-left: 3px solid white;
     }
 }
 

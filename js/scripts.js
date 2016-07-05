@@ -90,6 +90,15 @@
            else { localFacebookLikes.unshift(0); facebookRed = true;}
          }
 
+         // filter for the situation where and outlying zero is present due to back-end problems (func from generalFunction.js)
+         outlierChecker(localTwitchViews);
+         outlierChecker(localTwitchFollowers);
+         outlierChecker(localYoutubeViews);
+         outlierChecker(localYouTubeSubs);
+         outlierChecker(localTwitterFollowers);
+         outlierChecker(localTwitterLikes);
+         outlierChecker(localFacebookLikes);
+
          function appendAndUpdate(photo) {
            // calculate the present total
            var totViews = localTwitchViews[localTwitchViews.length - 1] + localYoutubeViews[localYoutubeViews.length - 1];
@@ -124,12 +133,12 @@
          	   if (data.logo !== null) {
                var twitchDisplay = data.logo;
                appendAndUpdate(twitchDisplay);
-               $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplay + '"></span>');
+               $('.profile-players').append('<img id="' + name + '-photo" src="' + twitchDisplay + '">');
          	   }
              else {
               var twitchDisplayAlt = 'img/repthumb.png';
               appendAndUpdate(twitchDisplayAlt);
-              $('.profile-players').append('<span id="' + name + '-photo"><img src="' + twitchDisplayAlt + '"></span>');
+              $('.profile-players').append('<img id="' + name + '-photo" src="' + twitchDisplayAlt + '">');
              }
            });
          }

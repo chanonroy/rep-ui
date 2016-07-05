@@ -72,12 +72,22 @@
   // checks the status of the green/red boolean in the AJAX call and returns an HTML color
   function statusChecker(green, red) {
     if (green === true && red === true) {
-      return "#D79D45";
+      return "#D79D45"; // for incomplete data
     }
     else if (green === true && red === false) {
-      return "#438a4c";
+      return "#438a4c"; // for complete data
     }
     else {
-      return "#CA4448";
+      return "#CA4448"; // for missing data
     }
+  }
+
+  // check if an outlying zero is present from API problems (currently set to fix 1 zero)
+  function outlierChecker(array) {
+    for (var x = 0; x < array.length + 1; x++) {
+      if (array[x - 1] > 0 && array[x] === 0 && array[x + 1] > 0) {
+        array[x] = array[x - 1];
+      }
+    }
+    return array;
   }

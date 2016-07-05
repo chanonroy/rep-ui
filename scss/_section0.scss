@@ -8,7 +8,7 @@
 
 .profile-bar {
   display: flex;
-  padding: 25px 50px;
+  padding: 25px 25px;
   height: 80%;
   justify-content: space-between; // might want to remove
   .profile-info {
@@ -37,7 +37,6 @@
     padding-top: 30px;
     height: 100%;
     width: 100%;                      /* important width */
-    // background-color: lightgrey;
     h1 {
       font-weight: bold;
       font-size: 3.5em;
@@ -52,17 +51,45 @@
     }
   }
   .profile-players {
-    padding-top: 25px;
+    // padding-top: 25px;
+    // background-color: lightblue;
     height: 100%;
-    width: 18%;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     img {
-      width: 55px;
-      margin: 0 2px;
-      @include border-radius(5px);
+      width: 50px;
+      margin: 2px 2px;
+      @include border-radius(5px); /* 3, 4 */
+    }
+    img:first-child:nth-last-child(1) {
+      width: 90px;
+    }
+    img:first-child:nth-last-child(2),
+    img:first-child:nth-last-child(2) ~ img {
+      width: 75px;
+    }
+    img:first-child:nth-last-child(3),
+    img:first-child:nth-last-child(3) ~ img {
+      width: 70px;
+    }
+    img:first-child:nth-last-child(4),
+    img:first-child:nth-last-child(4) ~ img {
+      width: 70px;
+    }
+    img:first-child:nth-last-child(5),
+    img:first-child:nth-last-child(5) ~ img {
+      width: 70px;
+    }
+    img:first-child:nth-last-child(6),
+    img:first-child:nth-last-child(6) ~ img {
+      width: 65px;
+    }
+    img:first-child:nth-last-child(7),
+    img:first-child:nth-last-child(7) ~ img {
+      width: 60px;
     }
   }
 }
@@ -70,7 +97,6 @@
 .profile-links {
   display: flex;
   align-items: flex-end;
-  // padding-left: 50px;
   height: 20%;
   span {
     display: flex;
@@ -81,9 +107,7 @@
     i {
       margin-left: 5px;
     }
-    // margin-right: 50px;
     border-bottom: 4px solid lightgrey;
-    // border-left: 1px solid lightgrey;
   }
   span:nth-child(1) {
     opacity: 0.9;
@@ -91,7 +115,6 @@
     background-color: $sidebarColor;
     border-bottom: 4px solid lighten($sidebarColor, 35%);
     @include border-radius(0px 5px 0 0);
-
     @include transition(all 0.4s ease);
     img {
       margin-top: 10px;
@@ -100,21 +123,19 @@
       @include border-radius(5px);
       @include transition(all 0.5s ease);
     }
-  }
-  span:nth-child(1):hover {
-    img {
-      -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
-      filter: grayscale(0%);
+    &:hover {
+      img {
+        -webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+        filter: grayscale(0%);
+      }
     }
   }
 
   span:nth-child(2) {
-    @include border-radius(15px 15px 0 0);
-  }
-
-  span:nth-child(2):hover {
-    color: rgb(100, 65, 165);
-    border-bottom: 4px solid rgb(100, 65, 165);
+    &:hover {
+      color: rgb(100, 65, 165);
+      border-bottom: 4px solid rgb(100, 65, 165);
+    }
   }
 
   span:nth-child(3):hover {

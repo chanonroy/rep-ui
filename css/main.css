@@ -94,11 +94,11 @@
     border-left: 3px solid transparent; }
     .side-nav li i {
       margin-right: 10px; }
+    .side-nav li:hover {
+      background-color: #293740;
+      color: white;
+      border-left: 3px solid white; }
   .side-nav .side-active {
-    background-color: #293740;
-    color: white;
-    border-left: 3px solid white; }
-  .side-nav li:hover {
     background-color: #293740;
     color: white;
     border-left: 3px solid white; }
@@ -117,7 +117,7 @@
 
 .profile-bar {
   display: flex;
-  padding: 25px 50px;
+  padding: 25px 25px;
   height: 80%;
   justify-content: space-between; }
   .profile-bar .profile-info {
@@ -153,20 +153,40 @@
     .profile-bar .profile-stats div {
       text-align: center; }
   .profile-bar .profile-players {
-    padding-top: 25px;
     height: 100%;
-    width: 18%;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap; }
     .profile-bar .profile-players img {
-      width: 55px;
-      margin: 0 2px;
+      width: 50px;
+      margin: 2px 2px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       -ms-border-radius: 5px;
-      border-radius: 5px; }
+      border-radius: 5px;
+      /* 3, 4 */ }
+    .profile-bar .profile-players img:first-child:nth-last-child(1) {
+      width: 90px; }
+    .profile-bar .profile-players img:first-child:nth-last-child(2),
+    .profile-bar .profile-players img:first-child:nth-last-child(2) ~ img {
+      width: 75px; }
+    .profile-bar .profile-players img:first-child:nth-last-child(3),
+    .profile-bar .profile-players img:first-child:nth-last-child(3) ~ img {
+      width: 70px; }
+    .profile-bar .profile-players img:first-child:nth-last-child(4),
+    .profile-bar .profile-players img:first-child:nth-last-child(4) ~ img {
+      width: 70px; }
+    .profile-bar .profile-players img:first-child:nth-last-child(5),
+    .profile-bar .profile-players img:first-child:nth-last-child(5) ~ img {
+      width: 70px; }
+    .profile-bar .profile-players img:first-child:nth-last-child(6),
+    .profile-bar .profile-players img:first-child:nth-last-child(6) ~ img {
+      width: 65px; }
+    .profile-bar .profile-players img:first-child:nth-last-child(7),
+    .profile-bar .profile-players img:first-child:nth-last-child(7) ~ img {
+      width: 60px; }
 
 .profile-links {
   display: flex;
@@ -212,15 +232,10 @@
       -o-transition: all 0.5s ease;
       -ms-transition: all 0.5s ease;
       transition: all 0.5s ease; }
-  .profile-links span:nth-child(1):hover img {
-    -webkit-filter: grayscale(0%);
-    /* Chrome, Safari, Opera */
-    filter: grayscale(0%); }
-  .profile-links span:nth-child(2) {
-    -webkit-border-radius: 15px 15px 0 0;
-    -moz-border-radius: 15px 15px 0 0;
-    -ms-border-radius: 15px 15px 0 0;
-    border-radius: 15px 15px 0 0; }
+    .profile-links span:nth-child(1):hover img {
+      -webkit-filter: grayscale(0%);
+      /* Chrome, Safari, Opera */
+      filter: grayscale(0%); }
   .profile-links span:nth-child(2):hover {
     color: #6441a5;
     border-bottom: 4px solid #6441a5; }
@@ -275,15 +290,16 @@
   display: none; }
 
 #section2 {
-  margin-top: 10px;
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%; }
 
 .chart2 {
   display: flex;
   flex-wrap: wrap;
+  /* chart height needs to be hardcoded for the cover to work */
   height: 250px;
   width: 33%;
   background-color: white;
@@ -335,13 +351,13 @@
         .chart2 .chart2-change h3 {
           font-size: 1.4em; } }
   .chart2 .chart2-chart {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     width: 100%;
     height: 60%;
     overflow: visible;
-    /* TEMPORARY FIX TODO: need a permanent fix to graph overflowing on big screens? */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; }
+    /* TEMPORARY FIX TODO: need a permanent fix to graph overflowing on big screens? */ }
   .chart2 .chart2-cover {
     display: flex;
     align-items: center;
@@ -443,14 +459,14 @@
   .team-player .remove {
     background-color: transparent;
     border: none;
-    font-size: 1.2em; }
-  .team-player .remove:hover {
-    color: #c94347;
+    font-size: 1.2em;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease; }
+    .team-player .remove:hover {
+      color: #c94347; }
   .team-player img {
     height: 30px;
     width: 30px; }
@@ -519,9 +535,8 @@ body {
   -o-transition: all 0.4s ease;
   -ms-transition: all 0.4s ease;
   transition: all 0.4s ease; }
-
-.button:hover {
-  background-color: #307090; }
+  .button:hover {
+    background-color: #307090; }
 
 *:focus {
   /* Gets rid of blue line around input */

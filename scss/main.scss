@@ -22,15 +22,15 @@ body {
 .button {
   border: none;
   border-bottom: 2px solid $borderColor;
-  background-color: rgb(61, 142, 182);
+  background-color: $buttonColor;
   color: white;
   padding: 10px 20px;
   margin-left: 5px;
   @include border-radius(5px);
   @include transition(all 0.4s ease);
-}
-.button:hover {
-  background-color: darken(rgb(61, 142, 182), 10%);
+  &:hover {
+    background-color: darken($buttonColor, 10%);
+  }
 }
 
 *:focus { /* Gets rid of blue line around input */
